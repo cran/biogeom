@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("spatstat.geom", "area", "area.owin", "as.polygonal", "inside.owin", "intersect.owin", "is.empty", "owin", "quadratcount", "setminus.owin", "pairdist", "perimeter", "plot.ppp", "ppp", "union.owin")
+importFrom("grDevices", "dev.new", "graphics.off")
+importFrom("graphics", "abline", "layout", "lines", "locator", "par", "plot", "points", "polygon", "text", "title")
+importFrom("stats", "confint", "integrate", "lm", "median", "na.omit", "optim", "quantile", "sd", "wilcox.test")
