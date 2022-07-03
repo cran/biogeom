@@ -1,4 +1,5 @@
 \name{fitGE}
+\encoding{UTF-8}
 \alias{fitGE}
 \title{
 Data-Fitting Function for the Gielis Equation
@@ -83,8 +84,12 @@ Li, Y., Quinn, B.K., Gielis, J., Li, Y., Shi, P. (2022) Evidence that supertrian
 in nature from the vertical projections of \emph{Koelreuteria paniculata} fruit. \emph{Symmetry} 
 14, 23. \doi{10.3390/sym14010023}
 
-Nelder, J.A., Mead, R. (1965). A simplex algorithm for function minimization. 
+Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
+
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
 
 Shi, P., Ratkowsky, D.A., Gielis, J. (2020) The generalized Gielis geometric
 equation and its application. \emph{Symmetry} 12, 645. \doi{10.3390/sym12040645}

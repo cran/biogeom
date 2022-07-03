@@ -47,11 +47,16 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
-Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its applications. \emph{Symmetry} In preparation.
+Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its 
+applications. \emph{Plants} 11, 1769. \doi{10.3390/plants11131769}
 
 Shi, P., Fan, M., Ratkowsky, D.A., Huang, J., Wu, H., Chen, L., Fang, S., 
 Zhang, C. (2017) Comparison of two ontogenetic growth equations for animals and plants. 
 \emph{Ecological Modelling} 349, 1\eqn{-}10. \doi{10.1016/j.ecolmodel.2017.01.012}
+
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
 }
 \seealso{
 \code{\link{fitsigmoid}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}

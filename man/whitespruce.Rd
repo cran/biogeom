@@ -18,7 +18,7 @@ In the data set, there are three columns of variables: \code{Code}, \code{x}, an
 and \code{y} saves the \eqn{y} coordinates of the tree rings in the Cartesian coordinate system (cm).
 }
 \references{
-Shi, P.J., Huang, J.G., Hui, C., Grissino-Mayer, H.D., Tardif, J., Zhai, L.H., Wang, F.S., Li, B.L. (2015) 
+Shi, P., Huang, J., Hui, C., Grissino-Mayer, H.D., Tardif, J., Zhai, L., Wang, F., Li, B. (2015) 
 Capturing spiral radial growth of conifers using the superellipse to model tree-ring geometric shape. 
 \emph{Frontiers in Plant Science} 6, 856. \doi{10.3389/fpls.2015.00856}
 }

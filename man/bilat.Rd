@@ -137,6 +137,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+
 Shi, P., Niinemets, Ü., Hui, C., Niklas, K.J., Yu, X., Hölscher, D. (2020) 
 Leaf bilateral symmetry and the scaling of the perimeter vs. the surface area in 15 vine species. 
 \emph{Forests} 11, 246. \doi{10.3390/f11020246}

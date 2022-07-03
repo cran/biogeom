@@ -1,4 +1,5 @@
 \name{adjdata}
+\encoding{UTF-8}
 \alias{adjdata}
 \title{
 Boundary Data Adjustment of A Polygon
@@ -39,6 +40,10 @@ The shortest distance method is then used to look for a third point that meets t
   \item{y}{the \eqn{y} coordinates of points eventually retained on the polygon's boundary.}
 }
 \references{
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+
 Shi, P., Ratkowsky, D.A., Li, Y., Zhang, L., Lin, S., Gielis, J. (2018) General leaf-area geometric 
 formula exists for plants - Evidence from the simplified Gielis equation. 
 \emph{Forests} 9, 714. \doi{10.3390/f9110714}

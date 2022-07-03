@@ -56,6 +56,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+
 Shi, P., Yu, K., Niinemets, Ü., Gielis, J. (2021) Can leaf shape be represented by the ratio of 
 leaf width to length? Evidence from nine species of \emph{Magnolia} and \emph{Michelia} (Magnoliaceae). 
 \emph{Forests} 12, 41. \doi{10.3390/f12010041}

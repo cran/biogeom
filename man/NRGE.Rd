@@ -1,4 +1,5 @@
 \name{NRGE}
+\encoding{UTF-8}
 \alias{NRGE}
 \title{
 The Narushin-Romanov-Griffin Equation (NRGE)

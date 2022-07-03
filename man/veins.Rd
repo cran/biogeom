@@ -1,5 +1,6 @@
 \name{veins}
 \docType{data}
+\encoding{UTF-8}
 \alias{veins}
 \title{
 Leaf Vein Data of \emph{Michelia compressa}
@@ -23,7 +24,7 @@ The data cannot be adjusted by the \code{\link{adjdata}} function.
 \code{\link{fracdim}}
 }
 \references{
-Shi, P., Yu, K., Niinemets, U., Gielis, J. (2021) Can leaf shape be represented by the ratio of 
+Shi, P., Yu, K., Niinemets, Ü., Gielis, J. (2021) Can leaf shape be represented by the ratio of 
 leaf width to length? Evidence from nine species of \emph{Magnolia} and \emph{Michelia} (Magnoliaceae). 
 \emph{Forests} 12, 41. \doi{10.3390/f12010041}
 }

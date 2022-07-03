@@ -70,7 +70,12 @@ Entomology} 28, 22\eqn{-}29. \doi{10.1093/ee/28.1.22}
 Cao, L., Shi, P., Li, L., Chen, G. (2019) A new flexible sigmoidal growth model. \emph{Symmetry} 11, 204.
 \doi{10.3390/sym11020204}
 
-Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its applications. \emph{Symmetry} In preparation.
+Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its 
+applications. \emph{Plants} 11, 1769. \doi{10.3390/plants11131769}
+
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
