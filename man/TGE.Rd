@@ -15,57 +15,56 @@ TGE(P, phi, m = 1, simpver = NULL, nval = 1)
   \item{P}{the parameters of the twin Gielis equation or one of its simplified versions.}
   \item{phi}{the polar angle(s).}
   \item{m}{the given \eqn{m} value that determines the number of angles of the twin Gielis curve within \eqn{[0, 2\pi)}.}
-  \item{simpver}{an optional argument to use the simplfied version of the twin Gielis equation.}
+  \item{simpver}{an optional argument to use the simplified version of the twin Gielis equation.}
   \item{nval}{the specified value for \eqn{n_{2}} or \eqn{n_{3}} in the simplified versions.}
 }
 \details{
 The general form of the twin Gielis equation can be represented as follows:
 
-\deqn{r\left(\varphi\right) = \mathrm{exp}\left\{\frac{1}{\alpha+\beta \mathrm{ln}\left[r_{e}\left(\varphi\right)\right]}+\gamma\right\},}
+\deqn{r\left(\varphi\right) = \mathrm{exp}\left\{\frac{1}{\alpha+\beta\,\mathrm{ln}\left[r_{e}\left(\varphi\right)\right]}+\gamma\right\},}
 where \eqn{r} represents the polar radius of the twin Gielis curve at the polar angle \eqn{\varphi}, and 
 \eqn{r_{e}} represents the elementary polar radius at the polar angle \eqn{\varphi}. There is a hyperbolic 
 link function to link their log-transformations, i.e., 
-\deqn{\mathrm{ln}\left[r\left(\varphi\right)\right] = \frac{1}{\alpha+\beta \mathrm{ln}\left[r_{e}\left(\varphi\right)\right]}+\gamma.}  
+\deqn{\mathrm{ln}\left[r\left(\varphi\right)\right] = \frac{1}{\alpha+\beta\,\mathrm{ln}\left[r_{e}\left(\varphi\right)\right]}+\gamma.}  
 The first three elements of \code{P} are \eqn{\alpha}, \eqn{\beta}, and \eqn{\gamma}, and the remaining element(s) of 
 \code{P} are the parameters of the elementary polar function, i.e., \eqn{r_{e}\left(\varphi\right)}. 
 See Shi et al. (2020) for details. 
 
-When \code{simpver = NULL}, the original twin Gielis equation is selected: 
+\eqn{\quad} When \code{simpver = NULL}, the original twin Gielis equation is selected: 
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
-\left|\frac{1}{k}\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{3}},}
+\left|\frac{1}{k}\,\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{3}},}
 where \eqn{r_{e}} represents the elementary polar radius at the polar angle \eqn{\varphi}; 
 \eqn{m} determines the number of angles of the twin Gielis curve within \eqn{[0, 2\pi)}; 
 and \eqn{k}, \eqn{n_{2}}, and \eqn{n_{3}} are the fourth to the sixth elements in \code{P}. In total, there are 
 six elements in \code{P}.
 
-When \code{simpver = 1}, the simplified version 1 is selected:
+\eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
 \left|\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}},}
 where \eqn{n_{2}} is the fourth element in \code{P}. There are 
 four elements in total in \code{P}.
 
-When \code{simpver = 2}, the simplified version 2 is selected:
+\eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
 \left|\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}, }
 where \eqn{n_{2}} should be specified in \code{nval}, and \code{P} only includes three elements, i.e., 
 \eqn{\alpha}, \eqn{\beta}, and \eqn{\gamma}.
 
-When \code{simpver = 3}, the simplified version 3 is selected:
+\eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
 \left|\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{3}},}
 where \eqn{n_{2}} and \eqn{n_{3}} are the fourth and fifth elements in \code{P}. There are 
 five elements in total in \code{P}.
  
-When \code{simpver = 4}, the simplified version 4 is selected:
+\eqn{\quad} When \code{simpver = 4}, the simplified version 4 is selected:
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
-\left|\frac{1}{k}\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}},}
+\left|\frac{1}{k}\,\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}},}
 where \eqn{k} and \eqn{n_{2}} are the fourth and fifth elelments in \code{P}. There are 
 five elements in total in \code{P}.
-
  
-When \code{simpver = 5}, the simplified version 5 is selected:
+\eqn{\quad} When \code{simpver = 5}, the simplified version 5 is selected:
 \deqn{r_{e}\left(\varphi\right) = \left|\mathrm{cos}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}}+
-\left|\frac{1}{k}\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}},}
+\left|\frac{1}{k}\,\mathrm{sin}\left(\frac{m}{4}\varphi\right)\right|^{n_{2}},}
 where \eqn{k} is the fourth elelment in \code{P}. There are 
 four elements in total in \code{P}. \eqn{n_{2}} should be specified in \code{nval}.
 

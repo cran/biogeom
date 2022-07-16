@@ -8,7 +8,7 @@ Drawing the Gielis Curve
 \code{curveGE} is used to draw the Gielis curve.
 }
 \usage{
-curveGE(expr, P, phi=seq(0, 2*pi, len = 2000),
+curveGE(expr, P, phi = seq(0, 2*pi, len = 2000),
         m = 1, simpver = NULL, nval = 1,
         fig.opt = FALSE, deform.fun = NULL, Par = NULL,
         xlim = NULL, ylim = NULL, unit = NULL, main="")
@@ -21,7 +21,7 @@ Gielis equation or one of its simplified versions.}
   \item{m}{the given \eqn{m} value that determines the number of angles of the Gielis curve within \eqn{[0, 2\pi)}.}
   \item{simpver}{an optional argument to use the simplfied version of the original (or twin) Gielis equation.}
   \item{nval}{the specified value for \eqn{n_{1}} or \eqn{n_{2}} or \eqn{n_{3}} in the simplified versions.}
-  \item{fig.opt}{an optional argumen to draw the Gielis curve.}
+  \item{fig.opt}{an optional argument to draw the Gielis curve.}
   \item{deform.fun}{the deformation function used to describe the deviation from a theoretical Gielis curve.}
   \item{Par}{the parameter(s) of the deformation function.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Gielis curve.}
@@ -36,8 +36,9 @@ and the third is the angle between the major axis of the curve and the \eqn{x}-a
 to \code{expr} (i.e., \code{GE} or \code{TGE}).  
 Please note the differences in the simplified version number and the 
 number of parameters between \code{GE} and \code{TGE}. 
-\code{deform.fun} should take the form as: \code{deform.fun <- function(Par, z){\dots}}, 
-where \code{z} is a vector or a matrix related to the \eqn{x} and \eqn{y} values.
+\code{deform.fun} should take the form as: \code{deform.fun <- function(Par, z){\dots}}, where \code{z} is 
+a two-dimensional matrix related to the \eqn{x} and \eqn{y} values. 
+And the return value of \code{deform.fun} should be a \code{list} with two variables \code{x} and \code{y}.
 }
 \value{
   \item{x}{the \eqn{x} coordinates of the Gielis curve corresponding to the given polar angles \code{phi}.}

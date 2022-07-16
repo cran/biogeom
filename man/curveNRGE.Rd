@@ -26,9 +26,9 @@ curveNRGE(P, x, fig.opt = FALSE, deform.fun = NULL,
 The first three elements of \code{P} are location parameters. The first two are the planar coordinates of the transferred origin, 
 and the third is the angle between the major axis of the curve and the \eqn{x}-axis. The other arguments in \code{P} 
 should be the same as those in \code{\link{NRGE}}.  
-\code{deform.fun} should take the form: \code{deform.fun <- function(Par, z){\dots}}, 
-where \code{z} is a vector or a matrix related to the \eqn{x} and \eqn{y} values. Note that \code{P} includes three 
-location parameters and four model parameters that are different from those of \code{Par} in the deformation equation.  
+\code{deform.fun} should take the form as: \code{deform.fun <- function(Par, z){\dots}}, where \code{z} is 
+a two-dimensional matrix related to the \eqn{x} and \eqn{y} values. 
+And the return value of \code{deform.fun} should be a \code{list} with two variables \code{x} and \code{y}.
 }
 \value{
   \item{x}{the \eqn{x} coordinates of the Narushin-Romanov-Griffin curve.}

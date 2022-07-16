@@ -34,8 +34,9 @@ in \code{\link{MbetaE}}, \code{\link{MBriereE}}, and \code{\link{MLRFE}}.
 The first three elements of \code{P} are location parameters, among which the first two 
 are the planar coordinates of the transferred origin, 
 and the third is the angle between the major axis of the curve and the \eqn{x}-axis. 
-\code{deform.fun} should take the form: \code{deform.fun <- function(Par, z){\dots}}, 
-where \code{z} is a vector or a matrix related to the \eqn{x} and \eqn{y} values.
+\code{deform.fun} should take the form as: \code{deform.fun <- function(Par, z){\dots}}, where \code{z} is 
+a two-dimensional matrix related to the \eqn{x} and \eqn{y} values. 
+And the return value of \code{deform.fun} should be a \code{list} with two variables \code{x} and \code{y}.
 }
 \value{
   \item{x}{the \eqn{x} coordinates of the ovate leaf-shape curve.}
