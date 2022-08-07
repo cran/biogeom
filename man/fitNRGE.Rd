@@ -15,7 +15,8 @@ fitNRGE(x, y, angle = NULL, x0 = NULL, y0 = NULL, ini.C = c(-1, 0.1, 0.5, 1),
 \arguments{
   \item{x}{the \eqn{x} coordinates of the edge of an egg's boundary.}
   \item{y}{the \eqn{y} coordinates of the edge of an egg's boundary.}
-  \item{angle}{the angle between the major axis (i.e., the egg length axis) of the egg shape and the \eqn{x}-axis, which is estimated by SGE.}
+  \item{angle}{the angle between the major axis (i.e., the egg length axis) of the egg shape and the \eqn{x}-axis, 
+which is estimated by the \code{\link{fitGE}} function.}
   \item{x0}{the polar point's abscissa corresponding to \code{!is.null(angle)}, when using the SGE major axis approximation method.}
   \item{y0}{the polar point's ordinate corresponding to \code{!is.null(angle)}, when using the SGE major axis approximation method.}
   \item{ini.C}{the initial value(s) of parameter \eqn{C} in the Narushin-Romanov-Griffin equation.}  
@@ -137,7 +138,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
   plot(Res2$x.obs, Res2$y.obs, asp=1, cex.lab=1.5, cex.axis=1.5, 
        xlab=expression(italic("x")), ylab=expression(italic("y")),
        type="l", col=4) 
-  lines( Res2$x.obs, Res2$y.pre, col=2)
+  lines( Res2$x.obs, Res2$y.pred, col=2)
 }
 
 }

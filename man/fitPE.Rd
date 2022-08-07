@@ -83,6 +83,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Biggins, J.D., Montgomeries, R.M., Thompson, J.E., Birkhead, T.R. (2022) 
+Preston’s universal formula for avian egg shape. \emph{Ornithology} 
+In press. \doi{10.1093/ornithology/ukac028}
+
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
@@ -94,15 +98,18 @@ Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+
+Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
+106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
 }
 \seealso{
-\code{\link{curvePE}}, \code{\link{PE}}
+\code{\link{curvePE}}, \code{\link{PE}}, \code{\link{lmPE}}, \code{\link{TSE}}
 }
 \examples{
 data(eggs)
 
 uni.C <- sort( unique(eggs$Code) )
-ind   <- 9
+ind   <- 8
 Data  <- eggs[eggs$Code==uni.C[ind], ]
 x0    <- Data$x
 y0    <- Data$y
@@ -126,16 +133,17 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
   b.ini     <- a.ini*3/4
   c1.ini    <- log(0.25)
   c2.ini    <- c(-0.1, -0.01, -0.001)  
+  c3.ini    <- 0
 
-  simpver   <- 1
-  ini.val   <- list(x0.ini, y0.ini, theta.ini, a.ini, b.ini, c1.ini, c2.ini)
+  simpver   <- NULL
+  ini.val   <- list(x0.ini, y0.ini, theta.ini, a.ini, b.ini, c1.ini, c2.ini, c3.ini)
 
   res0 <- fitPE( x=x1, y=y1, ini.val=ini.val, 
                  simpver=simpver, unit="cm", par.list=FALSE, 
                  stand.fig=FALSE, angle=NULL, fig.opt=FALSE, 
                  control=list(reltol=1e-30, maxit=50000), np=2000 )
 
-  n.loop <- 10
+  n.loop <- 20
   Show   <- "FALSE"
   for(i in 1:n.loop){
     ini.val <- res0$par
@@ -153,6 +161,13 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
   sqrt(res0$RSS/res0$sample.size)
   # The root-mean-square error (RMSE) between the observed and predicted x coordinates
   sqrt(sum((res0$x.stand.obs-res0$x.stand.pred)^2)/length(res0$x.stand.obs))
+
+  # Using the PE major axis to estimate the parameters of the Todd-Smart equation 
+  #   based on the multiple linear regression
+  res1 <- lmPE(x1, y1, simpver=NULL, angle=res0$par[3], x0=res0$par[1], y0=res0$par[2], unit="cm")
+  summary( res1$lm.tse )
+  res2 <- lmPE(x1, y1, simpver=NULL, angle=NULL, unit="cm")
+  summary( res2$lm.tse )
 }
 
 }

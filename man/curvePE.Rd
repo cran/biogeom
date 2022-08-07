@@ -51,6 +51,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Biggins, J.D., Montgomeries, R.M., Thompson, J.E., Birkhead, T.R. (2022) 
+Preston’s universal formula for avian egg shape. \emph{Ornithology} 
+In press. \doi{10.1093/ornithology/ukac028}
+
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
@@ -59,9 +63,12 @@ Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+
+Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
+106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
 }
 \seealso{
-\code{\link{fitPE}}, \code{\link{PE}}
+\code{\link{fitPE}}, \code{\link{PE}}, \code{\link{lmPE}}, \code{\link{TSE}}
 }
 \examples{
   Para1 <- c(0, 0, 0, 10, 6, 0.325, -0.0415)
@@ -84,7 +91,7 @@ shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111
     y  <- z[,2]
     k1 <- Par[1]
     k2 <- Par[2]
-    x <- x - k1*(x+k2)^2
+    x  <- x - k1*(x+k2)^2
     list(x=x, y=y)
   }
   deform.op <- curvePE(P=Para1, zeta=seq(0, 2*pi, len=2000), simpver=1, 

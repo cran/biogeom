@@ -148,15 +148,44 @@ points( x3, y3, col=2)
   Res4$par
   sqrt(sum((Res4$y.stand.obs-Res4$y.stand.pred)^2)/Res4$sample.size)
 
-  x4 <- Res4$x.stand.pred
-  y4 <- Res4$y.stand.pred
+  xx    <- Res4$x.stand.obs
+  yy    <- Res4$y.stand.obs
 
   library(spatstat.geom)
-  poly4 <- as.polygonal(owin(poly=list(x=x4, y=y4)))
-  area(poly4)
+  poly0 <- as.polygonal(owin(poly=list(x=xx, y=yy)))
+  area(poly0)
 
   areaGE(GE, P = Res4$par[4:6], 
          m=1, simpver=1)
+
+
+  # The following code is used to 
+  #   calculate the root-mean-square error (RMSE) in the y-coordinates
+  ind1  <- which(yy >= 0)
+  ind2  <- which(yy < 0)
+  xx1   <- xx[ind1] # The upper part of the egg
+  yy1   <- yy[ind1]
+  xx2   <- xx[ind2] # The lower part of the egg
+  yy2   <- yy[ind2]
+  Para  <- c(0, 0, 0, Res4$par[4:length(Res4$par)])
+  PartU <- curveGE(GE, P=Para, phi=seq(0, pi, len=100000), m=1, simpver=1, fig.opt=FALSE)
+  xv1   <- PartU$x
+  yv1   <- PartU$y
+  PartL <- curveGE(GE, P=Para, phi=seq(pi, 2*pi, len=100000), m=1, simpver=1, fig.opt=FALSE)
+  xv2   <- PartL$x
+  yv2   <- PartL$y  
+  ind3  <- c()
+  for(q in 1:length(xx1)){
+    ind.temp <- which.min(abs(xx1[q]-xv1))
+    ind3     <- c(ind3, ind.temp)
+  }  
+  ind4  <- c()
+  for(q in 1:length(xx2)){
+    ind.temp <- which.min(abs(xx2[q]-xv2))
+    ind4     <- c(ind4, ind.temp)
+  }
+  RSS   <- sum((yy1-yv1[ind3])^2) + sum((yy2-yv2[ind4])^2)
+  RMSE  <- sqrt( RSS/length(yy) )
 }
 
 }

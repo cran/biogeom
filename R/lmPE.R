@@ -1,10 +1,29 @@
-
-
-fitNRGE <- function(x, y, angle = NULL, x0 = NULL, y0 = NULL,
-             ini.C = c(-1, 0.1, 0.5, 1), 
-             strip.num = 2000, control = list(), 
-             fig.opt = TRUE, xlim = NULL,  
+lmPE <- function(x, y, simpver = NULL, angle = NULL,              
+             x0 = NULL, y0 = NULL, strip.num = 2000,  
+             weights = NULL, fig.opt = TRUE, xlim = NULL,  
              ylim = NULL, unit = NULL, main = NULL){
+
+  w <- weights
+  if(!is.null(w) && !is.numeric(w)) 
+     stop("'weights' must be a numeric vector")
+  if(is.null(simpver)){
+    if(!is.null(w) && length(w)!=4) 
+      stop("'weights' should have four numeric elements")     
+  }
+  if(!is.null(simpver) && !is.numeric(simpver))
+     stop("'simpver' must be chosen from 1, 2 and 3") 
+  if(!is.null(simpver) && simpver==1){    
+    if(!is.null(w) && length(w)!=3) 
+      stop("'weights' should have three numeric elements")     
+  }
+  if(!is.null(simpver) && simpver==2){    
+    if(!is.null(w) && length(w)!=2) 
+      stop("'weights' should have two numeric elements")     
+  }
+  if(!is.null(simpver) && simpver==3){    
+    if(!is.null(w) && length(w)!=2) 
+      stop("'weights' should have two numeric elements")     
+  }
 
   if(length(x)!=length(y)) 
       stop("'x' should have the same data length as 'y'!")
@@ -46,7 +65,7 @@ fitNRGE <- function(x, y, angle = NULL, x0 = NULL, y0 = NULL,
         stop("When the angle is not null, x0 and y0 should be not null!")
     if( !is.numeric(angle) ) 
         stop("The argument angle should be a numerical value!")
-    theta <- angle + pi
+    theta <- angle - pi/2
     xx    <- x-x0
     yy    <- y-y0
   }
@@ -106,87 +125,56 @@ fitNRGE <- function(x, y, angle = NULL, x0 = NULL, y0 = NULL,
         xmean  <- c(xmean, (x.pred[j-1] + x.pred[j])/2)   
     }
   }
-  D        <- part.upper.area - part.lower.area
-  xmean    <- xmean[!is.na(widt)]
-  widt     <- widt[!is.na(widt)]
-  width0   <- max(widt)[1]
+  D      <- part.upper.area - part.lower.area
+  xmean  <- xmean[!is.na(widt)]
+  widt   <- widt[!is.na(widt)]
+  width0 <- max(widt)[1]
 
-  A0       <- length0
-  B0       <- width0
+  x.new  <- x.new-(max(x.new)[1]+min(x.new)[1])/2
+  xv     <- x.new/(length0/2)
+  yv     <- y.new/(length0/2)
+  Index2 <- which(yv < 0)
 
-  A1       <- A0/2
-  A2       <- A0*3/4
+  temp       <- 1-xv^2
+  ind0       <- which(temp < 0)
+  temp[ind0] <- 0
+  z0         <- sqrt(temp)
+  z1         <- xv*z0
+  z2         <- xv^2*z0
+  z3         <- xv^3*z0
 
-  ind1     <- which.max(widt)
-  C0       <- abs(xmean[ind1] - A0/2)
-  temp2    <- abs(A2-xmean)
-  ind2     <- which.min(temp2)
-  D0       <- widt[ind2]
+  z0[Index2] <- -z0[Index2]   
+  z1[Index2] <- xv[Index2]*z0[Index2]
+  z2[Index2] <- xv[Index2]^2*z0[Index2]
+  z3[Index2] <- xv[Index2]^3*z0[Index2]
 
-  ini.val  <- ini.C
-  mat      <- matrix(NA, nrow=length(ini.val), ncol=2)
-
-  obj.fun <- function(v){
-      Par0   <- c(A0, B0, v, D0)
-      z0     <- x.new - A0/2
-      Ind1   <- which(y.new >= 0)
-      Ind2   <- which(y.new <  0)
-      xv1    <- z0[Ind1]
-      yv1    <- y.new[Ind1]
-      ypred1 <- NRGE(Par0, xv1)
-      xv2    <- z0[Ind2]
-      yv2    <- y.new[Ind2]
-      ypred2 <- -NRGE(Par0, xv2)
-      RSS0   <- sum( (yv1 - ypred1)^2 ) + sum( (yv2 - ypred2)^2 )
-      return(RSS0)
+  if(is.null(simpver)){
+    res <- lm(yv~-1 + z0 + z1 + z2 + z3, weights=w)
   }
-   
-  for (i in 1:length(ini.val)) {
-      res <- optim(ini.val[i], obj.fun, control=control)
-      mat[i, ] <- c(res$par, res$val)
+  if(!is.null(simpver)){
+    if(simpver==1)
+        res <- lm(yv~-1 + z0 + z1 + z2, weights=w)    
+    if(simpver==2)
+        res <- lm(yv~-1 + z0 + z1, weights=w) 
+    if(simpver==3)
+        res <- lm(yv~-1 + z0 + z2, weights=w) 
   }
- 
-  colnames(mat) <- c("w", "RSS")
-  ind    <- which(mat[, 2] == min(mat[, 2])[1])[1]
-  par    <- as.vector(mat[ind, 1])
-  C0     <- par[1]
 
-  Par0   <- c(A0, B0, C0, D0)
-  z0     <- x.new - A0/2
-
-  Ind1   <- which(y.new >= 0)
-  Ind2   <- which(y.new <  0)
-  xv1    <- z0[Ind1]
-  yv1    <- y.new[Ind1]
-  ypred1 <- NRGE(P=Par0, x=xv1)
-  xv2    <- z0[Ind2]
-  yv2    <- y.new[Ind2]
-  ypred2 <- -NRGE(P=Par0, x=xv2)
-
-  Ind3   <- sort(xv1, decreasing=TRUE, index.return=TRUE)$ix
-  Ind4   <- sort(xv2, decreasing=FALSE, index.return=TRUE)$ix
-
-  x.obs  <- c(xv1[Ind3], xv2[Ind4])
-  y.obs  <- c(yv1[Ind3], yv2[Ind4])
-  y.pred <- c(ypred1[Ind3], ypred2[Ind4])
-
-
-  RSS0   <- sum( (y.obs-y.pred)^2 )
-  RMSE0  <- sqrt( RSS0 / length(y.obs) )
-
-  Resu   <- curveNRGE(P=c(0, 0, 0, Par0), 
-              x=seq(-A0/2, A0/2, len=2000), fig.opt=F)
-
-  x.theor <- Resu$x
-  y.theor <- Resu$y
+  yv.pred         <- TSE(P=as.numeric(res$coefficients), x=xv, simpver=simpver)
+  yv.pred[Index2] <- -yv.pred[Index2]
+  y.pred          <- yv.pred*length0/2
+  RSS1            <- sum((yv-yv.pred)^2)
+  RSS2            <- sum((y.new-y.pred)^2)
+  RMSE1           <- sqrt(sum((yv-yv.pred)^2)/length(yv))
+  RMSE2           <- sqrt(sum((y.new-y.pred)^2)/length(y.new))
 
   if(!is.null(unit)){
-    xlabel <- bquote( paste(italic("x"), " (", .(unit), ")", sep="") ) 
-    ylabel <- bquote( paste(italic("y"), " (", .(unit), ")", sep="") )
+    xlabel <- bquote( paste(italic(x), " (", .(unit), ")", sep="") ) 
+    ylabel <- bquote( paste(italic(y), " (", .(unit), ")", sep="") )
   }
   if(is.null(unit)){
-    xlabel <- bquote( italic("x") ) 
-    ylabel <- bquote( italic("y") )
+    xlabel <- bquote( italic(x) ) 
+    ylabel <- bquote( italic(y) )
   }
 
   if(is.null(xlim)) xlim <- NULL
@@ -196,20 +184,36 @@ fitNRGE <- function(x, y, angle = NULL, x0 = NULL, y0 = NULL,
   if(!is.null(ylim)) ylim <- ylim
 
   if(fig.opt == "TRUE"|fig.opt == "T"|fig.opt == "True"){ 
+
     dev.new()
-    plot(z0, y.new, asp=1, col="grey50", lwd=2, 
+    par(family="serif")
+    par(mar=c(5,5,2,2))
+    plot(xv, yv, asp=1, col="grey50", lwd=2, 
+         xlab=bquote(italic(x)), ylab=bquote(italic(y)), xlim=xlim, ylim=ylim,
+         cex.lab=1.5, cex.axis=1.5, type="l")
+    lines(xv, yv.pred, col=2)
+    title(main=main, cex.main=1.5, col.main=4, font.main=1)
+
+    text(0, 0, bquote(paste("RMSE = ",  
+      .(round(RMSE1,4)),sep="")), pos=NULL, cex=1.5, col=1)
+
+    dev.new()
+    par(family="serif")
+    par(mar=c(5,5,2,2))
+    plot(x.new, y.new, asp=1, col="grey50", lwd=2, 
          xlab=xlabel, ylab=ylabel, xlim=xlim, ylim=ylim,
          cex.lab=1.5, cex.axis=1.5, type="l")
-    lines(x.theor, y.theor, col=2)
+    lines(x.new, y.pred, col=2)
     title(main=main, cex.main=1.5, col.main=4, font.main=1)
     text(0, 0, bquote(paste("RMSE = ",  
-      .(round(RMSE0,4)),sep="")), pos=NULL, cex=1.5, col=1)
+      .(round(RMSE2,4)),sep="")), pos=NULL, cex=1.5, col=1)
   }
 
-  list( theta=theta, x.obs=x.obs, y.obs=y.obs, y.pred=y.pred,
-    par=c(A0,B0,C0,D0), scan.length=length0, scan.width=width0,   
-    scan.area=area0, scan.perimeter=perimeter0, RSS=RSS0, 
-    sample.size=length(y.new), RMSE=sqrt(RSS0/length(y.new)))
-
+  list( lm.tse=res, par=res$coefficients, theta=theta, 
+        x.obs=x.new, y.obs=y.new, y.pred=y.pred, x.stand.obs=xv, 
+        y.stand.obs=yv, y.stand.pred=yv.pred, scan.length=length0, 
+        scan.width=width0, scan.area=area0, scan.perimeter=perimeter0, 
+        RSS=RSS2, sample.size=length(y.new), RMSE=RMSE2 )
 }
+
 
