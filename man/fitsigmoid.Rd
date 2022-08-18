@@ -72,7 +72,7 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its 
 applications. \emph{Plants} 11, 1769. \doi{10.3390/plants11131769}
 
-Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
+Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
 Shi, P., Fan, M., Ratkowsky, D.A., Huang, J., Wu, H., Chen, L., Fang, S., 

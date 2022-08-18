@@ -42,7 +42,7 @@ lmPE <- function(x, y, simpver = NULL, angle = NULL,
   mat        <- pairdist(data0) 
     
   # To find the points associated with the egg tip and egg base
-  qq <- cbind( which(mat == max(mat)[1], arr.ind=TRUE) )
+  qq <- cbind( which(mat == max(mat)[1], arr.ind=TRUE)[1,] )
   q  <- as.numeric( qq ) 
   x1 <- x[q[1]]
   y1 <- y[q[1]]

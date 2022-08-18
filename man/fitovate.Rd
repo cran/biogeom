@@ -84,7 +84,7 @@ Li, Y., Zheng, Y., Ratkowsky, D.A., Wei, H., Shi, P. (2022) Application of an ov
 to evaluate leaf bilateral asymmetry and calculate lamina centroid location. 
 \emph{Frontiers in Plant Science} 12, 822907. \doi{10.3389/fpls.2021.822907}
 
-Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
+Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
 Shi, P., Fan, M., Ratkowsky, D.A., Huang, J., Wu, H., Chen, L., Fang, S., 

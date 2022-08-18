@@ -100,7 +100,6 @@ curveNRGE <- function(P, x, fig.opt = FALSE, deform.fun = NULL,
   xv <- xv + x0
   yv <- yv + y0 
     
-
   if(fig.opt == "T" | fig.opt == "TRUE"){
         if(is.null(xlim)) xlim <- NULL
         if(is.null(ylim)) ylim <- NULL

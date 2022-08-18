@@ -110,13 +110,7 @@ stop("\n Leaf apex must be on the top right corner of leaf base!
   if(auto.search == "TRUE" | auto.search == "T"){
     # To find the points corresponding 
     #   to the leaf apex and leaf base
-    qq <- cbind( which(mat == max(mat)[1], arr.ind=TRUE) )
-    if(nrow(qq)>2){        
-        qq1 <- qq[1,]
-        qq2 <- qq[nrow(qq)/2+1,]
-        rm(qq)
-        qq <- rbind(qq1, qq2)
-    }
+    qq <- cbind( which(mat == max(mat)[1], arr.ind=TRUE)[1,] )
     q  <- as.numeric( qq ) 
     x1 <- x[q[1]]
     y1 <- y[q[1]]

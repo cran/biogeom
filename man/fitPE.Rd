@@ -90,7 +90,11 @@ In press. \doi{10.1093/ornithology/ukac028}
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
-Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
+Li, N., Wang, L., Quinn, B.K., Gielis, J., Shi, P. (2022) A new program to estimate the parameters 
+of the Preston equation: a general formula for describing the egg shape of birds. \emph{Ecology and Evolution}. 
+In preparation.  
+
+Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
 Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182.
@@ -123,51 +127,57 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
       xlab=expression(italic("x")), ylab=expression(italic("y")) )
 
 \donttest{
+  simpver   <- NULL
+  res1      <- lmPE(x1, y1, simpver=simpver, angle=NULL, unit="cm", fig.opt=FALSE)
   x0.ini    <- mean( x1 )
   y0.ini    <- mean( y1 )
-  theta.ini <- -pi/4
-  if(ind==1) theta.ini <- 0
-  if(ind==7 | ind==9) theta.ini <- 4/3*pi    
-  if(ind==8) theta.ini <- pi    
-  a.ini     <- max(c(max(y1)-min(y1), max(x1)-min(x1)))/2
-  b.ini     <- a.ini*3/4
-  c1.ini    <- log(0.25)
-  c2.ini    <- c(-0.1, -0.01, -0.001)  
-  c3.ini    <- 0
+  theta.ini <- c(res1$theta + pi/2, res1$theta + pi*3/2)
+  a.ini     <- res1$scan.length / 2
+  b.ini     <- res1$scan.width / 2
+  c1.ini    <- res1$par[2] / res1$par[1]
+  c2.ini    <- res1$par[3] / res1$par[1]
+  c3.ini    <- res1$par[4] / res1$par[1]
 
-  simpver   <- NULL
-  ini.val   <- list(x0.ini, y0.ini, theta.ini, a.ini, b.ini, c1.ini, c2.ini, c3.ini)
+  ini.val <- list(x0.ini, y0.ini, theta.ini, a.ini, b.ini, c1.ini, c2.ini, c3.ini)
 
   res0 <- fitPE( x=x1, y=y1, ini.val=ini.val, 
                  simpver=simpver, unit="cm", par.list=FALSE, 
                  stand.fig=FALSE, angle=NULL, fig.opt=FALSE, 
-                 control=list(reltol=1e-30, maxit=50000), np=2000 )
+                 control=list(reltol=1e-30, maxit=50000), 
+                 np=2000 ) 
 
-  n.loop <- 20
-  Show   <- "FALSE"
+  n.loop <- 12
+  Show   <- FALSE
   for(i in 1:n.loop){
     ini.val <- res0$par
-    if(i==n.loop) Show <- "TRUE"
+    if(i==n.loop) Show <- TRUE
     print(paste(i, "/", n.loop, sep=""))
     res0 <- fitPE( x=x1, y=y1, ini.val=ini.val, 
                    simpver=simpver, unit="cm", par.list=FALSE, 
                    stand.fig=Show, angle=pi/2, fig.opt=Show,  
-                   control=list(reltol=1e-30, maxit=50000), np=2000 )    
+                   control=list(reltol=1e-30, maxit=50000), 
+                   np=2000 )    
   }
 
   # The numerical values of the location and model parameters
   res0$par
-  # The root-mean-square error (RMSE) between the observed and predicted distances from the origin
+
+  # The root-mean-square error (RMSE) between 
+  #   the observed and predicted distances from the origin
   sqrt(res0$RSS/res0$sample.size)
-  # The root-mean-square error (RMSE) between the observed and predicted x coordinates
+  # The root-mean-square error (RMSE) between the observed and predicted x values
   sqrt(sum((res0$x.stand.obs-res0$x.stand.pred)^2)/length(res0$x.stand.obs))
 
-  # Using the PE major axis to estimate the parameters of the Todd-Smart equation 
-  #   based on the multiple linear regression
-  res1 <- lmPE(x1, y1, simpver=NULL, angle=res0$par[3], x0=res0$par[1], y0=res0$par[2], unit="cm")
-  summary( res1$lm.tse )
-  res2 <- lmPE(x1, y1, simpver=NULL, angle=NULL, unit="cm")
+  # Using the PE major axis method to estimate the parameters of 
+  #   the Todd-Smart equation based on the multiple linear regression
+  res2 <- lmPE(x1, y1, simpver=simpver, angle=res0$par[3], 
+               x0=res0$par[1], y0=res0$par[2], unit="cm")
   summary( res2$lm.tse )
+
+  # Using the maximum distance method to estimate the parameters of 
+  #   the Todd-Smart equation based on the multiple linear regression
+  res1 <- lmPE(x1, y1, simpver=simpver, angle=NULL, unit="cm", fig.opt=TRUE)
+  summary( res1$lm.tse )
 }
 
 }
