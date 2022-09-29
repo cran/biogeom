@@ -1,4 +1,7 @@
-PE <- function(P, zeta, simpver = NULL){
+VolumePE <- function(P, simpver = NULL){
+
+  if(P[1] < 0 | P[2] < 0)
+    stop("a and b should be positive real numbers!")
 
   p <- length(P)
  
@@ -48,10 +51,8 @@ PE <- function(P, zeta, simpver = NULL){
     }
   }
 
-  x <- b*cos(zeta)*(1+c1*sin(zeta)+c2*(sin(zeta))^2+c3*(sin(zeta))^3)
-  y <- a*sin(zeta)
-  r <- sqrt(x^2 + y^2)
-  list( x=x, y=y, r=r )
+  4/315*a*b^2*(21*c1^2 + 42*c2 + 9*c2^2 + 18*c1*c2 + 5*(21 + c3^2))*pi
+
 }
 
 

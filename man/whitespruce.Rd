@@ -78,6 +78,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
                       a.ini, k.ini, n1.ini)
 
     print(paste("Progress: ", i, "/", length(uni.C), sep=""))
+    H <- NULL
     try( H <- fitGE(GE, x=x1, y=y1, ini.val=ini.val, 
                     m=4, simpver=9, unit="cm", par.list=FALSE,
                     stand.fig=FALSE, angle=NULL, fig.opt=FALSE,  

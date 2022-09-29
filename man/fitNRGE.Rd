@@ -93,7 +93,7 @@ Nelder, J.A., Mead, R. (1965). A simplex method for function minimization.
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
 Shi, P., Gielis, J., Niklas, K.J. (2022) Comparison of a universal (but complex) model for avian egg 
-shape with a simpler model. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14799}
+shape with a simpler model. \emph{Annals of the New York Academy of Sciences} 1514, 34\eqn{-}42. \doi{10.1111/nyas.14799}
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
