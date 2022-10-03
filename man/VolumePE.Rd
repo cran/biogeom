@@ -16,11 +16,11 @@ VolumePE(P, simpver = NULL)
 }
 \details{
 When \code{simpver = NULL}, the volume formula of the explicit Preston equation is selected: 
-\deqn{ V(x) = \frac{4\,\pi}{315}a\,b^{2}\left(105+21\,c_{1}^{2}+42\,c_{2}+9\,c_{2}^2+18\,c_{1}\,c_{2}+5\,c_{3}^2\right) }
+\deqn{ V(x) = \frac{4\,\pi}{315}a\,b^{2}\left(105+21\,c_{1}^{2}+42\,c_{2}+9\,c_{2}^2+18\,c_{1}\,c_{3}+5\,c_{3}^2\right) }
 where \code{P} has five parameters: \eqn{a}, \eqn{b}, \eqn{c_{1}}, \eqn{c_{2}}, and \eqn{c_{3}}.
 
 \eqn{\quad} When \code{simpver = 1}, the volume formula of the simplified version 1 is selected:
-\deqn{ V(x) = \frac{4\,\pi}{315}a\,b^{2}\left(105+21\,c_{1}^{2}+42\,c_{2}+9\,c_{2}^2+18\,c_{1}\,c_{2}\right) }
+\deqn{ V(x) = \frac{4\,\pi}{315}a\,b^{2}\left(105+21\,c_{1}^{2}+42\,c_{2}+9\,c_{2}^2\right) }
 where \code{P} has four parameters: \eqn{a}, \eqn{b}, \eqn{c_{1}}, and \eqn{c_{2}}.
 
 \eqn{\quad} When \code{simpver = 2}, the volume formula of the simplified version 2 is selected:
@@ -56,5 +56,10 @@ currently under preparation by Shi et al.
   c1   <- Par3[3]
   c2   <- Par3[4]
   c3   <- Par3[5]
-  pi*4/315*a*b^2*(105+21*c1^2+42*c2+9*c2^2+18*c1*c2+5*c3^2)
+  pi*4/315*a*b^2*(105+21*c1^2+42*c2+9*c2^2+18*c1*c3+5*c3^2)
+
+  myfun <- function(x){
+    pi*EPE(P=Par3, x=x, simpver=NULL)^2
+  }
+  integrate(myfun, -4.27, 4.27)
 }
