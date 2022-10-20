@@ -1,8 +1,8 @@
 Package: biogeom
 Type: Package
 Title: Biological Geometries
-Version: 1.1.4
-Date: 2022-10-02
+Version: 1.2.0
+Date: 2022-10-20
 Authors@R: c(person(given="Peijian", family="Shi", email="pjshi@njfu.edu.cn", role=c("aut", "cre")),
         person(given=c("Johan"), family="Gielis", email="johan.gielis@uantwerpen.be", role=c("aut")),
         person(given=c("Brady K."), family="Quinn", email="brady.quinn@dfo-mpo.gc.ca", role=c("aut")))
@@ -15,6 +15,6 @@ Description: Is used to simulate and fit biological geometries. 'biogeom' incorp
 Depends: R (>= 4.2.0)
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2022-10-02 14:29:06 UTC; PEIJIAN SHI
+Packaged: 2022-10-20 10:28:06 UTC; PEIJIAN SHI
 Repository: CRAN
-Date/Publication: 2022-10-03 09:50:07 UTC
+Date/Publication: 2022-10-20 11:35:11 UTC

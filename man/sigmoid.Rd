@@ -56,7 +56,7 @@ Zhang, C. (2017) Comparison of two ontogenetic growth equations for animals and 
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
-shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 }
 \seealso{
 \code{\link{fitsigmoid}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}

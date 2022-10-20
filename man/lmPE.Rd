@@ -8,47 +8,43 @@ Parameter Estimation for the Todd-Smart Equation
 \code{lmPE} is used to estimate the parameters of the Todd-Smart equation using the multiple linear regression.
 }
 \usage{
-lmPE(x, y, simpver = NULL, angle = NULL, x0 = NULL, y0 = NULL, strip.num = 2000, 
-     weights = NULL, fig.opt = TRUE, xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
+lmPE(x, y, simpver = NULL, dev.angle = NULL, weights = NULL, fig.opt = TRUE, 
+     prog.opt = TRUE, xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
 }
 \arguments{
   \item{x}{the \eqn{x} coordinates of the edge of an egg's boundary.}
   \item{y}{the \eqn{y} coordinates of the edge of an egg's boundary.}
   \item{simpver}{an optional argument to use the simplified version of the original Todd-Smart equation.}
-  \item{angle}{the angle between the major axis (i.e., the axis perpendicular to the egg length axis) of the egg shape 
-and the \eqn{x}-axis, which is estimated by the \code{\link{fitPE}} function.}
-  \item{x0}{the polar point's abscissa corresponding to \code{!is.null(angle)}, when using the PE major axis approximation method.}
-  \item{y0}{the polar point's ordinate corresponding to \code{!is.null(angle)}, when using the PE major axis approximation method.}
-  \item{strip.num}{the number of equidistant strips intersecting with 
-the egg's boundary that are horizontally placed. See Shi et al. (2018, 2020) for details.}  
+  \item{dev.angle}{the angle of deviation for the axis associated with the maximum distance between two points 
+on an egg's profile from the \eqn{x}-axis to find the optimal mid-line of the egg's profile.}
   \item{weights}{the weights for the multiple linear regression.}
   \item{fig.opt}{an optional argument to draw the observed and predicted egg's boundaries.}
+  \item{prog.opt}{an optional argument to show the running progress for different values of \code{dev.angle}, when \code{dev.angle} is not \code{NULL}.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Todd-Smart curve.}
   \item{ylim}{the range of the \eqn{y}-axis over which to plot the Todd-Smart curve.}
   \item{unit}{the units of the \eqn{x}-axis and the \eqn{y}-axis when showing the Todd-Smart curve.}
   \item{main}{the main title of the figure.}
 }
 \details{
-There are two methods to obtain the major axis (i.e., the egg length axis): the maximum distance method, and 
-the PE major axis approximation method. In the first method, the straight line through two points forming the maximum distance 
-on the egg's boundary is defined as the major axis. In the second method, the major axis predicted by using the \code{\link{fitPE}} function 
-was directly used as the major axis of TSE, because the optimimzation method based on the \code{\link{fitPE}} function balances 
-the goodness-of-fit of the model and the bilateral symmetry of the curve. 
-Because the direction from the egg base to the egg tip predicted by the \code{\link{fitPE}} function is 
-perpendicular to that predicted by TSE, the angle between the major axis of TSE and the \eqn{x}-axis is equal to 
-the difference between the estimated angle of the major axis using the \code{\link{fitPE}} function and \eqn{\pi/2}. 
-However, there is no need to subtract \eqn{\pi/2} in the \code{angule} argument. 
-When \code{angle = NULL}, the maximum distance method is used; when \code{angle} is a numerical value, 
-the PE major axis approximation method is used, where \code{x0}, \code{y0}, and \code{angle} 
-should be equal to the first three estimated parameters using the \code{\link{fitPE}} 
-function. Here, the numerical value of \code{angle} is not 
-the angle between the major axis of TSE and the \eqn{x}-axis, and instead it is the angle between the major axis of 
-PE and the \eqn{x}-axis. 
+There are two methods to obtain the major axis (i.e., the mid-line) of an egg's profile: the maximum distance method, and 
+the longest axis adjustment method. In the first method, the straight line through two points forming the maximum distance 
+on the egg's boundary is defined as the major axis. In the second method, we assume that there is an angle 
+of deviation for the longest axis (i.e., the axis associated with the maximum distance between two points on an egg's profile) 
+from the mid-line of the egg's profile. That is to say, 
+the mid-line of an egg's profile is not the axis associated with the maximum distance between two points on the egg's profile. 
+When \code{angle = NULL}, the maximum distance method is used; when \code{angle} is a numerical value or a numerical vector, 
+the longest axis adjustment method is used. Here, the numerical value of \code{dev.angle} is not 
+the angle of deviation for the major axis of an egg's profile from the \eqn{x}-axis, and instead it is the angle of deviation  
+for the longest axis (associated with the maximum distance between two points on the egg's profile) from the mid-line of the egg's profile. 
 }
 \value{
   \item{lm.tse}{the fitted results of the multiple linear regression.}
   \item{par}{the estimates of the four model parameters in the Todd-Smart equation.}
-  \item{theta}{the angle between the major axis (i.e., the egg length axis) of the egg shape and the \eqn{x}-axis.}
+  \item{theta}{the angle between the longest axis of an egg's profile (i.e., 
+the axis associated with the maximum distance between two points on the egg's profile) and the \eqn{x}-axis.}
+  \item{epsilon}{the optimal angle of deviation for the longest axis (associated with the maximum distance between two points on an egg's profile) 
+from the mid-line of the egg's profile, when \code{dev.angle} is not \code{NULL}.}
+  \item{RSS.vector}{the vector of residual sum of squares corresponding to \code{dev.angle}, when \code{dev.angle} is not \code{NULL}.}
   \item{x.obs}{the observed \eqn{x} coordinates.}
   \item{y.obs}{the observed \eqn{y} coordinates.}
   \item{y.pred}{the predicted \eqn{y} coordinates corresponding to the the observed \eqn{x} coordinates.}
@@ -61,18 +57,21 @@ the egg's boundary.}
   \item{scan.width}{the maximum width of the egg's boundary.}
   \item{scan.area}{the area of the egg's boundary.}
   \item{scan.perimeter}{the perimeter of the egg's boundary based on all data points on the egg's boundary.}
+  \item{RSS.scaled}{the residual sum of squares between the observed and predicted \eqn{y} values for a scaled egg's profile whose length equals 2.}
   \item{RSS}{the residual sum of squares between the observed and predicted \eqn{y} values.}
   \item{sample.size}{the number of data points used in the numerical calculation.}
+  \item{RMSE.scaled}{the root-mean-square errors between the observed and predicted \eqn{y} values for a scaled egg's profile whose length equals 2.}      
   \item{RMSE}{the root-mean-square errors between the observed and predicted \eqn{y} values.}       
 }
 \note{
-\code{theta} is the calculated angle between the egg length axis and the \eqn{x}-axis when using the maximum distance method; 
-and it is equal to the difference between the given (fitted) angle and \eqn{\pi/2} when using the PE major axis approximation method 
-(i.e., the angle between the PE major axis and the \eqn{x}-axis). Here, \code{RSS}, and \code{RMSE} are for 
-the observed and predicted \eqn{y} coordinates of the egg shape, not for those 
-when the egg length is fixed to be 2 ranging from -1 to 1. There are two figures when \code{fig.opt = TRUE}: (i) the observed 
-and predicted egg boundaries when the egg length is fixed to be 2 ranging from -1 to 1, and (ii) the observed 
-and predicted egg boundaries at their actual scales. 
+\code{theta} is the calculated angle between the longest axis (i.e., the axis associated with the maximum distance 
+between two points on an egg's profile) and the \eqn{x}-axis, and \code{epsilon} is the calculated angle of deviation for the longest 
+axis from the mid-line of the egg's profile. This means that the angle between the mid-line and the \eqn{x}-axis is equal to 
+\code{theta} + \code{epsilon}. 
+Here, \code{RSS}, and \code{RMSE} are for the observed and predicted \eqn{y} coordinates of the egg's profile, not for those 
+when the egg's length is scaled to 2. There are two figures when \code{fig.opt = TRUE}: (i) the observed 
+and predicted egg's boundaries when the egg's length is scaled to 2, and (ii) the observed 
+and predicted egg's boundaries at their actual scales. 
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -93,7 +92,7 @@ Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
-shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
 Shi, P., Niinemets, Ü., Hui, C., Niklas, K.J., Yu, X., Hölscher, D. (2020) 
 Leaf bilateral symmetry and the scaling of the perimeter vs. the surface area in 15 vine species. 
@@ -127,8 +126,9 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
       xlab=expression(italic("x")), ylab=expression(italic("y")) ) 
 
 \donttest{
-  Res2 <- lmPE(x1, y1, simpver=NULL, angle=NULL, unit="cm")
+  Res2 <- lmPE(x1, y1, simpver=NULL, dev.angle=NULL, unit="cm")
   summary( Res2$lm.tse )
+  Res2$RMSE.scaled / 2
 
   if(FALSE){
     dev.new()
@@ -151,8 +151,13 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
     lines(Res2$x.stand.obs, Res2$y.stand.pred, col=2)
   }
 
-  Res3 <- lmPE(x1, y1, simpver=1, angle=NULL, unit="cm")
+  Res3 <- lmPE(x1, y1, simpver=NULL, dev.angle=seq(-0.05, 0.05, by=0.0001), unit="cm")
   summary( Res3$lm.tse )
+  Res3$epsilon
+  Res3$RMSE.scaled / 2
+
+  Res4 <- lmPE(x1, y1, simpver=1, dev.angle=NULL, unit="cm")
+  summary( Res4$lm.tse )
 
 }
 

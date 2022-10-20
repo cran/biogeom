@@ -91,8 +91,8 @@ Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
 Li, N., Wang, L., Quinn, B.K., Gielis, J., Shi, P. (2022) A new program to estimate the parameters 
-of the Preston equation: a general formula for describing the egg shape of birds. \emph{Ecology and Evolution}. 
-In preparation.  
+of the Preston equation, a general formula for describing the egg shape of birds. \emph{Ecology and Evolution} 
+Under review.  
 
 Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
@@ -101,7 +101,7 @@ Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
-shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
 Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
@@ -128,7 +128,7 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
 
 \donttest{
   simpver   <- NULL
-  res1      <- lmPE(x1, y1, simpver=simpver, angle=NULL, unit="cm", fig.opt=FALSE)
+  res1      <- lmPE(x1, y1, simpver=simpver, dev.angle=NULL, unit="cm", fig.opt=FALSE)
   x0.ini    <- mean( x1 )
   y0.ini    <- mean( y1 )
   theta.ini <- c(res1$theta + pi/2, res1$theta + pi*3/2)
@@ -167,17 +167,6 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
   sqrt(res0$RSS/res0$sample.size)
   # The root-mean-square error (RMSE) between the observed and predicted x values
   sqrt(sum((res0$x.stand.obs-res0$x.stand.pred)^2)/length(res0$x.stand.obs))
-
-  # Using the PE major axis method to estimate the parameters of 
-  #   the Todd-Smart equation based on the multiple linear regression
-  res2 <- lmPE(x1, y1, simpver=simpver, angle=res0$par[3], 
-               x0=res0$par[1], y0=res0$par[2], unit="cm")
-  summary( res2$lm.tse )
-
-  # Using the maximum distance method to estimate the parameters of 
-  #   the Todd-Smart equation based on the multiple linear regression
-  res1 <- lmPE(x1, y1, simpver=simpver, angle=NULL, unit="cm", fig.opt=TRUE)
-  summary( res1$lm.tse )
 }
 
 }

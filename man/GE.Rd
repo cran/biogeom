@@ -95,7 +95,7 @@ in nature from the vertical projections of \emph{Koelreuteria paniculata} fruit.
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
-shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
 Shi, P., Ratkowsky, D.A., Gielis, J. (2020) The generalized Gielis geometric 
 equation and its application. \emph{Symmetry} 12, 645. \doi{10.3390/sym12040645}

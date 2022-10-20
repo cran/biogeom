@@ -8,17 +8,15 @@ Parameter Estimation for the Narushin-Romanov-Griffin Equation
 \code{fitNRGE} is used to estimate the parameters of the Narushin-Romanov-Griffin equation.
 }
 \usage{
-fitNRGE(x, y, angle = NULL, x0 = NULL, y0 = NULL, ini.C = c(-1, 0.1, 0.5, 1), 
-        strip.num = 2000, control = list(), fig.opt = TRUE, xlim = NULL,  
-        ylim = NULL, unit = NULL, main = NULL)
+fitNRGE(x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1), 
+        strip.num = 2000, control = list(), fig.opt = TRUE, 
+        xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
 }
 \arguments{
   \item{x}{the \eqn{x} coordinates of the edge of an egg's boundary.}
   \item{y}{the \eqn{y} coordinates of the edge of an egg's boundary.}
-  \item{angle}{the angle between the major axis (i.e., the egg length axis) of the egg shape and the \eqn{x}-axis, 
-which is estimated by the \code{\link{fitGE}} function.}
-  \item{x0}{the polar point's abscissa corresponding to \code{!is.null(angle)}, when using the SGE major axis approximation method.}
-  \item{y0}{the polar point's ordinate corresponding to \code{!is.null(angle)}, when using the SGE major axis approximation method.}
+  \item{dev.angle}{the angle of deviation for the axis associated with the maximum distance between two points 
+on an egg's profile from the \eqn{x}-axis to find the optimal mid-line of the egg's profile.}
   \item{ini.C}{the initial value(s) of parameter \eqn{C} in the Narushin-Romanov-Griffin equation.}  
   \item{strip.num}{the number of equidistant strips intersecting with 
 the egg's boundary that are horizontally placed. See Shi et al. (2018, 2020) for details.}  
@@ -34,22 +32,18 @@ The NRGE (see \code{\link{NRGE}}) has a complex model structure with four parame
 Because three out of four parameters of NRGE have clear biological and geometric meanings (i.e., \eqn{A}, \eqn{B}, and \eqn{D}), 
 their values could be estimated by means of numerical calculation. After obtaining the numerical values of the three parameters, 
 the Nelder-Mead algorithm (Nelder and Mead, 1965) was used to estimate \eqn{C}. 
-Because of the failure of the optimization method to estimate the major axis (i.e., the egg length axis) and model parameters of NRGE, 
+Because of the failure of the optimization method to estimate the major axis (i.e., the mid-line) and model parameters of NRGE, 
 it was difficult to define the egg length axis, although it is essential for calculating \eqn{A}, \eqn{B}, and \eqn{D}. 
 For this reason, two methods were used to obtain the major axis: the maximum distance method, and 
-the SGE major axis approximation method, where SGE represents a simplified Gielis equation (\code{\link{GE}} with \code{simpver = 1} and \code{m = 1}). 
-In the first method, the straight line through two points forming the maximum distance 
-on the egg's boundary is defined as the major axis. In the second method, the major axis predicted by SGE 
-was directly used as the major axis of NRGE, because SGE balances the goodness-of-fit of the model and the bilateral symmetry of the curve. 
-Because the direction from the egg base to the egg tip predicted by SGE is 
-the reverse of that predicted by NRGE, the angle between the major axis of NRGE and the \eqn{x}-axis is equal to 
-the sum of the estimated angle of the major axis using SGE and \eqn{\pi}. 
-When \code{angle = NULL}, the maximum distance method is used; when \code{angle} is a numerical value, 
-the SGE major axis approximation method is used, where \code{x0}, \code{y0}, and \code{angle} 
-should be equal to the first three estimated parameters using the \code{\link{fitGE}} 
-function with arguments \code{m = 1} and \code{simpver = 1}. Here, the numerical value of \code{angle} is not 
-the angle between the major axis of NRGE and the \eqn{x}-axis, and instead it is the angle between the major axis of 
-SGE and the \eqn{x}-axis. 
+the longest axis adjustment method. In the first method, the straight line through two points forming the maximum distance 
+on the egg's profile is defined as the major axis (i.e., the mid-line). In the second method, we assume that there is an angle 
+of deviation for the longest axis (i.e., the axis associated with the maximum distance between two points on an egg's profile) 
+from the mid-line of the egg's profile. That is to say, 
+the mid-line of an egg's profile is not the axis associated with the maximum distance between two points on the egg's profile. 
+When \code{angle = NULL}, the maximum distance method is used; when \code{angle} is a numerical value or a numerical vector, 
+the longest axis adjustment method is used. Here, the numerical value of \code{dev.angle} is not 
+the angle of deviation for the major axis of an egg's profile from the \eqn{x}-axis, and instead it is the angle of deviation  
+for the longest axis (associated with the maximum distance between two points on the egg's profile) from the mid-line of the egg's profile. 
 Once the major axis is established, the distance of the major axis can be calculated as the estimate of \eqn{A}. 
 Using the maximum distance method, \eqn{A} equals the maximum distance. Using the SGE major axis approximation method, 
 \eqn{A} may be slightly smaller than the true distance. After rotating the major axis to make it overlap with the \eqn{x}-axis, 
@@ -60,7 +54,11 @@ Despite the complex structure of NRGE (see \code{\link{NRGE}}), the optimization
 becomes feasible after the other three parameters have been numerically estimated. Please see Shi et al. (2022) for details.
 }
 \value{
-  \item{theta}{the angle between the major axis (i.e., the egg length axis) of the egg shape and the \eqn{x}-axis.}
+  \item{theta}{the angle between the longest axis of an egg's profile (i.e., 
+the axis associated with the maximum distance between two points on the egg's profile) and the \eqn{x}-axis.}
+  \item{epsilon}{the optimal angle of deviation for the longest axis (associated with the maximum distance between two points on an egg's profile) 
+from the mid-line of the egg's profile, when \code{dev.angle} is not \code{NULL}.}
+  \item{RSS.vector}{the vector of residual sum of squares corresponding to \code{dev.angle}, when \code{dev.angle} is not \code{NULL}.}
   \item{x.obs}{the observed \eqn{x} coordinates.}
   \item{y.obs}{the observed \eqn{y} coordinates.}
   \item{y.pred}{the predicted \eqn{y} coordinates corresponding to the the observed \eqn{x} coordinates.}
@@ -75,10 +73,10 @@ the egg's boundary.}
   \item{RMSE}{the root-mean-square errors between the observed and predicted \eqn{y} values.}       
 }
 \note{
-\code{theta} is the calculated angle between the egg length axis and the \eqn{x}-axis when using the maximum distance method; 
-and it is equal to the sum of \eqn{\pi} and the given angle when using the SGE major axis approximation method 
-(i.e., the angle between the SGE major axis and the \eqn{x}-axis). 
-There are four estimated parameters in total for \code{par}.
+\code{theta} is the calculated angle between the longest axis (i.e., the axis associated with the maximum distance 
+between two points on an egg's profile) and the \eqn{x}-axis, and \code{epsilon} is the calculated angle of deviation for the longest 
+axis from the mid-line of the egg's profile. This means that the angle between the mid-line and the \eqn{x}-axis is equal to 
+\code{theta} + \code{epsilon}. 
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -97,7 +95,7 @@ shape with a simpler model. \emph{Annals of the New York Academy of Sciences} 15
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
-shapes. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14862}
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
 Shi, P., Niinemets, Ü., Hui, C., Niklas, K.J., Yu, X., Hölscher, D. (2020) 
 Leaf bilateral symmetry and the scaling of the perimeter vs. the surface area in 15 vine species. 
@@ -111,7 +109,7 @@ Tian, F., Wang, Y., Sandhu, H.S., Gielis, J., Shi, P. (2020) Comparison of seed 
 \emph{Journal of Forestry Research} 31, 751\eqn{-}758. \doi{10.1007/s11676-018-0770-y}
 }
 \seealso{
-\code{\link{curveNRGE}}, \code{\link{fitNRGE}}
+\code{\link{curveNRGE}}, \code{\link{NRGE}}
 }
 \examples{
 data(eggs)
@@ -131,14 +129,18 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
       xlab=expression(italic("x")), ylab=expression(italic("y")) ) 
 
 \donttest{
-  Res2 <- fitNRGE(x1, y1, angle=NULL, ini.C=c(-1, -0.1, seq(0.1, 1, by=0.05)), 
-                  strip.num=2000, control=list(), fig.opt=TRUE) 
+  Res2 <- fitNRGE(x1, y1, dev.angle=NULL, ini.C=c(-1, -0.1, seq(0.1, 1, by=0.05)), 
+                  strip.num=2000, fig.opt=TRUE) 
          
   dev.new()
   plot(Res2$x.obs, Res2$y.obs, asp=1, cex.lab=1.5, cex.axis=1.5, 
        xlab=expression(italic("x")), ylab=expression(italic("y")),
        type="l", col=4) 
   lines( Res2$x.obs, Res2$y.pred, col=2)
+
+  Res3 <- fitNRGE(x1, y1, dev.angle=seq(-0.05, 0.05, by=0.01), 
+                  ini.C=c(-1, -0.1, seq(0.1, 1, by=0.05)), 
+                  strip.num=2000, fig.opt=TRUE) 
 }
 
 }

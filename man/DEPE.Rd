@@ -45,8 +45,9 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
-A manuscript for \emph{Annals of the New York Academy of Sciences} is 
-currently under preparation by Shi et al.
+Shi, P., Chen, L., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
+Can we simply calculate the volume and surface area of an egg? Evidence from seven species of poultry. 
+\emph{Annals of the New York Academy of Sciences} Under preparation.
 }
 \seealso{
 \code{\link{EPE}}, \code{\link{PE}}, \code{\link{SurfaceAreaPE}}, \code{\link{VolumePE}}
