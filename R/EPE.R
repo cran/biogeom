@@ -2,11 +2,12 @@ EPE <- function(P, x, simpver = NULL){
 
   if(P[1] < 0 | P[2] < 0)
     stop("a and b should be positive real numbers!")
-  if(min(x)[1] < -P[1] | max(x)[1] > P[1])
-    stop("The value of x should be between -a and a!")
+  if(!is.numeric(x))
+    stop("'x' should be a numerical value or a numerical vector!")
+  x[x < -P[1]] <- -P[1]
+  x[x >  P[1]] <- P[1]
+  p <- length(P) 
 
-  p <- length(P)
- 
   if(is.null(simpver)){
     if(p != 5) 
       stop("The number of parameters is incorrect!")

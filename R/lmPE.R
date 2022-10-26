@@ -55,6 +55,7 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
     y2 <- y2 - y2
     z  <- sqrt((y2 - y1)^2 + (x2 - x1)^2)
     theta <- acos((x1 - x2)/z)%%(2 * pi)
+    if(theta > 2*pi) theta <- theta %% (2 * pi)
 
     xx2     <- xx * cos(theta) + yy * sin(theta)
     yy2     <- yy * cos(theta) - xx * sin(theta)
@@ -251,7 +252,7 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
     }
 
     if (!is.null(dev.angle)){
-      Res <- list(lm.tse = res, par = res$coefficients, theta = theta, 
+      Res <- list(lm.tse = res, par = as.numeric(res$coefficients), theta = theta, 
           epsilon = epsilon0, RSS.vector = RSSV, 
           x.obs = x.new, y.obs = y.new, y.pred = y.pred, x.stand.obs = xv, 
           y.stand.obs = yv, y.stand.pred = yv.pred, scan.length = length0, 

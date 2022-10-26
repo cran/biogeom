@@ -1,19 +1,23 @@
-curvePE <- function (P, zeta = seq(0, 2 * pi, len = 2000), simpver = NULL,
+curveEPE <- function (P, np = 5000, simpver = NULL,
     fig.opt = FALSE, deform.fun = NULL, Par = NULL, 
     xlim = NULL, ylim = NULL, unit = NULL, main = "") 
 {
     if ((is.null(deform.fun) & !is.null(Par)) | (!is.null(deform.fun) & 
         is.null(Par))) 
         stop("'Par' should be provided when 'deform.fun' is not null.")
-    zeta  <- sort(zeta, decreasing = FALSE)
+
     x0    <- P[1]
     y0    <- P[2]
     theta <- P[3]
     npar  <- length(P)
-    resu  <- PE(P = P[4:npar], zeta = zeta, simpver = simpver)
-    r     <- resu$r
-    x     <- resu$x
-    y     <- resu$y 
+    if(np %% 2 == 1) np <- np + 1
+    xU    <- seq(P[4], -P[4], len = np/2)
+    yU    <- EPE(P = P[4:npar], x = xU, simpver = simpver)
+    xL    <- seq(-P[4], P[4], len = np/2)
+    yL    <- -EPE(P = P[4:npar], x = xL, simpver = simpver)
+    x     <- c(xU, xL)
+    y     <- c(yU, yL)
+
     if (!is.null(deform.fun)) {
         Resu <- deform.fun(Par = Par, z = cbind(x, y))
         x <- Resu$x
@@ -50,10 +54,8 @@ curvePE <- function (P, zeta = seq(0, 2 * pi, len = 2000), simpver = NULL,
         abline(h = y0, lty = 2, col = 4)
         abline(v = x0, lty = 2, col = 4)
         title(main = main, cex.main = 1.5, col.main = 4, font.main = 1)
-        resul <- PE(P = P[4:npar], zeta = 0, simpver = simpver)
-        ru <- resul$r
-        xu <- resul$x
-        yu <- resul$y
+        xu <- P[4]
+        yu <- EPE(P = P[4:npar], x = xu, simpver = simpver)
         if (!is.null(deform.fun)) {
             Right <- deform.fun(Par = Par, z = cbind(xu, yu))
             xu <- Right$x
@@ -74,5 +76,5 @@ curvePE <- function (P, zeta = seq(0, 2 * pi, len = 2000), simpver = NULL,
         points(x0, y0, cex = 2, pch = 16, col = 2)
         points(xv, yv, cex = 2, pch = 1, col = 4)
     }
-    list(x = x.coordi, y = y.coordi, r = r.rot)
+    list(x = x.coordi, y = y.coordi)
 }

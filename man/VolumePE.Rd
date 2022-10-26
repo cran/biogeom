@@ -62,5 +62,5 @@ Can we simply calculate the volume and surface area of an egg? Evidence from sev
   myfun <- function(x){
     pi*EPE(P=Par3, x=x, simpver=NULL)^2
   }
-  integrate(myfun, -4.27, 4.27)
+  integrate(myfun, -4.27, 4.27)$value
 }

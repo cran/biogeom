@@ -16,7 +16,7 @@ fitNRGE(x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1),
   \item{x}{the \eqn{x} coordinates of the edge of an egg's boundary.}
   \item{y}{the \eqn{y} coordinates of the edge of an egg's boundary.}
   \item{dev.angle}{the angle of deviation for the axis associated with the maximum distance between two points 
-on an egg's profile from the \eqn{x}-axis to find the optimal mid-line of the egg's profile.}
+on an egg's profile from the mid-line of the egg's profile.}
   \item{ini.C}{the initial value(s) of parameter \eqn{C} in the Narushin-Romanov-Griffin equation.}  
   \item{strip.num}{the number of equidistant strips intersecting with 
 the egg's boundary that are horizontally placed. See Shi et al. (2018, 2020) for details.}  
@@ -141,6 +141,14 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
   Res3 <- fitNRGE(x1, y1, dev.angle=seq(-0.05, 0.05, by=0.01), 
                   ini.C=c(-1, -0.1, seq(0.1, 1, by=0.05)), 
                   strip.num=2000, fig.opt=TRUE) 
+
+  zeta <- Res3$theta + Res3$epsilon
+  x2   <- x1*cos(zeta) + y1*sin(zeta)
+  y2   <- y1*cos(zeta) - x1*sin(zeta)
+  plot( x2-min(x2), y2-min(y2), asp=1, col="grey70", cex=1,
+        xlab=expression(italic("x")), ylab=expression(italic("y")) )  
+  lines(Res3$x.obs-min(Res3$x.obs), Res3$y.obs-min(Res3$y.obs), col=4)
+  lines(Res3$x.obs-min(Res3$x.obs), Res3$y.pred-min(Res3$y.obs), col=2)
 }
 
 }

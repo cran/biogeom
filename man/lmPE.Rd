@@ -16,7 +16,7 @@ lmPE(x, y, simpver = NULL, dev.angle = NULL, weights = NULL, fig.opt = TRUE,
   \item{y}{the \eqn{y} coordinates of the edge of an egg's boundary.}
   \item{simpver}{an optional argument to use the simplified version of the original Todd-Smart equation.}
   \item{dev.angle}{the angle of deviation for the axis associated with the maximum distance between two points 
-on an egg's profile from the \eqn{x}-axis to find the optimal mid-line of the egg's profile.}
+on an egg's profile from the mid-line of the egg's profile.}
   \item{weights}{the weights for the multiple linear regression.}
   \item{fig.opt}{an optional argument to draw the observed and predicted egg's boundaries.}
   \item{prog.opt}{an optional argument to show the running progress for different values of \code{dev.angle}, when \code{dev.angle} is not \code{NULL}.}
@@ -85,6 +85,10 @@ In press. \doi{10.1093/ornithology/ukac028}
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
+Li, N., Wang, L., Quinn, B.K., Gielis, J., Shi, P. (2022) A new program to estimate the parameters 
+of the Preston equation, a general formula for describing the egg shape of birds. \emph{Ecology and Evolution} 
+Under review.
+
 Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
@@ -106,7 +110,7 @@ Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theo
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
 }
 \seealso{
-\code{\link{curvePE}}, \code{\link{fitPE}}, \code{\link{PE}}, \code{\link{TSE}} 
+\code{\link{curveEPE}}, \code{\link{fitEPE}}, \code{\link{PE}}, \code{\link{TSE}} 
 }
 \examples{
 data(eggs)

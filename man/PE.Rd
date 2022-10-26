@@ -84,7 +84,7 @@ Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theo
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
 }
 \seealso{
-\code{\link{EPE}}, \code{\link{curvePE}}, \code{\link{fitPE}}, \code{\link{lmPE}}, \code{\link{TSE}}
+\code{\link{EPE}}, \code{\link{lmPE}}, \code{\link{TSE}}
 }
 \examples{
   zeta <- seq(0, 2*pi, len=2000)
