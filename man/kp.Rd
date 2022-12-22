@@ -56,4 +56,5 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
                  np=2000 )
 }
 
+graphics.off()
 }

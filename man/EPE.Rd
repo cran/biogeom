@@ -2,7 +2,7 @@
 \encoding{UTF-8}
 \alias{EPE}
 \title{
-Calculation of the Ordinate For an Arbitrary Point on the Explicit Preston Curve in the Plane  
+Calculation of the Ordinate For an Arbitrary Point on the Preston Curve in the Plane  
 }
 \description{
 \code{EPE} is used to calculate the \emph{y}-value for an arbitrary point on the Preston curve 
@@ -18,20 +18,23 @@ EPE(P, x, simpver = NULL)
 }
 \details{
 When \code{simpver = NULL}, the explicit Preston equation is selected: 
-\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}+c_{2}\left(\frac{x}{a}\right)^2+c_{3}\left(\frac{x}{a}\right)^3\right) }
+\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}+c_{2}\left(\frac{x}{a}\right)^2+c_{3}\left(\frac{x}{a}\right)^3\right), }
 where \code{P} has five parameters: \eqn{a}, \eqn{b}, \eqn{c_{1}}, \eqn{c_{2}}, and \eqn{c_{3}}.
 
 \eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
-\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}+c_{2}\left(\frac{x}{a}\right)^2\right) }
+\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}+c_{2}\left(\frac{x}{a}\right)^2\right), }
 where \code{P} has four parameters: \eqn{a}, \eqn{b}, \eqn{c_{1}}, and \eqn{c_{2}}.
 
 \eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}\right) }
+\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{1}\ \frac{x}{a}\right), }
 where \code{P} has three parameters: \eqn{a}, \eqn{b}, and \eqn{c_{1}}.
 
 \eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
-\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{2}\left(\frac{x}{a}\right)^2\right) }
+\deqn{ y = b\ \sqrt{1-\left(\frac{x}{a}\right)^2}\left(1+c_{2}\left(\frac{x}{a}\right)^2\right), }
 where \code{P} has three parameters: \eqn{a}, \eqn{b}, and \eqn{c_{2}}.
+}
+\value{
+The \eqn{y} values predicted by the explicit Preston equation.
 }
 \note{
 We only considered the upper part of the egg-shape curve in the above expressions because 
@@ -53,22 +56,24 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
-Shi, P., Chen, L., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
-Can we simply calculate the volume and surface area of an egg? Evidence from seven species of poultry. 
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
+Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
 \emph{Annals of the New York Academy of Sciences} Under preparation.
 }
 \seealso{
-\code{\link{fitEPE}}, \code{\link{PE}}, \code{\link{SurfaceAreaPE}}, \code{\link{VolumePE}}
+\code{\link{curveEPE}}, \code{\link{fitEPE}}, \code{\link{PE}}, \code{\link{SurfaceAreaEPE}}, \code{\link{VolumeEPE}}
 }
 \examples{
   Par3 <- c(4.27, 2.90, 0.0868, 0.0224, -0.0287)
-  x    <- seq(-4.27, 4.27, by=0.001)
-  y1   <- EPE(P=Par3, x=x, simpver=NULL)
-  y2   <- -EPE(P=Par3, x=x, simpver=NULL)
+  xx1  <- seq(-4.27, 4.27, by=0.001)
+  yy1  <- EPE(P=Par3, x=xx1, simpver=NULL)
+  yy2  <- -EPE(P=Par3, x=xx1, simpver=NULL)
 
   dev.new()
-  plot(x, y1, asp=1, type="l", col=4, cex.lab=1.5, cex.axis=1.5,
+  plot(xx1, yy1, asp=1, type="l", col=4, cex.lab=1.5, cex.axis=1.5,
        xlim=c(-5, 5), ylim=c(-5, 5), 
        xlab=expression(italic(x)), ylab=expression(italic(y)))
-  lines(x, y2, col=2)  
+  lines(xx1, yy2, col=2) 
+
+  graphics.off() 
 }

@@ -31,7 +31,6 @@ x0    <- Data$x
 y0    <- Data$y
 Res1  <- adjdata(x0, y0, ub.np=2000, len.pro=1/20)
 
-dev.new()
 plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l", 
       xlim=c(3, 13), ylim=c(3, 13), col="grey73", lwd=2,
       xlab=expression(italic("x")), ylab=expression(italic("y")) )
@@ -44,10 +43,9 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
     x0    <- Data$x
     y0    <- Data$y
 
-    Res1  <- adjdata(x0, y0, ub.np=2000, len.pro=1/10)
+    Res1  <- adjdata(x0, y0, ub.np=200, len.pro=1/10)
   
     if(i == 1){
-      dev.new()
       plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l", 
             xlim=c(3, 13), ylim=c(3, 13), col=1, lwd=1,
             xlab=expression(italic("x")), ylab=expression(italic("y")) )
@@ -65,7 +63,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
     Data      <- whitespruce[whitespruce$Code==uni.C[i], ]
     x0        <- Data$x
     y0        <- Data$y
-    Res1      <- adjdata(x0, y0, ub.np=2000, len.pro=1/10)
+    Res1      <- adjdata(x0, y0, ub.np=200, len.pro=1/10)
     x1        <- Res1$x
     y1        <- Res1$y
     x0.ini    <- mean( x1 )
@@ -95,7 +93,6 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
       Length <- c(Length, max(max(H$y.stand.pred)[1]-min(H$y.stand.pred)[1], 
                   max(H$x.stand.pred)[1]-min(H$x.stand.pred)[1])[1])
       if(i == 1){
-        dev.new()
         plot(H$x.obs, H$y.obs, asp=1, xlim=c(7.4, 8.6), ylim=c(7.4, 8.6),
              cex.lab=1.5, cex.axis=1.5, type="l", lwd=2, col="grey70",
              xlab=expression(italic("x")), ylab=expression(italic("y")))

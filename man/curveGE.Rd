@@ -60,6 +60,9 @@ Li, Y., Quinn, B.K., Gielis, J., Li, Y., Shi, P. (2022) Evidence that supertrian
 in nature from the vertical projections of \emph{Koelreuteria paniculata} fruit. \emph{Symmetry} 
 14, 23. \doi{10.3390/sym14010023}
 
+Shi, P., Gielis, J., Niklas, K.J. (2022) Comparison of a universal (but complex) model for avian egg 
+shape with a simpler model. \emph{Annals of the New York Academy of Sciences} 1514, 34\eqn{-}42. \doi{10.1111/nyas.14799}
+
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
@@ -107,4 +110,5 @@ GE.res    <- curveGE( GE, P=c(1, 1, pi/4, 2), m=4, simpver=3, nval=2, fig.opt=TR
 GE.res    <- curveGE( GE, P=c(1, 1, pi/4, 2, 0.6), m=4, simpver=8, nval=2, fig.opt=TRUE )
 # GE.res$r
 
+graphics.off()
 }

@@ -42,7 +42,7 @@ fitEPE <- function(x, y, ini.val, simpver = NULL,
           if(length(xx1) > 0 & length(xx2) > 0){ 
             yU  <- EPE(P=z[4:p], x=xx1, simpver=simpver) 
             yL  <- -EPE(P=z[4:p], x=xx2, simpver=simpver) 
-            RSS <- sum( (yU - yy1)^2 + (yL - yy2)^2 )
+            RSS <- sum( (yU - yy1)^2 ) + sum( (yL - yy2)^2 )
           }
         }
         return( RSS )       

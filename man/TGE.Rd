@@ -105,4 +105,6 @@ plot( varphi.vec, r2.theor, cex.lab=1.5, cex.axis=1.5,
       type="l", col=4 ) 
 
 starfish4 <- curveGE(TGE, P=c(0, 0, 0, TGE.par), simpver=1, m=5, fig.opt=TRUE)
+
+graphics.off()
 }

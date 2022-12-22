@@ -1,6 +1,4 @@
-SurfaceAreaPE <- function(P, simpver = NULL, subdivisions = 100L,
-          rel.tol = .Machine$double.eps^0.25, abs.tol = rel.tol,
-          stop.on.error = TRUE, keep.xy = FALSE, aux = NULL){
+VolumeEPE <- function(P, simpver = NULL){
 
   if(P[1] < 0 | P[2] < 0)
     stop("a and b should be positive real numbers!")
@@ -10,6 +8,11 @@ SurfaceAreaPE <- function(P, simpver = NULL, subdivisions = 100L,
   if(is.null(simpver)){
     if(p != 5) 
       stop("The number of parameters is incorrect!")
+    a        <- P[1]
+    b        <- P[2]
+    c1       <- P[3]
+    c2       <- P[4]
+    c3       <- P[5]
   }
 
   if(!is.null(simpver)){
@@ -20,27 +23,35 @@ SurfaceAreaPE <- function(P, simpver = NULL, subdivisions = 100L,
     if(simpver==1){
       if(p != 4) 
         stop("The number of parameters is incorrect!")
+        a        <- P[1]
+        b        <- P[2]
+        c1       <- P[3]
+        c2       <- P[4]
+        c3       <- 0
     }
 
     if(simpver==2){
       if(p != 3) 
         stop("The number of parameters is incorrect!")
+        a        <- P[1]
+        b        <- P[2]
+        c1       <- P[3]
+        c2       <- 0
+        c3       <- 0
     }
 
     if(simpver==3){
       if(p != 3) 
         stop("The number of parameters is incorrect!")
+        a        <- P[1]
+        b        <- P[2]
+        c1       <- 0
+        c2       <- P[3]
+        c3       <- 0
     }
   }
 
-  inner.fun <- function(x){
-    2 * pi * EPE(P=P, x, simpver=simpver) * sqrt( 
-      1 + DEPE(P=P, x, simpver=simpver)^2 )
-  }
-
-  integrate( inner.fun, -P[1], P[1], subdivisions = subdivisions,
-             rel.tol = rel.tol, abs.tol = abs.tol,
-             stop.on.error = stop.on.error, keep.xy = keep.xy, aux = aux )$value
+  4/315*a*b^2*(21*c1^2 + 42*c2 + 9*c2^2 + 18*c1*c3 + 5*(21 + c3^2))*pi
 
 }
 

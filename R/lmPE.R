@@ -1,6 +1,6 @@
 lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,  
     weights = NULL, fig.opt = TRUE, prog.opt = TRUE, xlim = NULL, 
-    ylim = NULL, unit = NULL, main = NULL) 
+    ylim = NULL, unit = NULL, main = NULL, extr.method = "Shi") 
 {
     w <- weights
     if (!is.null(w) && !is.numeric(w)) 
@@ -27,6 +27,15 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
         stop("'x' should have the same data length as 'y'!")
     if(!is.null(dev.angle) & !is.numeric(dev.angle)){
         stop("'dev.angle' should be NULL or a numerical value or a numerical vector!")
+    }
+    if( !(extr.method %in% c("Shi", "Biggins")) ){
+        stop("'extr.method' should be selected from one of the available two options!")
+    }
+    if( (extr.method %in% c("Shi", "Biggins")) ){
+      temp <- setdiff(c("Shi", "Biggins"), extr.method)
+      if(length(temp) == 0){
+        stop("'extr.method' should be selected from one of the available two options rather than both!")
+      }
     }
 
     Tem <- cbind(x, y)
@@ -74,8 +83,17 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
       y.new <- yy * cos(theta) - xx * sin(theta)
       length0 <- max(x.new) - min(x.new)
       width0  <- max(y.new) - min(y.new)
-      x.new   <- x.new - (max(x.new)+min(x.new))/2
-      y.new   <- y.new - (max(y.new)+min(y.new))/2
+
+      if(extr.method == "Shi"){
+        x.new   <- x.new - (max(x.new)+min(x.new))/2
+        y.new   <- y.new - (max(y.new)+min(y.new))/2
+      }
+
+      if(extr.method == "Biggins"){
+        x.new   <- x.new - mean(x.new)
+        y.new   <- y.new - mean(y.new)
+      }
+
       xv      <- x.new/(length0/2)
       yv      <- y.new/(length0/2)
       Index2  <- which(yv < 0)
@@ -122,8 +140,17 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
         y.new   <- yy * cos(theta+epsilon) - xx * sin(theta+epsilon)
         length0 <- max(x.new) - min(x.new)
         width0  <- max(y.new) - min(y.new)
-        x.new   <- x.new - (max(x.new)+min(x.new))/2
-        y.new   <- y.new - (max(y.new)+min(y.new))/2
+
+        if(extr.method == "Shi"){
+          x.new   <- x.new - (max(x.new)+min(x.new))/2
+          y.new   <- y.new - (max(y.new)+min(y.new))/2
+        }
+
+        if(extr.method == "Biggins"){
+          x.new   <- x.new - mean(x.new)
+          y.new   <- y.new - mean(y.new)
+        }
+
         xv      <- x.new/(length0/2)
         yv      <- y.new/(length0/2)
         Index2  <- which(yv < 0)
@@ -164,8 +191,17 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
       y.new <- yy * cos(theta+epsilon0) - xx * sin(theta+epsilon0)
       length0 <- max(x.new) - min(x.new)
       width0  <- max(y.new) - min(y.new)
-      x.new   <- x.new - (max(x.new)+min(x.new))/2
-      y.new   <- y.new - (max(y.new)+min(y.new))/2
+
+      if(extr.method == "Shi"){
+        x.new   <- x.new - (max(x.new)+min(x.new))/2
+        y.new   <- y.new - (max(y.new)+min(y.new))/2
+      }
+
+      if(extr.method == "Biggins"){
+        x.new   <- x.new - mean(x.new)
+        y.new   <- y.new - mean(y.new)
+      }
+
       xv <- x.new/(length0/2)
       yv <- y.new/(length0/2)
       Index2 <- which(yv < 0)

@@ -35,4 +35,5 @@ dev.new()
 plot(veins$x, veins$y, cex=0.01, asp=1, cex.lab=1.5, cex.axis=1.5, 
      xlab=expression(italic("x")), ylab=expression(italic("y")))
 
+graphics.off()
 }

@@ -106,7 +106,8 @@ between spatial density of plants and total leaf area per plant. \emph{Ecology a
 4578\eqn{-}4589. \doi{10.1002/ece3.1728}
 }
 \seealso{
-\code{\link{areaGE}}, \code{\link{curveGE}}, \code{\link{fitGE}}, \code{\link{TGE}}
+\code{\link{areaGE}}, \code{\link{curveGE}}, \code{\link{DSGE}}, \code{\link{fitGE}}, 
+\code{\link{SurfaceAreaSGE}}, \code{\link{TGE}}, \code{\link{VolumeSGE}}
 }
 \examples{
 GE.par  <- c(2, 1, 4, 6, 3)
@@ -117,4 +118,6 @@ dev.new()
 plot( varphi.vec, r.theor, cex.lab=1.5, cex.axis=1.5, 
       xlab=expression(italic(varphi)), ylab=expression(italic("r")),
       type="l", col=4 ) 
+
+graphics.off()
 }

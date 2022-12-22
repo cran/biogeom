@@ -8,12 +8,12 @@ Drawing the Egg Shape Predicted by the Narushin-Romanov-Griffin Equation
 \code{curveNRGE} is used to draw the egg shape predicted by the Narushin-Romanov-Griffin equation.
 }
 \usage{
-curveNRGE(P, x, fig.opt = FALSE, deform.fun = NULL, 
-          Par = NULL, xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
+curveNRGE(P, np = 5000, fig.opt = FALSE, deform.fun = NULL, Par = NULL, 
+    xlim = NULL, ylim = NULL, unit = NULL, main = "")
 }
 \arguments{ 
   \item{P}{the three location parameters and the four parameters of the Narushin-Romanov-Griffin equation (Narushin et al., 2021).}
-  \item{x}{the given \eqn{x} coordinates at which we want to draw the Narushin-Romanov-Griffin curve.}
+  \item{np}{the number of data points on the Narushin-Romanov-Griffin curve.}
   \item{fig.opt}{an optional argument to draw the Narushin-Romanov-Griffin curve.}
   \item{deform.fun}{the deformation function used to describe the deviation from a theoretical Narushin-Romanov-Griffin curve.}
   \item{Par}{the parameter(s) of the deformation function.}
@@ -35,11 +35,8 @@ And the return value of \code{deform.fun} should be a \code{list} with two varia
   \item{y}{the \eqn{y} coordinates of the Narushin-Romanov-Griffin curve.}
 }
 \note{
-The \eqn{x} coordinates of the Narushin-Romanov-Griffin curve are different from the given \eqn{x} coordinates 
-(i.e., \code{x} in Arguments). The latter are twice the former. The \eqn{x} coordinates for the 
-Narushin-Romanov-Griffin curve range from the maximum to the minimum on the \eqn{x}-axis (corresponding to positive \eqn{y} coordinates), 
-and then range from the minimum to the maximum on the \eqn{x}-axis (corresponding to negative \eqn{y} coordinates). That is to say, 
-the coordinates of \eqn{(x, y)} need to undergo a counterclockwise rotation to form the Narushin-Romanov-Griffin curve.       
+When the rotation angle is zero (i.e., the third element in \code{P} is zero), \code{np} data points 
+are distributed counterclockwise on the Narushin-Romanov-Griffin curve from the rightmost end of the egg's profile to itself.       
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -50,7 +47,7 @@ Narushin, V.G., Romanov, M.N., Griffin, D.K. (2021) Egg and math: introducing a 
 \emph{Annals of the New York Academy of Sciences} 1505, 169\eqn{-}177. \doi{10.1111/nyas.14680}
 
 Shi, P., Gielis, J., Niklas, K.J. (2022) Comparison of a universal (but complex) model for avian egg 
-shape with a simpler model. \emph{Annals of the New York Academy of Sciences} In press. \doi{10.1111/nyas.14799}
+shape with a simpler model. \emph{Annals of the New York Academy of Sciences} 1514, 34\eqn{-}42. \doi{10.1111/nyas.14799}
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
@@ -64,12 +61,12 @@ Tian, F., Wang, Y., Sandhu, H.S., Gielis, J., Shi, P. (2020) Comparison of seed 
 }
 \examples{
 PA   <- c(1, 1, pi/4, 11.5, 7.8, 1.1, 5.6)
-xA   <- seq(-11.5/2, 11.5/2, len=2000)
-resA <- curveNRGE(PA, xA, fig.opt=TRUE)
-xB   <- seq(-11.5/2, 11.5/2, len=100)
-resB <- curveNRGE(PA, xB, fig.opt=TRUE, xlim=c(-6, 6), 
+resA <- curveNRGE(PA, np=5000, fig.opt=TRUE)
+resB <- curveNRGE(PA, np=5000, fig.opt=TRUE, xlim=c(-6, 6), 
                   ylim=c(-6, 6), main="A pear-shaped egg") 
 cbind(resB$x, resB$y)
+
+graphics.off()
 }
 
 

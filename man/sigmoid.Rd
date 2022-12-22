@@ -72,4 +72,6 @@ dev.new()
 plot( xv1, yv2, cex.lab=1.5, cex.axis=1.5, type="l", col=4,
       xlab=expression(italic(x)), ylab=expression(italic(y)) )
 lines( xv1, yv1, col=2 )
+
+graphics.off()
 }

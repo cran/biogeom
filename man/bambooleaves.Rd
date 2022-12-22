@@ -45,4 +45,5 @@ dev.new()
 plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l", 
       xlab=expression(italic("x")), ylab=expression(italic("y")) )
 
+graphics.off()
 }

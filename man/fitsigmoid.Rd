@@ -122,5 +122,7 @@ resu1   <- fitsigmoid(MLRFE, x=t0, y=m0, ini.val=ini.val, simpver=1, fig.opt=TRU
              subdivisions=100L, rel.tol=.Machine$double.eps^0.25, 
              abs.tol=.Machine$double.eps^0.25, stop.on.error=TRUE, 
              keep.xy=FALSE, aux=NULL)
-  }
+}
+
+graphics.off()
 }

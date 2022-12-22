@@ -1,7 +1,8 @@
 fitNRGE <- function (x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1), 
-    strip.num = 2000, control = list(), fig.opt = TRUE, 
+    strip.num = 2000, control = list(), fig.opt = TRUE, np = 2000,
     xlim = NULL, ylim = NULL, unit = NULL, main = NULL) 
 {
+    options(warn=-1)
     if (length(x) != length(y)) 
         stop("'x' should have the same data length as 'y'!")
     if(!is.null(dev.angle) & !is.numeric(dev.angle)){
@@ -268,7 +269,7 @@ fitNRGE <- function (x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1),
           return(RSS0)
         }
         for (i in 1:length(ini.val)) {
-          res <- optim(ini.val[i], obj.fun, control = control)
+          res <- optim(ini.val[i], obj.fun, control = control)            
           mat[i, ] <- c(res$par, res$val)
         }
         colnames(mat) <- c("w", "RSS")
@@ -420,8 +421,7 @@ fitNRGE <- function (x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1),
       RMSE0  <- sqrt(RSS0/length(y.obs))
     }
 
-    Resu <- curveNRGE(P = c(0, 0, 0, Par0), x = seq(-A0/2, A0/2, 
-        len = 2000), fig.opt = F)
+    Resu <- curveNRGE(P = c(0, 0, 0, Par0), np = np, fig.opt = F)
     x.theor <- Resu$x
     y.theor <- Resu$y
     if (!is.null(unit)) {
@@ -465,5 +465,6 @@ fitNRGE <- function (x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1),
         scan.area = area0, scan.perimeter = perimeter0, RSS = RSS0, 
         sample.size = length(y.new), RMSE = sqrt(RSS0/length(y.new)))
    }
+   options(warn=0)
    return( Res )
 }

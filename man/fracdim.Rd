@@ -30,7 +30,7 @@ The maximum of the range of the \eqn{x} coordinates and the range of the \eqn{y}
 for leaf-vein pixels is defined as \eqn{z}. Let \eqn{\delta} represent the vector of 
 \eqn{z}/\code{denomi.range}. Then, we used the following equation to calculate the fractal 
 dimension of leaf veins:
-\deqn{\mathrm{ln } N = a + b \mathrm{ ln} {\delta}^{-1},}
+\deqn{\mathrm{ln } N = a + b\,\mathrm{ ln} \left({\delta}^{-1}\right),}
 where \eqn{b} is the theoretical value of the fractal dimension. We can use its estimate as the 
 numerical value of the fractal dimension for a leaf venation network.      
 }
@@ -80,4 +80,6 @@ plot(veins$x, veins$y, cex=0.01, asp=1, cex.lab=1.5, cex.axis=1.5,
      xlab=expression(italic("x")), ylab=expression(italic("y")))
 
 fracdim(veins$x, veins$y)
+
+graphics.off()
 }

@@ -52,13 +52,8 @@ DEPE <- function(P, x, simpver = NULL){
     }
   }
 
-  d0 <- b/a
-  d1 <- c1*(b/a)
-  d2 <- c2*(b/a)
-  d3 <- c3*(b/a)
-  -x/a^3*(a^2-x^2)^(-0.5)*(a^3*d0 + a^2*d1*x + a*d2*x^2 + d3*x^3) + 
-    1/a^3*sqrt(a^2-x^2)*(a^2*d1 + 2*a*d2*x + 3*d3*x^2) 
-
+  -b/a^2*x*(1-(x/a)^2)^(-0.5)*(1+c1/a*x+c2*(x/a)^2+c3*(x/a)^3) +
+    b*sqrt(1-(x/a)^2)*(c1/a+2*c2/a^2*x+3*c3/a^3*x^2)
 }
 
 

@@ -47,4 +47,5 @@ plot( x1, y1, asp=1, type="l", cex.lab=1.5, cex.axis=1.5,
       xlab=expression(italic("x")), ylab=expression(italic("y")) )
 length(x1)
 
+graphics.off()
 }

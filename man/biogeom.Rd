@@ -25,7 +25,8 @@ The DESCRIPTION file:
 \packageIndices{biogeom}
 }
 \note{
-We are deeply thankful to Cang Hui, Yang Li, Valeriy G. Narushin, Ülo Niinemets, Karl J. Nikas, Honghua Ruan, 
+We are deeply thankful to Cang Hui, Yang Li, Uwe Ligges, Valeriy G. Narushin, 
+Ülo Niinemets, Karl J. Nikas, Honghua Ruan, 
 David A. Ratkowsky, Julian Schrader, Rolf Turner, Lin Wang, and Victoria Wimmer for 
 their valuable help during creating this package. This work was supported by 
 the National Key Research and Development Program of China (Grant No. 2021YFD02200403) and 

@@ -55,4 +55,5 @@ plot(x1, y1, cex=1.5, cex.lab=1.5, cex.axis=1.5, xlab="Time (days)", ylab="Heigh
                keep.xy=FALSE, aux=NULL)
 }
 
+graphics.off()
 }

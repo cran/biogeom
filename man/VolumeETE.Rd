@@ -1,0 +1,58 @@
+\name{VolumeETE}
+\encoding{UTF-8}
+\alias{VolumeETE}
+\title{
+Calculation of the Volume of An Egg Based on the Explicit Troscianko Equation
+}
+\description{
+\code{VolumeETE} is used to calculate the volume of an egg that follows the explicit Troscianko equation.
+}
+\usage{
+VolumeETE(P, subdivisions = 100L,
+         rel.tol = .Machine$double.eps^0.25, abs.tol = rel.tol,
+         stop.on.error = TRUE, keep.xy = FALSE, aux = NULL)
+}
+\arguments{
+  \item{P}{the parameters of the explicit Troscianko equation.}
+  \item{subdivisions}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{rel.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{abs.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{stop.on.error}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{keep.xy}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{aux}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+}
+\details{
+The formula of the volume (\eqn{V}) of an egg based on the explicit Troscianko equation is:
+\deqn{V(x)=\pi\int_{-a}^{a}y^2\,dx,}
+where \eqn{y} denotes the explicit Troscianko equation (i.e., \code{\link{ETE}}), and 
+\eqn{a} denotes half the egg's length.  
+}
+\note{
+The argument \code{P} in the \code{\link{VolumeETE}} function has the same parameters, as those in the 
+\code{\link{ETE}} function.  
+}
+\author{
+Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
+Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
+}
+\references{
+Narushin, V.G., Romanov, M.N., Mishra, B., Griffin, D.K. (2022) Mathematical progression of 
+avian egg shape with associated area and volume determinations. 
+\emph{Annals of the New York Academy of Sciences} 1513, 65\eqn{-}78. \doi{10.1111/nyas.14771}
+
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
+Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
+\emph{Annals of the New York Academy of Sciences} Under preparation.
+}
+\seealso{
+\code{\link{ETE}}, \code{\link{fitETE}}, \code{\link{SurfaceAreaETE}}
+}
+\examples{
+  Par5 <- c(2.25, -0.38, -0.29, -0.16)
+  VolumeETE(P=Par5)
+
+  myfun <- function(x){
+    pi*ETE(P=Par5, x=x)^2
+  }
+  integrate(myfun, -2.25, 2.25)$value
+}

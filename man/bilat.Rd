@@ -49,9 +49,9 @@ is equal to \code{peri.np} and random sampling for retaining \code{peri.np} data
 the perimeter is the mean of the \code{n.loop} perimeters (i.e., replicates). If the user wants to get a consistent result 
 for the mean perimeter, the \code{\link{set.seed}} function can be used. In addition, if \code{length(x) < peri.np}, 
 \code{peri.np} then becomes \code{length(x)} rather than the specified value in Arguments. 
-If the polygon apparently has a major axis (i.e., 
-the leaf length axis for an ovate leaf), \code{auto.search} is appropriate. If the major axis of the polygon 
-is not the maximum distance between two points, the user can define the major axis using the \code{\link{locator}} 
+If the polygon apparently has a major axis (e.g., the leaf length axis for an ovate leaf), \code{auto.search} 
+is appropriate. If the major axis of the polygon is not the straight line through two points on the polygon's 
+boundary having the maximum distance, the user can define the major axis using the \code{\link{locator}} 
 function in \pkg{graphic} by clicking two points on or near the polygon's boundary. The location of the first click 
 should be northeast of the location of the second click. This means that the angle between the straight line 
 through the locations of the two clicks and the \eqn{x}-axis should range from 0 to \eqn{\pi}/2. The locations of the 
@@ -128,7 +128,7 @@ The maximum of the range of the \eqn{x} coordinates and the range of the \eqn{y}
 for the pixels of the polygon's boundary is defined as \eqn{z}. Let \eqn{\delta} represent the vector of 
 \eqn{z}/\code{denomi.range}. We then used the following equation to calculate the fractal 
 dimension of the polygon's boundary: 
-\deqn{\mathrm{ln } N = a + b \mathrm{ ln} {\delta}^{-1},}
+\deqn{\mathrm{ln } N = a + b\, \mathrm{ln} \left(\delta^{-1}\right),}
 where \eqn{b} is the theoretical value of the fractal dimension. We can use its estimate as the 
 numerical value of the fractal dimension for the polygon's boundary. 
 }
@@ -193,16 +193,22 @@ y1   <- Res1$y
                  peri.np=500, n.loop=30,
                  auto.search=TRUE, fd.opt=FALSE, angle=0 )
   Res5$scan.perimeter
-
-  set.seed(123)
-  # The user needs to first click the position of the leaf apex
-  # and then click the position of the leaf base in the figure.
-  Res6 <- bilat( x=x1, y=y1, time.interval=0.00045, 
+  
+  if(interactive()){
+    # The angle between the leaf length axis (namely the straight 
+    # line through the leaf apex and base) and the horizontal axis 
+    # should be between 0 and pi/2 for a scanned leaf's profile. 
+    # Here, the user needs to first click the leaf apex, 
+    # and then click the leaf base. 
+    set.seed(123)  
+    Res6 <- bilat( x=x1, y=y1, time.interval=0.00045, 
                  peri.np=500, n.loop=30,
                  auto.search=FALSE, fd.opt=FALSE, angle=NULL )
-  Res6$scan.perimeter
+    Res6$scan.perimeter
+  }
 
   set.seed(NULL)
 }
 
+graphics.off()
 }

@@ -18,33 +18,33 @@ PE(P, zeta, simpver = NULL)
 }
 \details{
 When \code{simpver = NULL}, the original Preston equation is selected: 
-\deqn{y = a\ \mathrm{sin}\,\zeta }
-\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta+c_{2}\,\mathrm{sin}^{2}\,\zeta+c_{3}\,\mathrm{sin}^{3}\,\zeta\right)}
-\deqn{r = \sqrt{x^{2}+y^{2}} }
+\deqn{y = a\ \mathrm{sin}\,\zeta, }
+\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta+c_{2}\,\mathrm{sin}^{2}\,\zeta+c_{3}\,\mathrm{sin}^{3}\,\zeta\right), }
+\deqn{r = \sqrt{x^{2}+y^{2}}, }
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Preston curve  
 corresponding to an angle \eqn{\zeta}; \eqn{r} represents the distance of the point from the origin; \eqn{a}, \eqn{b}, \eqn{c_{1}}, 
 \eqn{c_{2}}, and \eqn{c_{3}} are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
-\deqn{y = a\ \mathrm{sin}\,\zeta }
-\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta+c_{2}\,\mathrm{sin}^{2}\,\zeta\right)}
-\deqn{r = \sqrt{x^{2}+y^{2}} }
+\deqn{y = a\ \mathrm{sin}\,\zeta, }
+\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta+c_{2}\,\mathrm{sin}^{2}\,\zeta\right), }
+\deqn{r = \sqrt{x^{2}+y^{2}}, }
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Preston curve  
 corresponding to an angle \eqn{\zeta}; \eqn{r} represents the distance of the point from the origin; \eqn{a}, \eqn{b}, \eqn{c_{1}}, 
 and \eqn{c_{2}} are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{y = a\ \mathrm{sin}\,\zeta }
-\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta\right)}
-\deqn{r = \sqrt{x^{2}+y^{2}} }
+\deqn{y = a\ \mathrm{sin}\,\zeta, }
+\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{1}\,\mathrm{sin}\,\zeta\right), }
+\deqn{r = \sqrt{x^{2}+y^{2}}, }
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Preston curve  
 corresponding to an angle \eqn{\zeta}; \eqn{r} represents the distance of the point from the origin; \eqn{a}, \eqn{b}, and \eqn{c_{1}}  
 are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
-\deqn{y = a\ \mathrm{sin}\,\zeta }
-\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{2}\,\mathrm{sin}^{2}\,\zeta\right)}
-\deqn{r = \sqrt{x^{2}+y^{2}} }
+\deqn{y = a\ \mathrm{sin}\,\zeta, }
+\deqn{x = b\ \mathrm{cos}\,\zeta\left(1+c_{2}\,\mathrm{sin}^{2}\,\zeta\right), }
+\deqn{r = \sqrt{x^{2}+y^{2}}, }
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Preston curve  
 corresponding to an angle \eqn{\zeta}; \eqn{r} represents the distance of the point from the origin; \eqn{a}, \eqn{b}, and 
 \eqn{c_{2}} are parameters to be estimated.
@@ -57,10 +57,10 @@ corresponding to an angle \eqn{\zeta}; \eqn{r} represents the distance of the po
 }
 \note{
 \eqn{\zeta} is NOT the polar angle corresponding to \eqn{r}, i.e., 
-\deqn{y \neq r\,\mathrm{sin}\,\zeta} 
-\deqn{x \neq r\,\mathrm{cos}\,\zeta} 
+\deqn{y \neq r\,\mathrm{sin}\,\zeta, } 
+\deqn{x \neq r\,\mathrm{cos}\,\zeta. } 
 Let \eqn{\varphi} be the polar angle corresponding to \eqn{r}. We have: 
-\deqn{ \zeta = \mathrm{arc\,sin}\frac{ r\ \mathrm{sin}\,\varphi }{a} }
+\deqn{ \zeta = \mathrm{arc\,sin}\frac{ r\ \mathrm{sin}\,\varphi }{a}. }
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -103,4 +103,6 @@ Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theo
        xlab=expression(paste(italic(r), ""[1], sep="")), 
        ylab=expression(paste(italic(r), ""[2], sep="")))
   abline(0, 1, col=4)
+
+  graphics.off()
 }

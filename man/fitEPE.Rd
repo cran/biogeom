@@ -27,9 +27,9 @@ fitEPE(x, y, ini.val, simpver = NULL,
   \item{fig.opt}{an optional argument of drawing the observed and predicted profiles of an egg 
 at arbitrary angle between the major axis and the \eqn{x}-axis.}
   \item{np}{the number of data points on the predicted explicit Preston curve.}
-  \item{xlim}{the range of the \eqn{x}-axis over which to plot the explicit Preston curve.}
-  \item{ylim}{the range of the \eqn{y}-axis over which to plot the explicit Preston curve.}
-  \item{unit}{the unit of the \eqn{x}-axis and the \eqn{y}-axis when showing the explicit Preston curve.}
+  \item{xlim}{the range of the \eqn{x}-axis over which to plot the Preston curve.}
+  \item{ylim}{the range of the \eqn{y}-axis over which to plot the Preston curve.}
+  \item{unit}{the unit of the \eqn{x}-axis and the \eqn{y}-axis when showing the Preston curve.}
   \item{main}{the main title of the figure.}
 }
 \details{
@@ -49,49 +49,49 @@ is rotated by the amount (\eqn{\pi/4}) counterclockwise from the \eqn{x}-axis.
   \item{scan.area}{the observed area of the egg's profile.}
   \item{scan.perimeter}{the observed perimeter of the egg's profile.}
   \item{r.sq}{the coefficient of determination between the observed and predicted \eqn{y} values 
-on the explicit Preston curve.}
+on the Preston curve.}
   \item{RSS}{the residual sum of squares between the observed and predicted \eqn{y} values 
-on the explicit Preston curve.}
+on the Preston curve.}
   \item{sample.size}{the number of data points used in the data fitting.}
   \item{x.stand.obs}{the observed \eqn{x} coordinates of the points 
-on the explicit Preston curve at the standard state.}
+on the Preston curve at the standard state.}
   \item{y.stand.obs}{the observed \eqn{y} coordinates of the points 
-on the explicit Preston curve at the standard state.}
+on the Preston curve at the standard state.}
   \item{y.stand.pred}{the predicted \eqn{y} coordinates of the points 
-on the explicit Preston curve at the standard state.} 
-  \item{x.obs}{the observed \eqn{x} coordinates of the points on the explicit Preston curve 
+on the Preston curve at the standard state.} 
+  \item{x.obs}{the observed \eqn{x} coordinates of the points on the Preston curve 
 at the transferred polar angles as defined by the user.}
-  \item{y.obs}{the observed \eqn{y} coordinates of the points on the explicit Preston curve 
+  \item{y.obs}{the observed \eqn{y} coordinates of the points on the Preston curve 
 at the transferred polar angles as defined by the user.}
-  \item{y.pred}{the predicted \eqn{y} coordinates of the points on the explicit Preston curve 
+  \item{y.pred}{the predicted \eqn{y} coordinates of the points on the Preston curve 
 at the transferred polar angles as defined by the user.}       
 }
 \note{
 In the outputs, there are no \code{x.stand.pred} and \code{x.pred}, because \code{y.stand.obs} and 
-\code{y.stand.pred} shares the same \eqn{x} values (i.e., \code{x.stand.obs}), and \code{y.obs} and 
-\code{y.pred} shares the same \eqn{x} values (i.e., \code{x.obs}).
+\code{y.stand.pred} share the same \eqn{x} values (i.e., \code{x.stand.obs}), and \code{y.obs} and 
+\code{y.pred} share the same \eqn{x} values (i.e., \code{x.obs}).
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
-Li, N., Wang, L., Quinn, B.K., Gielis, J., Shi, P. (2022) A new program to estimate the parameters 
-of the Preston equation, a general formula for describing the egg shape of birds. \emph{Ecology and Evolution} 
-Under review.  
-
 Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
 Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182.
 
-Shi, P., Chen, L., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
-Can we simply calculate the volume and surface area of an egg? Evidence from seven species of poultry. 
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
+Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
 \emph{Annals of the New York Academy of Sciences} Under preparation.
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
+
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2022) A new program to estimate the parameters 
+of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
+Under review.  
 
 Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
@@ -158,6 +158,13 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5,  type="l", col=4,
   sqrt(res0$RSS/res0$sample.size)
 
   sqrt(sum((res0$y.stand.obs-res0$y.stand.pred)^2)/length(res0$y.stand.obs))
+
+  # To calculate the volume of the egg
+  VolumeEPE(P=res0$par[4:8])
+
+  # To calculate the surface area of the egg
+  SurfaceAreaEPE(P=res0$par[4:8])
 }
 
+graphics.off()
 }

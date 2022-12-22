@@ -9,7 +9,8 @@ Parameter Estimation for the Todd-Smart Equation
 }
 \usage{
 lmPE(x, y, simpver = NULL, dev.angle = NULL, weights = NULL, fig.opt = TRUE, 
-     prog.opt = TRUE, xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
+     prog.opt = TRUE, xlim = NULL, ylim = NULL, unit = NULL, main = NULL, 
+     extr.method = "Shi")
 }
 \arguments{
   \item{x}{the \eqn{x} coordinates of the edge of an egg's boundary.}
@@ -24,6 +25,7 @@ on an egg's profile from the mid-line of the egg's profile.}
   \item{ylim}{the range of the \eqn{y}-axis over which to plot the Todd-Smart curve.}
   \item{unit}{the units of the \eqn{x}-axis and the \eqn{y}-axis when showing the Todd-Smart curve.}
   \item{main}{the main title of the figure.}
+  \item{extr.method}{an optional argument to fit the planar coordinate data of an egg's profile extracted using different methods.}
 }
 \details{
 There are two methods to obtain the major axis (i.e., the mid-line) of an egg's profile: the maximum distance method, and 
@@ -32,10 +34,21 @@ on the egg's boundary is defined as the major axis. In the second method, we ass
 of deviation for the longest axis (i.e., the axis associated with the maximum distance between two points on an egg's profile) 
 from the mid-line of the egg's profile. That is to say, 
 the mid-line of an egg's profile is not the axis associated with the maximum distance between two points on the egg's profile. 
-When \code{angle = NULL}, the maximum distance method is used; when \code{angle} is a numerical value or a numerical vector, 
+When \code{dev.angle = NULL}, the maximum distance method is used; when \code{dev.angle} is a numerical value or a numerical vector, 
 the longest axis adjustment method is used. Here, the numerical value of \code{dev.angle} is not 
 the angle of deviation for the major axis of an egg's profile from the \eqn{x}-axis, and instead it is the angle of deviation  
 for the longest axis (associated with the maximum distance between two points on the egg's profile) from the mid-line of the egg's profile. 
+It is better to take the option of \code{extr.method = "Shi"} for correctly fitting the planar coordinate data of an egg's profile extracted 
+using the protocols proposed by Shi et al. (2015, 2018) (and also see Su et al. (2019)), 
+while it is better to take the option of \code{extr.method = "Biggins"} for correctly fitting the planar coordinate data 
+of an egg's profile extracted using the protocols proposed by Biggins et al. (2018). For the planar coordinate data extracted using 
+the protocols of Biggins et al. (2018), there are fewer data points on the two ends of the mid-line than other parts of the egg's profile, 
+which means that the range of the observed \eqn{x} values might be smaller than the actual egg's length. A group of equidistant \eqn{x} 
+values are set along the mid-line, and each \eqn{x} value corresponds to two \eqn{y} values that are respectively located at the upper 
+and lower sides of the egg's profile. Because of the difference in the curvature for differnt parts of the egg's profile, 
+the equidistant \eqn{x} values cannot render the extracted data points on the egg's profile to be regular. For the planar coordinate data 
+extracted using the protocols of Shi et al. (2015, 2018), the data points are more regularly distributed on the egg's profile (perimeter) 
+than those of Biggins et al. (2018), although the \eqn{x} values of the data points along the mid-line are not equidistant. 
 }
 \value{
   \item{lm.tse}{the fitted results of the multiple linear regression.}
@@ -85,10 +98,6 @@ In press. \doi{10.1093/ornithology/ukac028}
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
-Li, N., Wang, L., Quinn, B.K., Gielis, J., Shi, P. (2022) A new program to estimate the parameters 
-of the Preston equation, a general formula for describing the egg shape of birds. \emph{Ecology and Evolution} 
-Under review.
-
 Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 
@@ -98,13 +107,25 @@ Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., R
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
+Shi, P., Huang, J., Hui, C., Grissino-Mayer, H.D., Tardif, J., Zhai, L., Wang, F., Li, B. (2015) 
+Capturing spiral radial growth of conifers using the superellipse to model tree-ring geometric shape. 
+\emph{Frontiers in Plant Science} 6, 856. \doi{10.3389/fpls.2015.00856}
+
 Shi, P., Niinemets, Ü., Hui, C., Niklas, K.J., Yu, X., Hölscher, D. (2020) 
 Leaf bilateral symmetry and the scaling of the perimeter vs. the surface area in 15 vine species. 
 \emph{Forests} 11, 246. \doi{10.3390/f11020246}
 
-Shi, P., Zheng, X., Ratkowsky, D.A., Li, Y., Wang, P., Cheng, L. (2018)  
-A simple method for measuring the bilateral symmetry of leaves. 
-\emph{Symmetry} 10, 118. \doi{10.3390/sym10040118}
+Shi, P., Ratkowsky, D.A., Li, Y., Zhang, L., Lin, S., Gielis, J. (2018) General leaf-area geometric 
+formula exists for plants - Evidence from the simplified Gielis equation. 
+\emph{Forests} 9, 714. \doi{10.3390/f9110714}
+
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2022) A new program to estimate the parameters 
+of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
+Under review.
+
+Su, J., Niklas, K.J., Huang, W., Yu, X., Yang, Y., Shi, P. (2019) 
+Lamina shape does not correlate with lamina surface area: An analysis based on the simplified Gielis equation. 
+\emph{Global Ecology and Conservation} 19, e00666. \doi{10.1016/j.gecco.2019.e00666}
 
 Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}
@@ -165,5 +186,6 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
 
 }
 
+graphics.off()
 }
 

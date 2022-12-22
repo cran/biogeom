@@ -18,33 +18,33 @@ TSE(P, x, simpver = NULL)
 }
 \details{
 When \code{simpver = NULL}, the original Preston equation is selected: 
-\deqn{y = d_{0}z_{0} + d_{1}z_{1} + d_{2}z_{2} + d_{3}z_{3}}
+\deqn{y = d_{0}z_{0} + d_{1}z_{1} + d_{2}z_{2} + d_{3}z_{3},}
 where 
-\deqn{z_{0}=\sqrt{1-x^2}}
-\deqn{z_{1}=x\sqrt{1-x^2}}
-\deqn{z_{2}=x^{2}\sqrt{1-x^2}}
-\deqn{z_{3}=x^{3}\sqrt{1-x^2}}
+\deqn{z_{0}=\sqrt{1-x^2},}
+\deqn{z_{1}=x\sqrt{1-x^2},}
+\deqn{z_{2}=x^{2}\sqrt{1-x^2},}
+\deqn{z_{3}=x^{3}\sqrt{1-x^2}.}
 Here, \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Todd-Smart curve; 
 \eqn{d_{0}}, \eqn{d_{1}}, \eqn{d_{2}}, and \eqn{d_{3}} are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
-\deqn{y = d_{0}z_{0} + d_{1}z_{1} + d_{2}z_{2}}
+\deqn{y = d_{0}z_{0} + d_{1}z_{1} + d_{2}z_{2},}
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Todd-Smart curve; 
 \eqn{d_{0}}, \eqn{d_{1}}, and \eqn{d_{2}} are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{y = d_{0}z_{0} + d_{1}z_{1}} 
+\deqn{y = d_{0}z_{0} + d_{1}z_{1},} 
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Todd-Smart curve; 
 \eqn{d_{0}}, and \eqn{d_{1}} are parameters to be estimated.
 
 \eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
-\deqn{y = d_{0}z_{0} + d_{2}z_{2}}
+\deqn{y = d_{0}z_{0} + d_{2}z_{2},}
 where \eqn{x} and \eqn{y} represent the abscissa and ordinate of an arbitrary point on the Todd-Smart curve; 
 \eqn{d_{0}}, and \eqn{d_{2}} are parameters to be estimated.
 
 }
 \value{
-  \item{y}{the \eqn{y} value(s) of the Todd-Smart curve corresponding to the given \eqn{x} value(s).}
+The \eqn{y} values predicted by the Todd-Smart equation.
 }
 \note{
 Here, \eqn{x} and \eqn{y} in the Todd-Smart equation are actually equal to \eqn{y/a} 
@@ -90,5 +90,7 @@ Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theo
   plot(xb1, yb1, asp=1, type="l", col=2, ylim=c(-1, 1), cex.lab=1.5, cex.axis=1.5, 
     xlab=expression(italic(x)), ylab=expression(italic(y)))
   lines(xb2, yb2, col=4)
+
+  graphics.off()
 }
 

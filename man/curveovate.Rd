@@ -81,4 +81,6 @@ dev.new()
 plot(RE1$x, RE1$y, cex.lab=1.5, cex.axis=1.5, type="l", 
   xlab=expression(italic("x")), ylab=expression(italic("y"))) 
 lines(RE2$x, RE2$y, col=4)
+
+graphics.off()
 }

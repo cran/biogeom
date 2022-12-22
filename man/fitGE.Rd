@@ -100,7 +100,8 @@ between spatial density of plants and total leaf area per plant. \emph{Ecology a
 4578-4589. \doi{10.1002/ece3.1728}
 }
 \seealso{
-\code{\link{areaGE}}, \code{\link{curveGE}}, \code{\link{GE}}, \code{\link{TGE}}
+\code{\link{areaGE}}, \code{\link{curveGE}}, \code{\link{DSGE}}, \code{\link{GE}}, 
+\code{\link{SurfaceAreaSGE}}, \code{\link{TGE}}, \code{\link{VolumeSGE}}
 }
 \examples{
 data(eggs)
@@ -186,6 +187,14 @@ points( x3, y3, col=2)
   }
   RSS   <- sum((yy1-yv1[ind3])^2) + sum((yy2-yv2[ind4])^2)
   RMSE  <- sqrt( RSS/length(yy) )
+
+
+  # To calculate the volume of the Gielis egg when simpver=1 & m=1
+  VolumeSGE(P=Res4$par[4:6])
+
+  # To calculate the surface area of the Gielis egg when simpver=1 & m=1
+  SurfaceAreaSGE(P=Res4$par[4:6])
 }
 
+graphics.off()
 }

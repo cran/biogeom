@@ -9,7 +9,7 @@ Parameter Estimation for the Narushin-Romanov-Griffin Equation
 }
 \usage{
 fitNRGE(x, y, dev.angle = NULL, ini.C = c(-1, 0.1, 0.5, 1), 
-        strip.num = 2000, control = list(), fig.opt = TRUE, 
+        strip.num = 2000, control = list(), fig.opt = TRUE, np = 2000,
         xlim = NULL, ylim = NULL, unit = NULL, main = NULL)
 }
 \arguments{
@@ -22,6 +22,7 @@ on an egg's profile from the mid-line of the egg's profile.}
 the egg's boundary that are horizontally placed. See Shi et al. (2018, 2020) for details.}  
   \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
   \item{fig.opt}{an optional argument to draw the observed and predicted egg's boundaries.}
+  \item{np}{the number of data points on the predicted Narushin-Romanov-Griffin curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Narushin-Romanov-Griffin curve.}
   \item{ylim}{the range of the \eqn{y}-axis over which to plot the Narushin-Romanov-Griffin curve.}
   \item{unit}{the units of the \eqn{x}-axis and the \eqn{y}-axis when showing the Narushin-Romanov-Griffin curve.}
@@ -45,10 +46,10 @@ the longest axis adjustment method is used. Here, the numerical value of \code{d
 the angle of deviation for the major axis of an egg's profile from the \eqn{x}-axis, and instead it is the angle of deviation  
 for the longest axis (associated with the maximum distance between two points on the egg's profile) from the mid-line of the egg's profile. 
 Once the major axis is established, the distance of the major axis can be calculated as the estimate of \eqn{A}. 
-Using the maximum distance method, \eqn{A} equals the maximum distance. Using the SGE major axis approximation method, 
-\eqn{A} may be slightly smaller than the true distance. After rotating the major axis to make it overlap with the \eqn{x}-axis, 
+Using the maximum distance method, \eqn{A} equals the maximum distance. Using the longest axis adjustment method, 
+\eqn{A} may be slightly smaller than the maximum distance. After rotating the major axis to make it overlap with the \eqn{x}-axis, 
 a large number of equidistant strips can be used (e.g., 2000) from the egg base to egg tip to intersect the egg's boundary. 
-This methodology makes it easy to obtain the maximum egg width (i.e., \eqn{B}) and \eqn{D}. The residual sum of squares (RSS) 
+This methodology makes it easy to obtain the maximum egg's breadth (i.e., \eqn{B}) and \eqn{D}. The residual sum of squares (RSS) 
 between the observed and predicted \eqn{y} values can be minimized using an optimization method (Nelder and Mead, 1965) to estimate \eqn{C}. 
 Despite the complex structure of NRGE (see \code{\link{NRGE}}), the optimization method for estimating the remaining parameter \eqn{C} 
 becomes feasible after the other three parameters have been numerically estimated. Please see Shi et al. (2022) for details.
@@ -76,7 +77,8 @@ the egg's boundary.}
 \code{theta} is the calculated angle between the longest axis (i.e., the axis associated with the maximum distance 
 between two points on an egg's profile) and the \eqn{x}-axis, and \code{epsilon} is the calculated angle of deviation for the longest 
 axis from the mid-line of the egg's profile. This means that the angle between the mid-line and the \eqn{x}-axis is equal to 
-\code{theta} + \code{epsilon}. 
+\code{theta} + \code{epsilon}. In the outputs, there is no \code{x.pred}, because \code{y.obs} and 
+\code{y.pred} share the same \eqn{x} values (i.e., \code{x.obs}).
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -140,7 +142,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
 
   Res3 <- fitNRGE(x1, y1, dev.angle=seq(-0.05, 0.05, by=0.01), 
                   ini.C=c(-1, -0.1, seq(0.1, 1, by=0.05)), 
-                  strip.num=2000, fig.opt=TRUE) 
+                  strip.num=2000, fig.opt=TRUE)   
 
   zeta <- Res3$theta + Res3$epsilon
   x2   <- x1*cos(zeta) + y1*sin(zeta)
@@ -149,7 +151,17 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5,
         xlab=expression(italic("x")), ylab=expression(italic("y")) )  
   lines(Res3$x.obs-min(Res3$x.obs), Res3$y.obs-min(Res3$y.obs), col=4)
   lines(Res3$x.obs-min(Res3$x.obs), Res3$y.pred-min(Res3$y.obs), col=2)
+
+  RMSE <- sqrt( Res3$RSS / Res3$sample.size )
+  RMSE
+
+  # To calculate the volume of the egg 
+  VolumeNRGE(P=Res3$par)
+
+  # To calculate the surface area of the egg
+  SurfaceAreaNRGE(P=Res3$par)
 }
 
+graphics.off()
 }
 

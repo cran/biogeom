@@ -101,5 +101,5 @@ dev.new()
 plot( x3, y3,cex.lab=1.5, cex.axis=1.5, type="l",
       xlab=expression(italic(x)), ylab=expression(italic(y)) )
  
-
+graphics.off()
 }

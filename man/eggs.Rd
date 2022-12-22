@@ -48,7 +48,6 @@ plot( x1, y1, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
       xlab=expression(italic("x")), ylab=expression(italic("y")),
       pch=1, col=1 ) 
 
-
 Res2 <- adjdata(x0, y0, ub.np=60, times=1, len.pro=1/2, index.sp=20)
 x2   <- Res2$x
 y2   <- Res2$y
@@ -63,4 +62,5 @@ plot( x2, y2, asp=1, cex.lab=1.5, cex.axis=1.5,
       pch=1, col=4 ) 
 points( x3, y3, col=2)
 
+graphics.off()
 }
