@@ -93,7 +93,7 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 \references{
 Biggins, J.D., Montgomeries, R.M., Thompson, J.E., Birkhead, T.R. (2022) 
 Preston’s universal formula for avian egg shape. \emph{Ornithology} 
-In press. \doi{10.1093/ornithology/ukac028}
+139, ukac028. \doi{10.1093/ornithology/ukac028}
 
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
@@ -119,9 +119,9 @@ Shi, P., Ratkowsky, D.A., Li, Y., Zhang, L., Lin, S., Gielis, J. (2018) General 
 formula exists for plants - Evidence from the simplified Gielis equation. 
 \emph{Forests} 9, 714. \doi{10.3390/f9110714}
 
-Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2022) A new program to estimate the parameters 
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2023) A new program to estimate the parameters 
 of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
-Under review.
+15, 231. \doi{10.3390/sym15010231}
 
 Su, J., Niklas, K.J., Huang, W., Yu, X., Yang, Y., Shi, P. (2019) 
 Lamina shape does not correlate with lamina surface area: An analysis based on the simplified Gielis equation. 

@@ -56,9 +56,13 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
-Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
-Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
-\emph{Annals of the New York Academy of Sciences} Under preparation.
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2023) 
+A simple way to calculate the volume and surface area of avian eggs. 
+\emph{Annals of the New York Academy of Sciences} 1524, 118\eqn{-}131. \doi{10.1111/nyas.15000}
+
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2023) A new program to estimate the parameters 
+of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
+15, 231. \doi{10.3390/sym15010231}
 }
 \seealso{
 \code{\link{curveEPE}}, \code{\link{fitEPE}}, \code{\link{PE}}, \code{\link{SurfaceAreaEPE}}, \code{\link{VolumeEPE}}

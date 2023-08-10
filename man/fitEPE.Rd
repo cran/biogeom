@@ -81,17 +81,17 @@ Nelder, J.A., Mead, R. (1965) A simplex method for function minimization.
 
 Preston, F.W. (1953) The shapes of birds' eggs. \emph{The Auk} 70, 160\eqn{-}182.
 
-Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
-Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
-\emph{Annals of the New York Academy of Sciences} Under preparation.
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2023) 
+A simple way to calculate the volume and surface area of avian eggs. 
+\emph{Annals of the New York Academy of Sciences} 1524, 118\eqn{-}131. \doi{10.1111/nyas.15000}
 
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
-Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2022) A new program to estimate the parameters 
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2023) A new program to estimate the parameters 
 of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
-Under review.  
+15, 231. \doi{10.3390/sym15010231} 
 
 Todd, P.H., Smart, I.H.M. (1984) The shape of birds' eggs. \emph{Journal of Theoretical Biology} 
 106, 239\eqn{-}243. \doi{10.1016/0022-5193(84)90021-3}

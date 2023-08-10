@@ -58,8 +58,8 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
 Biggins, J.D., Montgomeries, R.M., Thompson, J.E., Birkhead, T.R. (2022) 
-Preston’s universal formula for avian egg shape. \emph{Ornithology} 
-In press. \doi{10.1093/ornithology/ukac028}
+Preston's universal formula for avian egg shape. \emph{Ornithology} 
+139, ukac028. \doi{10.1093/ornithology/ukac028}
 
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}

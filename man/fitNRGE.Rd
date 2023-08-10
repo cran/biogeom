@@ -103,7 +103,7 @@ Shi, P., Niinemets, Ü., Hui, C., Niklas, K.J., Yu, X., Hölscher, D. (2020)
 Leaf bilateral symmetry and the scaling of the perimeter vs. the surface area in 15 vine species. 
 \emph{Forests} 11, 246. \doi{10.3390/f11020246}
 
-Shi, P., Zheng, X., Ratkowsky, D.A., Li, Y., Wang, P., Cheng, L. (2018)  
+Shi, P., Zheng, X., Ratkowsky, D.A., Li, Y., Wang, P., Cheng, L. (2018) 
 A simple method for measuring the bilateral symmetry of leaves. 
 \emph{Symmetry} 10, 118. \doi{10.3390/sym10040118}
 

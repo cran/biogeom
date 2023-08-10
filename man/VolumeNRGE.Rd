@@ -43,9 +43,9 @@ Narushin, V.G., Romanov, M.N., Mishra, B., Griffin, D.K. (2022) Mathematical pro
 avian egg shape with associated area and volume determinations. 
 \emph{Annals of the New York Academy of Sciences} 1513, 65\eqn{-}78. \doi{10.1111/nyas.14771}
 
-Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2022) 
-Can we simply calculate the volume and surface area of an egg? Evidence from six species of poultry. 
-\emph{Annals of the New York Academy of Sciences} Under preparation.
+Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2023) 
+A simple way to calculate the volume and surface area of avian eggs. 
+\emph{Annals of the New York Academy of Sciences} 1524, 118\eqn{-}131. \doi{10.1111/nyas.15000}
 }
 \seealso{
 \code{\link{curveNRGE}}, \code{\link{fitNRGE}}, \code{\link{NRGE}}, \code{\link{SurfaceAreaNRGE}}

@@ -37,8 +37,8 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
 Biggins, J.D., Montgomeries, R.M., Thompson, J.E., Birkhead, T.R. (2022) 
-Preston’s universal formula for avian egg shape. \emph{Ornithology} 
-In press. \doi{10.1093/ornithology/ukac028}
+Preston's universal formula for avian egg shape. \emph{Ornithology} 
+139, ukac028. \doi{10.1093/ornithology/ukac028}
 
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
@@ -50,9 +50,9 @@ Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., R
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 
-Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2022) A new program to estimate the parameters 
+Shi, P., Wang, L., Quinn, B.K., Gielis, J. (2023) A new program to estimate the parameters 
 of Preston's equation, a general formula for describing the egg shape of birds. \emph{Symmetry} 
-Under review.
+15, 231. \doi{10.3390/sym15010231}
 
 Troscianko, J. (2014). A simple tool for calculating egg shape, volume and surface area from digital images. 
 \emph{Ibis}, 156, 874\eqn{-}878. \doi{10.1111/ibi.12177} 
