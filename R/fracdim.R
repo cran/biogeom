@@ -86,7 +86,7 @@ fracdim <- function(x, y,  frac.fig = TRUE,
       dev.new()
       plot( log.x, log.y, cex.lab=1.5, cex.axis=1.5, cex=1.5, xaxs="i", yaxs="i",
             xlim=xlim0, ylim=ylim0, las=1,
-            xlab=expression(paste("ln ", italic("\u03B4"), {""}^{-"1"}, sep="")), 
+            xlab=expression(paste("ln ", delta, {""}^{-"1"}, sep="")), 
             ylab=expression(paste("ln ", italic("N"), sep="")) )
       title(main=main, cex.main=1.5, col.main=4, font.main=1)
       abline( resu, col=2 )   

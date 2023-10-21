@@ -1,4 +1,4 @@
-40428d9ece44ab286f727e17a6b0584a *DESCRIPTION
+08ffb1ff79ffae52e79d6ecc9114078c *DESCRIPTION
 9382d1379e1035b0312af9468471050d *NAMESPACE
 b0036f45a430289d6ada27a60313dd7a *R/DEPE.R
 0d68018d39e3e4f3190ddb9a1dbfa9ec *R/DETE.R
@@ -26,7 +26,7 @@ cd9d18d511c82939b079ed2c33c6d731 *R/VolumeSGE.R
 f4866c62da38e1bd5cb1120ff515699a *R/adjdata.R
 8ac7574cf695e447847180df394fae0d *R/areaGE.R
 77066526b21bf0719063fb6a3efac069 *R/areaovate.R
-28ec3692b7ce3c5c5c004072d15daf7b *R/bilat.R
+082f46af706eb728ace20a870d13ea7b *R/bilat.R
 613fe2560357612a05d146cc93fdae2d *R/curveEPE.R
 d6a11a529731397025a69f7e054f26e2 *R/curveETE.R
 982f3e8e3a60407dffb565c1e0ee730b *R/curveGE.R
@@ -39,11 +39,11 @@ d7a5d8cd8c70a50e949fa062fa9044cf *R/fitETE.R
 27993da21c86f8e4a4f7ee84e4b78ad6 *R/fitSuper.R
 0ec4008dd870c20af6b5eb311303d6d1 *R/fitovate.R
 e942a9bd2d2cc0bf54c78388e8b28393 *R/fitsigmoid.R
-d433e1ca7de8627c79b3e163975c5ace *R/fracdim.R
+236e54a6eedac23c47e92ad9b09517f8 *R/fracdim.R
 0fb9c487c99b9d4c8beb911358570a93 *R/lmPE.R
 d0ac1a9a60f60e7376ac01b42061a1f6 *R/lmTE.R
 8a1ac0fdbc4d3970a7680db38f4b5a51 *R/sigmoid.R
-2339b623330dd5a3edc4870069a1c8c9 *build/partial.rdb
+cd7c23c0c4d0010fbc846117ea7cedcb *build/partial.rdb
 e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 96431e49b9e170690f33f1f6c47cad02 *data/bambooleaves.rda
 845b1ff4c417eaa1605d948685983d0d *data/eggs.rda
