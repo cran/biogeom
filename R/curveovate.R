@@ -11,7 +11,7 @@ curveovate <- function(expr, P, x, fig.opt = FALSE,
   PAR      <- P[4:p] 
   UpperFun <- function(P, x){
     z1    <- sort(x, decreasing=TRUE, index.return=TRUE)$x
-    temp1 <- expr(P, z1) 
+    temp1 <- expr(P, z1, simpver=1) 
     Temp  <- cbind(z1, temp1)
     Temp  <- na.omit(Temp)
     x     <- Temp[,1]
@@ -20,7 +20,7 @@ curveovate <- function(expr, P, x, fig.opt = FALSE,
   }
   LowerFun <- function(P, x){
     z1    <- sort(x, decreasing=FALSE, index.return=TRUE)$x
-    temp1 <- expr(P, z1) 
+    temp1 <- expr(P, z1, simpver=1) 
     temp2 <- -temp1
     Temp  <- cbind(z1, temp2)
     Temp  <- na.omit(Temp)

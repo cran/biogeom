@@ -62,7 +62,8 @@ Shi, P., Yu, K., Niklas, K.J., Schrader, J., Song, Y., Zhu, R., Li, Y., Wei, H.,
 A general model for describing the ovate leaf shape. \emph{Symmetry} 13, 1524. \doi{10.3390/sym13081524}
 }
 \seealso{
-\code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}, \code{\link{sigmoid}}
+\code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, 
+\code{\link{MLRFE}}, \code{\link{MPerformanceE}}, \code{\link{sigmoid}}
 }
 \examples{
 Par1 <- c(1.8175, 2.7795, 7.1557, 1.6030)
@@ -73,4 +74,7 @@ areaovate(MBriereE, P = Par2, simpver = 1)
 
 Par3 <- c(1.8168, 2.7967, 7.2623, 0.9662)
 areaovate(MLRFE, P = Par3, simpver = 1)
+
+Par4 <- c(2.4, 0.96, 0.64, 7.75, 1.76, 3.68)
+areaovate(MPerformanceE, P = Par4, simpver = 1)
 }

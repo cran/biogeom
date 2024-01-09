@@ -19,39 +19,39 @@ MBriereE(P, x, simpver = 1)
 \details{
 
 When \code{simpver = NULL}, the modified Brière equation is selected: 
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = a\left|x(x-x_{\mathrm{min}})(x_{\mathrm{max}}-x)^{1/m}\right|^{\delta};}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 Here, \eqn{x} and \eqn{y} represent the independent and dependent variables, respectively; 
-and \eqn{a}, \eqn{m}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}} are constants to be estimated, 
+and \eqn{a}, \eqn{m}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta} are constants to be estimated, 
 where \eqn{x_{\mathrm{min}}} and \eqn{x_{\mathrm{max}}} represents the 
 lower and upper intersections between the curve and the \eqn{x}-axis. \eqn{y} is defined as 0 
 when \eqn{x < x_{\mathrm{min}}} or \eqn{x > x_{\mathrm{max}}}. There are five elements in \code{P}, representing 
 the values of \eqn{a}, \eqn{m}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
-When \code{simpver = 1}, the simplified version 1 is selected:
-\deqn{\mbox{if } x \in{\left(0, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
+\deqn{\mbox{if } x \in{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = a\left|x^{2}(x_{\mathrm{max}}-x)^{1/m}\right|^{\delta};}
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P}, representing 
 the values of \eqn{a}, \eqn{m}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
 
-When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = ax(x-x_{\mathrm{min}})(x_{\mathrm{max}}-x)^{1/m};}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P} representing 
 the values of \eqn{a}, \eqn{m}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}}, respectively.
 
 
-When \code{simpver = 3}, the simplified version 3 is selected: 
-\deqn{\mbox{if } x \in{\left(0, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected: 
+\deqn{\mbox{if } x \in{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = ax^{2}(x_{\mathrm{max}}-x)^{1/m};}
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are three elements in \code{P} representing 
 the values of \eqn{a}, \eqn{m}, and \eqn{x_{\mathrm{max}}}, respectively.
@@ -82,7 +82,8 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \seealso{
-\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{MbetaE}}, \code{\link{MLRFE}}, \code{\link{sigmoid}}
+\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{fitsigmoid}}, 
+\code{\link{MbetaE}}, \code{\link{MLRFE}}, \code{\link{MPerformanceE}}, \code{\link{sigmoid}}
 }
 \examples{
 x2   <- seq(-5, 15, len=2000)

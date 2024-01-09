@@ -19,12 +19,12 @@ MbetaE(P, x, simpver = 1)
 \details{
 
 When \code{simpver = NULL}, the modified beta equation is selected: 
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}{ \left[\left(\frac{x_{\mathrm{max}}-x}{x_{\mathrm{max}}-x_{\mathrm{opt}}}\right)\left(\frac{x-x_{\mathrm{min}}}{x_{\mathrm{opt}}-x_{\mathrm{min}}}\right)^{\frac{x_{\mathrm{opt}}-x_{\mathrm{min}}}{x_{\mathrm{max}}-x_{\mathrm{opt}}}} \right] }^{\delta};}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 Here, \eqn{x} and \eqn{y} represent the independent and dependent variables, respectively; 
-\eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}} are constants to be estimated;  
+\eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta} are constants to be estimated;  
 \eqn{y_{\mathrm{opt}}} represents the maximum \eqn{y}, and \eqn{x_{\mathrm{opt}}} is the \eqn{x} value associated with 
 the maximum \eqn{y} (i.e., \eqn{y_{\mathrm{opt}}}); 
 and \eqn{x_{\mathrm{min}}} and \eqn{x_{\mathrm{max}}} represent the 
@@ -32,28 +32,28 @@ lower and upper intersections between the curve and the \eqn{x}-axis. \eqn{y} is
 when \eqn{x < x_{\mathrm{min}}} or \eqn{x > x_{\mathrm{max}}}. There are five elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
-When \code{simpver = 1}, the simplified version 1 is selected:
-\deqn{\mbox{if } x \in{\left(0, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
+\deqn{\mbox{if } x \in{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}{ \left[\left(\frac{x_{\mathrm{max}}-x}{x_{\mathrm{max}}-x_{\mathrm{opt}}}\right)\left(\frac{x}{x_{\mathrm{opt}}}\right)^{\frac{x_{\mathrm{opt}}}{x_{\mathrm{max}}-x_{\mathrm{opt}}}} \right] }^{\delta};}
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
 
-When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}{ \left(\frac{x_{\mathrm{max}}-x}{x_{\mathrm{max}}-x_{\mathrm{opt}}}\right)\left(\frac{x-x_{\mathrm{min}}}{x_{\mathrm{opt}}-x_{\mathrm{min}}}\right)^{\frac{x_{\mathrm{opt}}-x_{\mathrm{min}}}{x_{\mathrm{max}}-x_{\mathrm{opt}}}} };}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}}, respectively.
 
 
-When \code{simpver = 3}, the simplified version 3 is selected:
-\deqn{\mbox{if } x \in{\left(0, x_{\mathrm{max}}\right)},}
+\eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
+\deqn{\mbox{if } x \in{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}{ \left(\frac{x_{\mathrm{max}}-x}{x_{\mathrm{max}}-x_{\mathrm{opt}}}\right)\left(\frac{x}{x_{\mathrm{opt}}}\right)^{\frac{x_{\mathrm{opt}}}{x_{\mathrm{max}}-x_{\mathrm{opt}}}} }; } 
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are three elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, and \eqn{x_{\mathrm{max}}}, respectively.
@@ -78,7 +78,8 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 We have added a parameter \eqn{\delta} in the original beta equation (i.e., \code{simpver = 2}) to increase the flexibility for data fitting.
 }
 \seealso{
-\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}, \code{\link{sigmoid}}
+\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{fitsigmoid}}, 
+\code{\link{MBriereE}}, \code{\link{MLRFE}}, \code{\link{MPerformanceE}}, \code{\link{sigmoid}}
 }
 \examples{
 x1   <- seq(-5, 15, len=2000)

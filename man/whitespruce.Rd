@@ -33,7 +33,7 @@ Res1  <- adjdata(x0, y0, ub.np=2000, len.pro=1/20)
 
 plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l", 
       xlim=c(3, 13), ylim=c(3, 13), col="grey73", lwd=2,
-      xlab=expression(italic("x")), ylab=expression(italic("y")) )
+      xlab=expression(italic(x)), ylab=expression(italic(y)) )
 
 \donttest{
 
@@ -48,7 +48,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
     if(i == 1){
       plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l", 
             xlim=c(3, 13), ylim=c(3, 13), col=1, lwd=1,
-            xlab=expression(italic("x")), ylab=expression(italic("y")) )
+            xlab=expression(italic(x)), ylab=expression(italic(y)) )
     }
     if(i > 1) lines(Res1$x, Res1$y, col=1, lwd=1)
    
@@ -95,7 +95,7 @@ plot( Res1$x, Res1$y, asp=1, cex.lab=1.5, cex.axis=1.5, type="l",
       if(i == 1){
         plot(H$x.obs, H$y.obs, asp=1, xlim=c(7.4, 8.6), ylim=c(7.4, 8.6),
              cex.lab=1.5, cex.axis=1.5, type="l", lwd=2, col="grey70",
-             xlab=expression(italic("x")), ylab=expression(italic("y")))
+             xlab=expression(italic(x)), ylab=expression(italic(y)))
         lines(H$x.pred, H$y.pred, col=2)         
       } 
       if(i > 1){

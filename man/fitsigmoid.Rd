@@ -44,9 +44,10 @@ The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optim
 sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link{optim}} 
 function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 The performance equations denote \code{\link{MbetaE}}, \code{\link{MBriereE}}, 
-\code{\link{MLRFE}} and their simplified versions. 
+\code{\link{MLRFE}}, \code{\link{MPerformanceE}} and their simplified versions. 
 The arguments of \code{P} and \code{simpver} should correspond 
-to \code{expr} (i.e., \code{\link{MbetaE}} or \code{\link{MBriereE}} or \code{\link{MLRFE}}). 
+to \code{expr} (i.e., \code{\link{MbetaE}} or \code{\link{MBriereE}} 
+or \code{\link{MLRFE}} or \code{\link{MPerformanceE}}). 
 The sigmoid equation is the integral of a performance equation or one of its simplified versions.
 }
 \value{
@@ -62,7 +63,8 @@ The sigmoid equation is the integral of a performance equation or one of its sim
 Here, the user can define other performance equations, but new equations or 
 their simplified versions should include the lower and upper thresholds on 
 the \eqn{x}-axis corresponding to \eqn{y = 0}, whose indices should 
-be the same as those in \code{\link{MbetaE}} or \code{\link{MBriereE}} or \code{\link{MLRFE}}.
+be the same as those in \code{\link{MbetaE}} or \code{\link{MBriereE}} 
+or \code{\link{MLRFE}} or \code{\link{MPerformanceE}}.
 }
 \author{
 Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerpen.be}, 
@@ -71,6 +73,10 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 \references{
 Jin, J., Quinn, B.K., Shi, P. (2022) The modified Brière equation and its 
 applications. \emph{Plants} 11, 1769. \doi{10.3390/plants11131769}
+
+Lian, M., Shi, P., Zhang, L., Yao, W., Gielis, J., Niklas, K.J. (2023) A generalized performance equation 
+and its application in measuring the Gini index of leaf size inequality. 
+\emph{Trees \eqn{-} Structure and Function} 37, 1555\eqn{-}1565. \doi{10.1007/s00468-023-02448-8}
 
 Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
@@ -84,7 +90,8 @@ Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitti
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
 }
 \seealso{
-\code{\link{areaovate}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}, \code{\link{sigmoid}}
+\code{\link{areaovate}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MLRFE}}, 
+\code{\link{MPerformanceE}}, \code{\link{sigmoid}}
 }
 \examples{
 
@@ -103,21 +110,39 @@ ini.val <- list(0.035, xopt0, 200, 1)
 resu1   <- fitsigmoid(MLRFE, x=t0, y=m0, ini.val=ini.val, simpver=1, fig.opt=TRUE, par.list=TRUE)
 
 \donttest{
+  xopt0   <- seq(100, 150, by=5)
+  ini.val <- list(0.035, xopt0, 200, 1)
+  resu1   <- fitsigmoid(MbetaE, x=t0, y=m0, ini.val=ini.val, simpver=1, fig.opt=TRUE)
+
+  m.ini   <- c(0.5, 1, 2, 3, 4, 5, 10, 20)
+  ini.val <- list(1e-8, m.ini, 200, 1)
+  resu2   <- fitsigmoid(MBriereE, x=t0, y=m0, ini.val=ini.val, simpver=1, 
+             fig.opt=TRUE, control=list(reltol=1e-20, maxit=20000, trace=FALSE), 
+             subdivisions=100L, rel.tol=.Machine$double.eps^0.25, 
+             abs.tol=.Machine$double.eps^0.25, stop.on.error=TRUE, 
+             keep.xy=FALSE, aux=NULL)
+
   delta0  <- c(0.5, 1, 2, 5, 10, 20)
   ini.val <- list(0.035, 150, -100, 200, delta0)
-  resu2   <- fitsigmoid(MLRFE, x=t0, y=m0, ini.val=ini.val, simpver=NULL, 
+  resu3   <- fitsigmoid(MLRFE, x=t0, y=m0, ini.val=ini.val, simpver=NULL, 
                fig.opt=TRUE, control=list(reltol=1e-20, maxit=20000), 
                subdivisions = 100L, rel.tol=.Machine$double.eps^0.25, 
                abs.tol=.Machine$double.eps^0.25, stop.on.error=TRUE, 
                keep.xy=FALSE, aux=NULL)
 
-  xopt0   <- seq(100, 150, by=5)
-  ini.val <- list(0.035, xopt0, 200, 1)
-  resu3   <- fitsigmoid(MbetaE, x=t0, y=m0, ini.val=ini.val, simpver=1, fig.opt=TRUE)
+  a.ini   <- c(0.1, 1, 10, 100, 200)
+  b.ini   <- 200
+  ini.val <- list(0.001, 0.02, 0.15, 0, 200, a.ini, b.ini)
+  resu4   <- fitsigmoid(MPerformanceE, x=t0, y=m0, ini.val=ini.val, simpver=NULL, 
+             fig.opt=TRUE, control=list(reltol=1e-20, maxit=20000, trace=FALSE), 
+             subdivisions=100L, rel.tol=.Machine$double.eps^0.25, 
+             abs.tol=.Machine$double.eps^0.25, stop.on.error=TRUE, 
+             keep.xy=FALSE, aux=NULL)
+  resu5   <- fitsigmoid(MPerformanceE, x=t0, y=m0, ini.val=resu4$par, simpver=NULL, 
+               fig.opt=TRUE, control=list(reltol=1e-30, maxit=200000, trace=FALSE))
 
-  m.ini   <- c(0.5, 1, 2, 3, 4, 5, 10, 20)
-  ini.val <- list(1e-8, m.ini, 200, 1)
-  resu3   <- fitsigmoid(MBriereE, x=t0, y=m0, ini.val=ini.val, simpver=1, 
+  ini.val <- list(0.001, 0.01, c(0.1, 1, 10), 0, 200)
+  resu6   <- fitsigmoid(MPerformanceE, x=t0, y=m0, ini.val=ini.val, simpver=2, 
              fig.opt=TRUE, control=list(reltol=1e-20, maxit=20000, trace=FALSE), 
              subdivisions=100L, rel.tol=.Machine$double.eps^0.25, 
              abs.tol=.Machine$double.eps^0.25, stop.on.error=TRUE, 

@@ -5,17 +5,22 @@ areaovate <- function(expr, P, simpver = NULL,
                abs.tol = rel.tol,
                stop.on.error = TRUE, keep.xy = FALSE, 
                aux = NULL){
-  
+
    area.fun <- function(x){
      2*expr(P, x=x, simpver=simpver)
    }
 
-   if(is.na(simpver)){
+   if(is.null(simpver) & !identical(expr, MPerformanceE)){
      Lower <- P[3]
      Upper <- P[4]
    }
 
-   if(!is.na(simpver)){
+   if(is.null(simpver) & identical(expr, MPerformanceE)){
+     Lower <- P[4]
+     Upper <- P[5]
+   }
+
+   if(!is.null(simpver) & !identical(expr, MPerformanceE)){
 
     if( !(simpver %in% seq(1, 3, by=1)) )
     stop("'simpver' should be chosen in versions 1 to 3!")  
@@ -27,6 +32,25 @@ areaovate <- function(expr, P, simpver = NULL,
     if(simpver==2){
       Lower <- P[3]
       Upper <- P[4]
+    }
+   }
+
+   if(!is.null(simpver) & identical(expr, MPerformanceE)){
+
+    if( !(simpver %in% seq(1, 5, by=1)) )
+    stop("'simpver' should be chosen in versions 1 to 5!")  
+  
+    if(simpver==1 | simpver==3){
+      Lower <- 0
+      Upper <- P[4]
+    }
+    if(simpver==2){
+      Lower <- P[4]
+      Upper <- P[5]
+    }
+    if(simpver==4 | simpver==5){
+      Lower <- 0
+      Upper <- sqrt(2)
     }
    }
 

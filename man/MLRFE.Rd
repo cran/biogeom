@@ -20,15 +20,15 @@ MLRFE(P, x, simpver = 1)
 
 When \code{simpver = NULL}, the modified LRF equation is selected: 
 
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}\right)},}
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ \frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}\right)},}
 \deqn{y = y_{\mathrm{opt}}\left\{\frac{\left(x-x_{\mathrm{min}}\right)\left(x-x_{\mathrm{max}}\right)^{2}}{\left(x_{\mathrm{max}}-x_{\mathrm{opt}}\right)\left[(x_{\mathrm{max}}-x_{\mathrm{opt}})(x-x_{\mathrm{opt}})-(x_{\mathrm{min}}-x_{\mathrm{opt}})(x_{\mathrm{opt}}+x_{\mathrm{max}}-2x)\right]}\right\}^{\delta};}
-\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}\left\{\frac{\left(x-x_{\mathrm{max}}\right)\left(x-x_{\mathrm{min}}\right)^{2}}{\left(x_{\mathrm{opt}}-x_{\mathrm{min}}\right)\left[(x_{\mathrm{opt}}-x_{\mathrm{min}})(x-x_{\mathrm{opt}})-(x_{\mathrm{opt}}-x_{\mathrm{max}})(x_{\mathrm{opt}}+x_{\mathrm{min}}-2x)\right]}\right\}^{\delta};}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 
 Here, \eqn{x} and \eqn{y} represent the independent and dependent variables, respectively; 
-\eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}} are constants to be estimated;  
+\eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta} are constants to be estimated;  
 \eqn{y_{\mathrm{opt}}} represents the maximum \eqn{y}, and \eqn{x_{\mathrm{opt}}} is the \eqn{x} value associated with 
 the maximum \eqn{y} (i.e., \eqn{y_{\mathrm{opt}}}); 
 and \eqn{x_{\mathrm{min}}} and \eqn{x_{\mathrm{max}}} represents the 
@@ -37,35 +37,35 @@ There are five elements in \code{P}, representing
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
 
-When \code{simpver = 1}, the simplified version 1 is selected:
+\eqn{\quad} When \code{simpver = 1}, the simplified version 1 is selected:
 
-\deqn{\mbox{if } x \in{\left(0, \frac{x_{\mathrm{max}}}{2}\right)},}
+\deqn{\mbox{if } x \in{\left(0, \ \frac{x_{\mathrm{max}}}{2}\right)},}
 \deqn{y = y_{\mathrm{opt}}\left\{\frac{x\left(x-x_{\mathrm{max}}\right)^{2}}{\left(x_{\mathrm{max}}-x_{\mathrm{opt}}\right)\left[(x_{\mathrm{max}}-x_{\mathrm{opt}})(x-x_{\mathrm{opt}})+x_{\mathrm{opt}}(x_{\mathrm{opt}}+x_{\mathrm{max}}-2x)\right]}\right\}^{\delta};}
-\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{max}}}{2}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{max}}}{2}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = y_{\mathrm{opt}}\left\{\frac{\left(x-x_{\mathrm{max}}\right)x^{2}}{x_{\mathrm{opt}}\left[x_{\mathrm{opt}}(x-x_{\mathrm{opt}})-(x_{\mathrm{opt}}-x_{\mathrm{max}})(x_{\mathrm{opt}}-2x)\right]}\right\}^{\delta};}
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{max}}}, and \eqn{\delta}, respectively.
 
 
-When \code{simpver = 2}, the simplified version 2 is selected:
-\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}\right)},}
+\eqn{\quad} When \code{simpver = 2}, the simplified version 2 is selected:
+\deqn{\mbox{if } x \in{\left(x_{\mathrm{min}}, \ \frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}\right)},}
 \deqn{y = \frac{y_{\mathrm{opt}}\left(x-x_{\mathrm{min}}\right)\left(x-x_{\mathrm{max}}\right)^{2}}{\left(x_{\mathrm{max}}-x_{\mathrm{opt}}\right)\left[(x_{\mathrm{max}}-x_{\mathrm{opt}})(x-x_{\mathrm{opt}})-(x_{\mathrm{min}}-x_{\mathrm{opt}})(x_{\mathrm{opt}}+x_{\mathrm{max}}-2x)\right]};}
-\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{min}}+x_{\mathrm{max}}}{2}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = \frac{y_{\mathrm{opt}}\left(x-x_{\mathrm{max}}\right)\left(x-x_{\mathrm{min}}\right)^{2}}{\left(x_{\mathrm{opt}}-x_{\mathrm{min}}\right)\left[(x_{\mathrm{opt}}-x_{\mathrm{min}})(x-x_{\mathrm{opt}})-(x_{\mathrm{opt}}-x_{\mathrm{max}})(x_{\mathrm{opt}}+x_{\mathrm{min}}-2x)\right]};}
-\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(x_{\mathrm{min}}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are four elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, \eqn{x_{\mathrm{min}}}, and \eqn{x_{\mathrm{max}}}, respectively.
 
 
-When \code{simpver = 3}, the simplified version 3 is selected:
-\deqn{\mbox{if } x \in{\left(0, \frac{x_{\mathrm{max}}}{2}\right)},}
+\eqn{\quad} When \code{simpver = 3}, the simplified version 3 is selected:
+\deqn{\mbox{if } x \in{\left(0, \ \frac{x_{\mathrm{max}}}{2}\right)},}
 \deqn{y = \frac{y_{\mathrm{opt}}x\left(x-x_{\mathrm{max}}\right)^{2}}{\left(x_{\mathrm{max}}-x_{\mathrm{opt}}\right)\left[(x_{\mathrm{max}}-x_{\mathrm{opt}})(x-x_{\mathrm{opt}})+x_{\mathrm{opt}}(x_{\mathrm{opt}}+x_{\mathrm{max}}-2x)\right]};}
-\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{max}}}{2}, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \in{\left[\frac{x_{\mathrm{max}}}{2}, \ x_{\mathrm{max}}\right)},}
 \deqn{y = \frac{y_{\mathrm{opt}}\left(x-x_{\mathrm{max}}\right)x^{2}}{x_{\mathrm{opt}}\left[x_{\mathrm{opt}}(x-x_{\mathrm{opt}})-(x_{\mathrm{opt}}-x_{\mathrm{max}})(x_{\mathrm{opt}}-2x)\right]};}
-\deqn{\mbox{if } x \notin{\left(0, x_{\mathrm{max}}\right)},}
+\deqn{\mbox{if } x \notin{\left(0, \ x_{\mathrm{max}}\right)},}
 \deqn{y = 0.}
 There are three elements in \code{P}, representing 
 the values of \eqn{y_{\mathrm{opt}}}, \eqn{x_{\mathrm{opt}}}, and \eqn{x_{\mathrm{max}}}, respectively.
@@ -90,7 +90,8 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \seealso{
-\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{sigmoid}}
+\code{\link{areaovate}}, \code{\link{curveovate}}, \code{\link{fitovate}}, \code{\link{fitsigmoid}}, 
+\code{\link{MbetaE}}, \code{\link{MBriereE}}, \code{\link{MPerformanceE}}, \code{\link{sigmoid}}
 }
 \examples{
 x3   <- seq(-5, 15, len=2000)
@@ -98,7 +99,7 @@ Par3 <- c(3, 3, 10, 2)
 y3   <- MbetaE(P=Par3, x=x3, simpver=1)
 
 dev.new()
-plot( x3, y3,cex.lab=1.5, cex.axis=1.5, type="l",
+plot( x3, y3, cex.lab=1.5, cex.axis=1.5, type="l",
       xlab=expression(italic(x)), ylab=expression(italic(y)) )
  
 graphics.off()

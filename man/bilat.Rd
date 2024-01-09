@@ -163,7 +163,7 @@ y0    <- Data$y
 
 dev.new()
 plot( x0, y0, asp=1, type="l", cex.lab=1.5, cex.axis=1.5, 
-      xlab=expression(italic("x")), ylab=expression(italic("y")) )
+      xlab=expression(italic(x)), ylab=expression(italic(y)) )
 
 Res1 <- adjdata(x0, y0, ub.np=2000, len.pro=1/20)
 x1   <- Res1$x

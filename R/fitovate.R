@@ -13,7 +13,7 @@ fitovate <- function(expr, x, y, ini.val,
 
     UpperFun <- function(P, x){
       z1    <- sort(x, decreasing=TRUE, index.return=TRUE)$x
-      temp1 <- expr(P, z1) 
+      temp1 <- expr(P, z1, simpver=1) 
       Temp  <- cbind(z1, temp1)
       Temp  <- na.omit(Temp)
       x     <- Temp[,1]
@@ -23,7 +23,7 @@ fitovate <- function(expr, x, y, ini.val,
 
     LowerFun <- function(P, x){
       z1    <- sort(x, decreasing=FALSE, index.return=TRUE)$x
-      temp1 <- expr(P, z1) 
+      temp1 <- expr(P, z1, simpver=1) 
       temp2 <- -temp1
       Temp  <- cbind(z1, temp2)
       Temp  <- na.omit(Temp)
@@ -72,17 +72,26 @@ fitovate <- function(expr, x, y, ini.val,
         x.obs   <- c(xx3, xx4)
         y.obs   <- c(yy3, yy4)
         Value   <- sum( (y.obs - y.theo)^2 )
-        #### Diminish the abnormal values of A, B and C ######
-        if(F){
-          if(expr==MLRFE | expr==MbetaE){
+        #### Diminishes the abnormal values ###################
+        if(identical(expr, MbetaE) | identical(expr, 
+            MLRFE) | identical(expr, MBriereE) ){
             A <- z[4]
             B <- z[5]
             C <- z[6]
-            D <- z[7]
-            if(A <= 0 | B < 0 | C < 0) 
-            Value <- sum( (y.obs)^2 ) 
+            if(A <= 0 | B < 0 | C <= 0) 
+            Value <- Inf 
           }
-        }
+
+        if(TRUE){
+          if( identical(expr, MPerformanceE) ){
+            A <- z[4] # c
+            B <- z[5] # K1
+            C <- z[6] # K2
+            D <- z[7] # xmax
+            if(A <= 0 | B < 0 | C < 0 | D <= 0) 
+            Value <- Inf 
+          }
+        }   
         ######################################################        
         return( Value )       
     }  
