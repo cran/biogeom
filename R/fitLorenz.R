@@ -94,8 +94,31 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
       xloc   <- xlim1[1] + (xlim1[2]-xlim1[1])*ratiox
       yloc   <- ylim1[2] - (ylim1[2]-ylim1[1])*ratioy
       xlim2  <- c(0, 1.5)
-      ylim2  <- c(0, 0.10)
 
+      ymax <- max(c(y, y2))[1]        
+      A1   <- 10^seq(-6, 1, by=1)
+      B1   <- A1*0.08
+      B2   <- A1*0.12
+      B3   <- A1*0.16
+      B4   <- A1*0.20
+      B5   <- A1*0.25
+      B6   <- A1*0.40
+      B7   <- A1*0.50
+      B8   <- A1*0.70
+      B9   <- A1*0.80   
+
+      for(i in 1:length(A1)){
+        if(ymax < B1[i])                { ylim2 <- c(0, B1[i]); break }
+        if(ymax >= B1[i] & ymax < B2[i]){ ylim2 <- c(0, B2[i]); break }
+        if(ymax >= B2[i] & ymax < B3[i]){ ylim2 <- c(0, B3[i]); break }
+        if(ymax >= B3[i] & ymax < B4[i]){ ylim2 <- c(0, B4[i]); break }
+        if(ymax >= B4[i] & ymax < B5[i]){ ylim2 <- c(0, B5[i]); break }
+        if(ymax >= B5[i] & ymax < B6[i]){ ylim2 <- c(0, B6[i]); break }
+        if(ymax >= B6[i] & ymax < B7[i]){ ylim2 <- c(0, B7[i]); break }
+        if(ymax >= B7[i] & ymax < B8[i]){ ylim2 <- c(0, B8[i]); break }
+        if(ymax >= B8[i] & ymax < B9[i]){ ylim2 <- c(0, B9[i]); break }
+        if(ymax >= B9[i] & ymax < A1[i]){ ylim2 <- c(0, A1[i]*1.2); break }
+      }  
 
       dev.new()
       layout( matrix(1:2, 1, 2, byrow=TRUE) )
@@ -107,9 +130,10 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
             xlab=xlab, ylab=ylab, 
             xlim=xlim1, ylim=ylim1, type="n" )
       polygon(x3, y3, col="grey70")
+      points(x1, y1, cex=1.5, pch=16)
       lines(x3, y3, col=2) 
       lines(c(0, 1), c(0, 1), col=1)
-      points(x1, y1, cex=1.5, pch=16)
+
 
       text(xloc, yloc, bquote(paste(hat(italic(c)), " = ", 
          .(round(par[1], 4)), sep="")), pos=4, cex=1.5, col=1)
@@ -142,8 +166,8 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
       plot(x, y, main=main, cex.lab=1.5, cex.axis=1.5,   
            las=1, xaxs="i", yaxs="i", xlab=expression(italic(x)), 
            ylab=expression(italic(y)), xlim=xlim2, ylim=ylim2, type="n")
-      lines(x2, y2, col=2, lty=1, lwd=1) 
       points(x, y, cex=1.5, pch=16)
+      lines(x2, y2, col=2, lty=1, lwd=1) 
 
     }
 
@@ -157,10 +181,3 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
     return(list( x1=x1, y1=y1, x=x, y=y, par=par, r.sq=r.sq, 
       RSS=RSS, sample.size=length(x), GC=GC) )
 }
-
-
-
-
-
-
-

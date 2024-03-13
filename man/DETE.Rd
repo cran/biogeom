@@ -19,7 +19,7 @@ The first-order derivative of the explicit Troscianko equation at a given \emph{
 
 \deqn{h(x) = \left\{\alpha_{1}+\frac{2\,\alpha_{2}}{a}\,x-\frac{x}{a}\,\left[1-\left(\frac{x}{a}\right)^2\right]^{-1}\right\}\,\exp\left\{\alpha_{0}+\alpha_{1}\left(\frac{x}{a}\right)+\alpha_{2}\left(\frac{x}{a}\right)^2\right\}\,\sqrt{ 1-\left(\frac{x}{a}\right)^2 }, }
 
-where \code{P} has five parameters: \eqn{a}, \eqn{\alpha_{0}}, \eqn{\alpha_{1}}, and \eqn{\alpha_{2}}.
+where \code{P} has four parameters: \eqn{a}, \eqn{\alpha_{0}}, \eqn{\alpha_{1}}, and \eqn{\alpha_{2}}.
 }
 \note{
 The argument \code{P} in the \code{\link{DETE}} function has the same parameters, as those in the 

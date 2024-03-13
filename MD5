@@ -1,4 +1,4 @@
-754468e6b64461c4d31c074c432128e2 *DESCRIPTION
+f33b3d1ebd6d11cf6a8e003e96c23655 *DESCRIPTION
 9382d1379e1035b0312af9468471050d *NAMESPACE
 b0036f45a430289d6ada27a60313dd7a *R/DEPE.R
 0d68018d39e3e4f3190ddb9a1dbfa9ec *R/DETE.R
@@ -36,7 +36,7 @@ ab1427a5db6d7d40123764d1fdbf8b83 *R/curveovate.R
 b38c283f9959b6f62469a308780c6f3b *R/fitEPE.R
 d7a5d8cd8c70a50e949fa062fa9044cf *R/fitETE.R
 35e34b50c6012355e3ed36a8f4513f15 *R/fitGE.R
-3ef21e044ebd1301f55066ee4b21e27f *R/fitLorenz.R
+9d868add68a5da1951ea03d26ed2e733 *R/fitLorenz.R
 20a8dc36d8dc5146c57ac8bebee73dbd *R/fitNRGE.R
 27993da21c86f8e4a4f7ee84e4b78ad6 *R/fitSuper.R
 de38f10aa94cf0f8741b7ccf0a662f1b *R/fitovate.R
@@ -45,7 +45,7 @@ af005a0a062ae883973421e9a1d82eff *R/fitsigmoid.R
 0fb9c487c99b9d4c8beb911358570a93 *R/lmPE.R
 d0ac1a9a60f60e7376ac01b42061a1f6 *R/lmTE.R
 944276de37e4a2aa753dbfd8ba27f4d0 *R/sigmoid.R
-7be46e2abe3642b9d721bbfe553b210b *build/partial.rdb
+8f03187ba2d1b900a7f1d4d38cbe63ea *build/partial.rdb
 560aa4b365ed4e612eea81eeb0ae0ef9 *data/LeafSizeDist.rda
 e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 96431e49b9e170690f33f1f6c47cad02 *data/bambooleaves.rda
@@ -57,7 +57,7 @@ e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 d110f19b6900e55218b5186812ae5c3b *data/veins.rda
 7cfa21f15060a0c2e7a66c21fb3fef68 *data/whitespruce.rda
 528f1afbebbdee30327bc4df1c0f108d *man/DEPE.Rd
-5a97ff229482e5fa7eccb492cdca0929 *man/DETE.Rd
+c25d4157aff5b5a000972bdd888844e2 *man/DETE.Rd
 0041d5ab62c859b2e8302b8af9d4623e *man/DNRGE.Rd
 0711be3b1776f2cbfb65844d05bd2018 *man/DSGE.Rd
 1a69445b3d064eee775356eb63025bf8 *man/EPE.Rd
