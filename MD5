@@ -1,4 +1,4 @@
-f33b3d1ebd6d11cf6a8e003e96c23655 *DESCRIPTION
+4e4543e65d2d4cd8a341305b636e0870 *DESCRIPTION
 9382d1379e1035b0312af9468471050d *NAMESPACE
 b0036f45a430289d6ada27a60313dd7a *R/DEPE.R
 0d68018d39e3e4f3190ddb9a1dbfa9ec *R/DETE.R
@@ -13,6 +13,9 @@ df6a6730c97de4c4434f168f59886120 *R/MLRFE.R
 02ae08252014a311a687b508575bc20d *R/MbetaE.R
 37b6fcb7d295608323fd125f5c8af3df *R/NRGE.R
 22bc44d900dfbde9ef1683e6905b9afd *R/PE.R
+24241b5990bbe8e2b6edd1d8327f50ae *R/SCSE.R
+e8b276ca11e4e7f4bf7f97dbe7a16f67 *R/SHE.R
+9e423d3b08296ca640dde41ac1b87af0 *R/SarabiaE.R
 f818b8068dc34e855ec002db88a5e0e0 *R/SurfaceAreaEPE.R
 4b2d153f93b29b0c29e4d97f0a5cf11f *R/SurfaceAreaETE.R
 2e4784bd6dbe6be2e58475e60ad95320 *R/SurfaceAreaNRGE.R
@@ -36,7 +39,7 @@ ab1427a5db6d7d40123764d1fdbf8b83 *R/curveovate.R
 b38c283f9959b6f62469a308780c6f3b *R/fitEPE.R
 d7a5d8cd8c70a50e949fa062fa9044cf *R/fitETE.R
 35e34b50c6012355e3ed36a8f4513f15 *R/fitGE.R
-9d868add68a5da1951ea03d26ed2e733 *R/fitLorenz.R
+8023b4011881736c3053644c91208552 *R/fitLorenz.R
 20a8dc36d8dc5146c57ac8bebee73dbd *R/fitNRGE.R
 27993da21c86f8e4a4f7ee84e4b78ad6 *R/fitSuper.R
 de38f10aa94cf0f8741b7ccf0a662f1b *R/fitovate.R
@@ -45,7 +48,7 @@ af005a0a062ae883973421e9a1d82eff *R/fitsigmoid.R
 0fb9c487c99b9d4c8beb911358570a93 *R/lmPE.R
 d0ac1a9a60f60e7376ac01b42061a1f6 *R/lmTE.R
 944276de37e4a2aa753dbfd8ba27f4d0 *R/sigmoid.R
-8f03187ba2d1b900a7f1d4d38cbe63ea *build/partial.rdb
+98ac5f5dd1b68ed50ce7e6f7fd771d40 *build/partial.rdb
 560aa4b365ed4e612eea81eeb0ae0ef9 *data/LeafSizeDist.rda
 e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 96431e49b9e170690f33f1f6c47cad02 *data/bambooleaves.rda
@@ -71,6 +74,9 @@ ebd5b49122a0064bca7ce9ff6e5bf34f *man/MbetaE.Rd
 cf7bb848b1b3d3000414e54884c672c7 *man/NRGE.Rd
 07d1f67d75c7299bdd50d945eb4925aa *man/Neocinnamomum.Rd
 1175dc0fdf89ab9974b0f67209637a55 *man/PE.Rd
+88829a362bc9969319bbbebad18e2db0 *man/SCSE.Rd
+61c750e14c1d8968358efe8688924c67 *man/SHE.Rd
+871e34fd82c3bac437f5621ec1b8d21a *man/SarabiaE.Rd
 7219c9b506f2228cce0d2daa317b1684 *man/SurfaceAreaEPE.Rd
 3c2a5d68ca4bb7f1d7d53d9c76f35b8e *man/SurfaceAreaETE.Rd
 f1ce92bf925b9d2dd7403411a3cca20e *man/SurfaceAreaNRGE.Rd
@@ -97,7 +103,7 @@ ad5fa1b8472b4e2431ddf945a8581b42 *man/eggs.Rd
 b39150afadcb4b68f12a5dec06c4a4ac *man/fitEPE.Rd
 a8e96c8ce8c23cb72dd75aed52ee5bbc *man/fitETE.Rd
 7ac47305f0eaf6487c045fb83d135021 *man/fitGE.Rd
-27cbad18c422056cd570ad43264470a7 *man/fitLorenz.Rd
+93dd19c79fcfbd34da4c08ea3142ab68 *man/fitLorenz.Rd
 f4e559d7294c27f590f810831bbe90c6 *man/fitNRGE.Rd
 4225f47c02105c76bd556eb61ee01028 *man/fitSuper.Rd
 efe4ade25c56839bf5d3a19f55246fac *man/fitovate.Rd
