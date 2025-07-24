@@ -30,6 +30,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
+
 Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2023) 
 A simple way to calculate the volume and surface area of avian eggs. 
 \emph{Annals of the New York Academy of Sciences} 1524, 118\eqn{-}131. \doi{10.1111/nyas.15000}

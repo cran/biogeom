@@ -21,7 +21,7 @@ fitovate(expr, x, y, ini.val,
   \item{par.list}{an optional argument to show the list of parameters on the screen.}
   \item{stand.fig}{an optional argument to draw the observed and predicted polygons' boundaries at the standard state 
 (i.e., the origin is located at (0, 0), and the major axis overlaps with the \eqn{x}-axis).}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{angle}{the angle between the major axis of the polygon and the \eqn{x}-axis, which can be defined by the user.}
   \item{fig.opt}{an optional argument to draw the observed and predicted polygons at an arbitrary angle 
 between the major axis and the \eqn{x}-axis.}
@@ -42,7 +42,7 @@ among which the first two are the planar coordinates of the transferred origin,
 and the third is the angle between the major axis of the polygon and the \eqn{x}-axis. 
 The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization of minimizing 
 the residual sum of squares (RSS) between the observed and predicted \eqn{y}-axis. 
-The \code{\link{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
+The \code{\link[stats]{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 When \code{angle = NULL}, the observed polygon will be shown at its initial angle in the scanned image; 
 when \code{angle} is a numerical value (e.g., \eqn{\pi/4}) defined by the user, it indicates that the major axis 
 is rotated by the amount (\eqn{\pi/4}) counterclockwise from the \eqn{x}-axis.

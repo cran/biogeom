@@ -51,8 +51,8 @@ for the mean perimeter, the \code{\link{set.seed}} function can be used. In addi
 \code{peri.np} then becomes \code{length(x)} rather than the specified value in Arguments. 
 If the polygon apparently has a major axis (e.g., the leaf length axis for an ovate leaf), \code{auto.search} 
 is appropriate. If the major axis of the polygon is not the straight line through two points on the polygon's 
-boundary having the maximum distance, the user can define the major axis using the \code{\link{locator}} 
-function in \pkg{graphic} by clicking two points on or near the polygon's boundary. The location of the first click 
+boundary having the maximum distance, the user can define the major axis using the \code{\link[graphics]{locator}} 
+function in \pkg{graphics} by clicking two points on or near the polygon's boundary. The location of the first click 
 should be northeast of the location of the second click. This means that the angle between the straight line 
 through the locations of the two clicks and the \eqn{x}-axis should range from 0 to \eqn{\pi}/2. The locations of the 
 clicks can be on the boundary or be approximate to the boundary. The function will automatically find the nearest 
@@ -94,7 +94,7 @@ associated with the maximum width of the polygon.}
   \item{width.6e}{the width associated with 6/8 of \code{scan.length} (starting from the base of the polygon).}
   \item{width.7e}{the width associated with 7/8 of \code{scan.length} (starting from the base of the polygon).}
   \item{bi.test}{the testing results for \code{D} using the Wilcoxon signed rank test with continuity correction. 
-See the \code{\link{wilcox.test}} function in \pkg{stats}.}
+See the \code{\link[stats]{wilcox.test}} function in \pkg{stats}.}
   \item{a}{the estimate of the intercept obtained using the box-counting method to calculate the fractal dimension of the polygon's boundary.}
   \item{sd.a}{the standard deviation of the estimated intercept.}
   \item{lci.a}{the lower bound of the 95\% confidence interval of the estimated intercept.}
@@ -116,8 +116,8 @@ located at the origin; the apex of the polygon is located to the right of the ba
 \code{phi} is equal to \code{angle} when \code{angle} is not null. 
 In theory, \code{n1 + n2 = n}, but in most cases \code{n1 + n2} is slightly smaller than \code{n}. 
 The reason is that very few boundary points fall outside the the lower and upper boundaries of the polygon 
-when using the \code{\link{intersect.owin}} function in \pkg{spatstat.geom}. However, this does not considerably affect the results. 
-The log-transformed \code{SI} and 
+when using the \code{\link[spatstat.geom]{intersect.owin}} function in \pkg{spatstat.geom}. 
+However, this does not considerably affect the results. The log-transformed \code{SI} and 
 the log-transformed \code{AR} are demontrated to have a more symmetrical frequency distribution than their original forms. 
 This is important when performing an analysis of variance between (or among) groups to compared 
 their extents of bilateral (a)symmetry. See Shi et al. (2020) for details. 

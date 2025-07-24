@@ -20,7 +20,7 @@ on an egg's profile from the mid-line of the egg's profile.}
   \item{ini.C}{the initial value(s) of parameter \eqn{C} in the Narushin-Romanov-Griffin equation.}  
   \item{strip.num}{the number of equidistant strips intersecting with 
 the egg's boundary that are horizontally placed. See Shi et al. (2018, 2020) for details.}  
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{fig.opt}{an optional argument to draw the observed and predicted egg's boundaries.}
   \item{np}{the number of data points on the predicted Narushin-Romanov-Griffin curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Narushin-Romanov-Griffin curve.}
@@ -85,6 +85,9 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
 
 Narushin, V.G., Romanov, M.N., Griffin, D.K. (2021) Egg and math: introducing a universal formula for egg shape. 
 \emph{Annals of the New York Academy of Sciences} 1505, 169\eqn{-}177. \doi{10.1111/nyas.14680}

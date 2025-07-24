@@ -23,7 +23,7 @@ fitsigmoid(expr, x, y, ini.val, simpver = 1,
   \item{y}{the observed \eqn{y} values (i.e., biomass, height, body length, etc.).}
   \item{ini.val}{the initial values of the model parameters.}
   \item{simpver}{an optional argument to use the simplified version of the performance equation.}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{par.list}{the option of showing the list of parameters on the screen.}
   \item{fig.opt}{an optional argument to draw the observations and the predicted sigmoid curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot a sigmoid growth curve.}
@@ -31,17 +31,17 @@ fitsigmoid(expr, x, y, ini.val, simpver = 1,
   \item{xlab}{the label of the \eqn{x}-axis when showing a sigmoid growth curve.}
   \item{ylab}{the label of the \eqn{y}-axis when showing a sigmoid growth curve.}
   \item{main}{the main title of the figure.}
-  \item{subdivisions}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{rel.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{abs.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{stop.on.error}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{keep.xy}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{aux}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{subdivisions}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{rel.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{abs.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{stop.on.error}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{keep.xy}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{aux}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
 }
 \details{
 Here, \code{ini.val} only includes the initial values of the model parameters as a list. 
 The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization of minimizing the residual 
-sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link{optim}} 
+sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link[stats]{optim}} 
 function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 The performance equations denote \code{\link{MbetaE}}, \code{\link{MBriereE}}, 
 \code{\link{MLRFE}}, \code{\link{MPerformanceE}} and their simplified versions. 

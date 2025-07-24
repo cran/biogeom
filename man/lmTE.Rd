@@ -91,6 +91,10 @@ Preston’s universal formula for avian egg shape. \emph{Ornithology}
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
+
 Nelder, J.A., Mead, R. (1965). A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}
 

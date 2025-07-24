@@ -24,26 +24,26 @@ fitLorenz(expr, z, ini.val, simpver = 4,
   \item{z}{the observations of size distribution (i.e., the household income distribution, the leaf size distribution).}
   \item{ini.val}{the initial values of the model parameters.}
   \item{simpver}{an optional argument to use version 4 or 5 of \code{\link{MPerformanceE}}.}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{par.list}{the option of showing the list of parameters on the screen.}
   \item{fig.opt}{an optional argument to draw the original and rotated Lorenz curves.}
   \item{np}{the number of data points to draw the predicted original and rotated Lorenz curves.}
   \item{xlab}{the label of the \eqn{x}-axis when showing the original Lorenz curve.}
   \item{ylab}{the label of the \eqn{y}-axis when showing the original Lorenz curve.}
   \item{main}{the main title of the figure.}
-  \item{subdivisions}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{rel.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{abs.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{stop.on.error}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{keep.xy}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{aux}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{subdivisions}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{rel.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{abs.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{stop.on.error}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{keep.xy}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{aux}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
   \item{par.limit}{an optional argument to limit the numerical ranges of model parameters of the three Lorenz 
 equations including \code{\link{SarabiaE}}, \code{\link{SCSE}}, and \code{\link{SHE}}.}
 }
 \details{
 Here, \code{ini.val} only includes the initial values of the model parameters as a list. 
 The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization of minimizing the residual 
-sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link{optim}} 
+sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link[stats]{optim}} 
 function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 Here, versions 4 and 5 of \code{\link{MPerformanceE}} and the Lorenz equations including 
 \code{\link{SarabiaE}}, \code{\link{SCSE}}, and \code{\link{SHE}} can be used to fit the rotated 

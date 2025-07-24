@@ -14,7 +14,7 @@ adjdata(x, y, ub.np = 2000, times = 1.2, len.pro = 1/20, index.sp = 1)
   \item{x}{the \eqn{x} coordinates of points on a polygon's boundary.}
   \item{y}{the \eqn{y} coordinates of points on a polygon's boundary.}
   \item{ub.np}{the upper bound of the number of points eventually retained on the polygon's boundary.}
-  \item{times}{the number of times \code{un.np} is initially retained as the number of points.}
+  \item{times}{the number of times \code{ub.np} is initially retained as the number of points.}
   \item{len.pro}{the proportion of the distance between any two points to 
 the maximum distance between the points on the polygon's boundary, which is used to 
 determine whether the second point needs to be deleted.}
@@ -24,7 +24,7 @@ divide the number of points on the polygon's boundary into \code{ub.np} parts.}
 \details{
 When \code{ub.np} > \code{length(x)}, \code{length(x)} points 
 on the polygon's boundary are retained. 
-The \code{\link{quantile}} function in package \pkg{stats} 
+The \code{\link[stats]{quantile}} function in package \pkg{stats} 
 is used to carry out the regular division of data points. From the starting point, the second point is the 
 one that has the shortest distance from the former. When the distance between the two points 
 is larger than \code{len.pro} multiplied by the maximum distance between points on the polygon's boundary,   

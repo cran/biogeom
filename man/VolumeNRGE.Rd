@@ -14,12 +14,12 @@ VolumeNRGE(P, subdivisions = 100L,
 }
 \arguments{
   \item{P}{the parameters of the Narushin-Romanov-Griffin equation.}
-  \item{subdivisions}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{rel.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{abs.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{stop.on.error}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{keep.xy}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{aux}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{subdivisions}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{rel.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{abs.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{stop.on.error}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{keep.xy}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{aux}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
 }
 \details{
 The formula of the volume (\eqn{V}) of an egg based on the Narushin-Romanov-Griffin equation is:

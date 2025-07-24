@@ -40,6 +40,10 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
+
 Narushin, V.G., Romanov, M.N., Griffin, D.K. (2021) Egg and math: introducing a universal formula for egg shape. 
 \emph{Annals of the New York Academy of Sciences} 1505, 169\eqn{-}177. \doi{10.1111/nyas.14680}
 

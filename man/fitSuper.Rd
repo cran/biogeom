@@ -16,7 +16,7 @@ fitSuper(x, y, ini.val, control = list(), par.list = FALSE,
   \item{x}{the \eqn{x} coordinates of a polygon's boundary.}
   \item{y}{the \eqn{y} coordinates of a polygon's boundary.}
   \item{ini.val}{the list of initial values for the model parameters.}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{par.list}{the option of showing the list of parameters on the screen.}
   \item{stand.fig}{the option of drawing the observed and predicted polygons at the standard state 
 (i.e., the polar point is located at (0, 0), and the major axis overlaps with the \eqn{x}-axis).}
@@ -45,7 +45,7 @@ of the superellipse and the \eqn{x}-axis (\eqn{\theta}). The input order of \cod
 \eqn{\theta}, \eqn{a}, \eqn{k}, and \eqn{n}. The fitted parameters will be shown after running this function 
 in the same order. The Nelder-Mead algorithm (Nelder and Mead, 1965) 
 is used to carry out the optimization of minimizing the residual sum of squares (RSS) between the observed and predicted radii. 
-The \code{\link{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
+The \code{\link[stats]{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 When \code{angle = NULL}, the observed polygon will be shown at its initial angle in the scanned image; 
 when \code{angle} is a numerical value (e.g., \eqn{\pi/4}) defined by the user, it indicates that the major axis 
 is rotated by the amount (\eqn{\pi/4}) counterclockwise from the \eqn{x}-axis.

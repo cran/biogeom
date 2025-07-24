@@ -22,7 +22,7 @@ fitGE(expr, x, y, ini.val, m = 1, simpver = NULL,
   \item{m}{the given \eqn{m} value that determines the number of angles of the Gielis curve within \eqn{[0, 2\pi)}.}
   \item{simpver}{an optional argument to use the simplified version of the original (or twin) Gielis equation.}
   \item{nval}{the specified value for \eqn{n_{1}} or \eqn{n_{2}} or \eqn{n_{3}} in the simplified versions.}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{par.list}{the option of showing the list of parameters on the screen.}
   \item{stand.fig}{the option of drawing the observed and predicted polygons at the standard state 
 (i.e., the polar point is located at (0, 0), and the major axis overlaps with the \eqn{x}-axis).}
@@ -41,7 +41,7 @@ to \code{expr} (i.e., \code{GE} or \code{TGE}). Please note the differences in t
 number of parameters between \code{GE} and \code{TGE}. 
 The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization of minimizing 
 the residual sum of squares (RSS) between the observed and predicted radii. 
-The \code{\link{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
+The \code{\link[stats]{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 When \code{angle = NULL}, the observed polygon will be shown at its initial angle in the scanned image; 
 when \code{angle} is a numerical value (e.g., \eqn{\pi/4}) defined by the user, it indicates that the major axis 
 is rotated by the amount (\eqn{\pi/4}) counterclockwise from the \eqn{x}-axis.

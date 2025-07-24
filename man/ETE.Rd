@@ -48,6 +48,10 @@ Preston’s universal formula for avian egg shape. \emph{Ornithology}
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
 
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
+
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}

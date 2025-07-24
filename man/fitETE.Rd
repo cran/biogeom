@@ -16,7 +16,7 @@ fitETE(x, y, ini.val, control = list(), par.list = FALSE,
   \item{x}{the \eqn{x} coordinates of an egg's profile.}
   \item{y}{the \eqn{y} coordinates of an egg's profile.}
   \item{ini.val}{the list of initial values for the model parameters.}
-  \item{control}{the list of control parameters for using the \code{\link{optim}} function in package \pkg{stats}.}
+  \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
   \item{par.list}{the option of showing the list of parameters on the screen.}
   \item{stand.fig}{the option of drawing the observed and predicted profiles of an egg at the standard state 
 (i.e., the egg's centre is located at (0, 0), and the mid-line is aligned to the \eqn{x}-axis).}
@@ -33,7 +33,7 @@ at arbitrary angle between the major axis and the \eqn{x}-axis.}
 Here, the major axis (i.e., the mid-line of an egg's profile) is the straight line trhough the two ends of 
 the egg's length. The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization 
 of minimizing the residual sum of squares (RSS) between the observed and predicted \eqn{y} values. 
-The \code{\link{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
+The \code{\link[stats]{optim}} function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
 When \code{angle = NULL}, the observed egg's profile will be shown at its initial angle in the scanned image; 
 when \code{angle} is a numerical value (e.g., \eqn{\pi/4}) defined by the user, it indicates that the major axis 
 is rotated by the amount (\eqn{\pi/4}) counterclockwise from the \eqn{x}-axis.
@@ -78,6 +78,10 @@ Preston’s universal formula for avian egg shape. \emph{Ornithology}
 
 Biggins, J.D., Thompson, J.E., Birkhead, T.R. (2018) Accurately quantifying 
 the shape of birds' eggs. \emph{Ecology and Evolution} 8, 9728\eqn{-}9738. \doi{10.1002/ece3.4412}
+
+Lian, M., He, K., Ratkowsky, D.A., Chen, L., Wang, J., Wang, L., Yao, W., Shi, P. (2024) 
+Comparison of egg-shape equations using relative curvature measures of nonlinearity. 
+\emph{Poultry Science} 103, 104069. \doi{10.1016/j.psj.2024.104069}
 
 Nelder, J.A., Mead, R. (1965) A simplex method for function minimization. 
 \emph{Computer Journal} 7, 308\eqn{-}313. \doi{10.1093/comjnl/7.4.308}

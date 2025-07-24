@@ -21,12 +21,12 @@ areaGE(expr, P, m = 1, simpver = NULL,
   \item{m}{the given \eqn{m} value that determines the number of angles of the Gielis curve within \eqn{[0, 2\pi)}.}
   \item{simpver}{an optional argument to use the simplified version of the original (or twin) Gielis equation.}
   \item{nval}{the specified value for \eqn{n_{1}} or \eqn{n_{2}} or \eqn{n_{3}} in the simplified versions.}
-  \item{subdivisions}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{rel.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{abs.tol}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{stop.on.error}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{keep.xy}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
-  \item{aux}{please see the arguments for the \code{\link{integrate}} function in package \pkg{stats}.}
+  \item{subdivisions}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{rel.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{abs.tol}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{stop.on.error}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{keep.xy}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
+  \item{aux}{please see the arguments for the \code{\link[stats]{integrate}} function in package \pkg{stats}.}
 }
 \details{
 The arguments of \code{P}, \code{m}, \code{simpver}, and \code{nval} should correspond 
