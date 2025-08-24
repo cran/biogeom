@@ -11,8 +11,9 @@ using version 4 or 5 of \code{\link{MPerformanceE}}, or the Lorenz equations inc
 }
 \usage{
 fitLorenz(expr, z, ini.val, simpver = 4, 
-          control = list(), par.list = FALSE, 
-          fig.opt = FALSE, np = 2000, 
+          method = "Nelder-Mead", control = list(),
+          lower = -Inf, upper = Inf, 
+          par.list = FALSE, fig.opt = FALSE, np = 2000, 
           xlab=NULL, ylab=NULL, main = NULL, subdivisions = 100L,
           rel.tol = .Machine$double.eps^0.25, 
           abs.tol = rel.tol, stop.on.error = TRUE, 
@@ -24,8 +25,11 @@ fitLorenz(expr, z, ini.val, simpver = 4,
   \item{z}{the observations of size distribution (i.e., the household income distribution, the leaf size distribution).}
   \item{ini.val}{the initial values of the model parameters.}
   \item{simpver}{an optional argument to use version 4 or 5 of \code{\link{MPerformanceE}}.}
+  \item{method}{an optional argument to select an optimization method.}
   \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
-  \item{par.list}{the option of showing the list of parameters on the screen.}
+  \item{lower}{the lower bounds on the variables for the \code{L-BFGS-B} algorithm.}
+  \item{upper}{the upper bounds on the variables for the \code{L-BFGS-B} algorithm.}
+  \item{par.list}{the option to show the list of parameters on the screen.}
   \item{fig.opt}{an optional argument to draw the original and rotated Lorenz curves.}
   \item{np}{the number of data points to draw the predicted original and rotated Lorenz curves.}
   \item{xlab}{the label of the \eqn{x}-axis when showing the original Lorenz curve.}
@@ -42,9 +46,13 @@ equations including \code{\link{SarabiaE}}, \code{\link{SCSE}}, and \code{\link{
 }
 \details{
 Here, \code{ini.val} only includes the initial values of the model parameters as a list. 
-The Nelder-Mead algorithm (Nelder and Mead, 1965) is used to carry out the optimization of minimizing the residual 
-sum of squares (RSS) between the observed and predicted \eqn{y} values. The \code{\link[stats]{optim}} 
-function in package \pkg{stats} was used to carry out the Nelder-Mead algorithm. 
+The \code{Nelder-Mead} algorithm (Nelder and Mead, 1965) and the optimization method 
+(referred to as \code{L-BFGS-B}) proposed by Byrd et al. (1995) in which each variable can be given 
+a lower and/or upper bound can be selected to carry out the optimization of minimizing 
+the residual sum of squares (RSS) between the observed and predicted \eqn{y} values. 
+The \code{\link[stats]{optim}} function in package \pkg{stats} was used to carry out 
+the \code{Nelder-Mead} algorithm and the \code{L-BFGS-B} algorithm. When the user chooses 
+the \code{L-BFGS-B} algorithm, \code{par.limit} should be set to be \code{FALSE}. 
 Here, versions 4 and 5 of \code{\link{MPerformanceE}} and the Lorenz equations including 
 \code{\link{SarabiaE}}, \code{\link{SCSE}}, and \code{\link{SHE}} can be used to fit the rotated 
 and right-shifted Lorenz curve.
@@ -66,7 +74,7 @@ There are three elements in \code{P}, representing
 the values of \eqn{c}, \eqn{K_{1}}, and \eqn{K_{2}}, respectively.
 
 \eqn{\quad} For the Lorenz functions, the user can define any formulae that follow the below form: 
-\code{Lorenz.fun <- function(P, x)\{...\}}, where \code{P} is the vector of parameter(s), \code{x} is the preditor that 
+\code{Lorenz.fun <- function(P, x)\{...\}}, where \code{P} is the parameter vector, \code{x} is the preditor that 
 ranges between 0 and 1 representing the cumulative proportion of the number of individuals in a statistical 
 unit, and \code{Lorenz.fun} is the name of a Lorenz function defined by the user, which also ranges between 0 and 1 
 representing the cumulative 
@@ -88,6 +96,17 @@ in the Lorenz function, respectively.
 
 \eqn{\quad} For \code{\link{SarabiaE}} and \code{\link{SHE}}, there are explicit formulae for GC 
 (Sarabia, 1997; Sitthiyot and Holasut, 2023). 
+
+\eqn{\quad} In addition, the function provides the Lorenz asymmetry coefficient (LAC) based on 
+the rotated and right-shifted Lorenz curve (RRLC), which is used to examine whether the RRLC is 
+skewed or symmetrical (Chen et al., 2025). The LAC takes the form:
+\deqn{\mbox{LAC} = \frac{x_c}{2},} 
+where \eqn{x_c} represents the \eqn{x}-coordinate of the maximum value point on the RRLC. 
+When \code{LAC > 0.5}, the RRLC is left-skewed; when \code{LAC < 0.5}, the RRLC is right-skewed; 
+when \code{LAC = 0.5}, the RRLC is bilaterally symmetrical about the vertical line \eqn{x = x_c}. 
+The three cases of the LAC numerical values correspond to three size distribution patterns: 
+(i) inequality driven by abundant large individuals, (ii) inequality dominated by a few large individuals, 
+and (iii) parity in contributions between small and large individuals (Chen et al., 2025).
 }
 \value{
   \item{x1}{the cumulative proportion of the number of an entity of interest, 
@@ -99,6 +118,10 @@ i.e., the number of households of a city, the number of leaves of a plant.}
   \item{r.sq}{the coefficient of determination between the observed and predicted \eqn{y} values.}
   \item{RSS}{the residual sum of squares between the observed and predicted \eqn{y} values.}
   \item{sample.size}{the number of data points used in the data fitting.}
+  \item{xc}{the \eqn{x}-coordinate of the maximum value point on the rotated and right-shifted Lorenz curve.}
+  \item{yc}{the \eqn{y}-coordinate of the maximum value point on the rotated and right-shifted Lorenz curve.}
+  \item{LAC}{the Lorenz asymmetry coefficient associated with the rotated and right-shifted Lorenz curve, 
+which equals \eqn{x_c/\sqrt{2}}.}
   \item{GC}{the calculated Gini coefficient.}       
 }
 \note{
@@ -113,6 +136,14 @@ Peijian Shi \email{pjshi@njfu.edu.cn}, Johan Gielis \email{johan.gielis@uantwerp
 Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 }
 \references{
+Byrd, R.H., Lu, P., Nocedal, J., Zhu, C. (1995) A limited memory algorithm for bound constrained 
+optimization. \emph{SIAM Journal on Scientific Computing} 16, 1190\eqn{-}1208. \doi{10.1137/0916069}
+
+
+Chen, Y., Jiang, F., Damgaard, C.F., Shi, P., Weiner, J. (2025) Re-expression of the Lorenz asymmetry 
+coefficient on the rotated and right-shifted Lorenz curve of leaf area distributions. 
+\emph{Plants} 14, 1345. \doi{10.3390/plants14091345}
+
 Huey, R.B., Stevenson, R.D. (1979) Integrating thermal physiology and ecology of ectotherms: 
 a discussion of approaches. \emph{American Zoologist} 19, 357\eqn{-}366. \doi{10.1093/icb/19.1.357}
 

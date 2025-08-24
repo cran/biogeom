@@ -24,7 +24,7 @@ fitsigmoid(expr, x, y, ini.val, simpver = 1,
   \item{ini.val}{the initial values of the model parameters.}
   \item{simpver}{an optional argument to use the simplified version of the performance equation.}
   \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
-  \item{par.list}{the option of showing the list of parameters on the screen.}
+  \item{par.list}{an optional argument to show the list of parameters on the screen.}
   \item{fig.opt}{an optional argument to draw the observations and the predicted sigmoid curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot a sigmoid growth curve.}
   \item{ylim}{the range of the \eqn{y}-axis over which to plot a sigmoid growth curve.}

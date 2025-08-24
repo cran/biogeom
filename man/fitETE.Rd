@@ -17,11 +17,11 @@ fitETE(x, y, ini.val, control = list(), par.list = FALSE,
   \item{y}{the \eqn{y} coordinates of an egg's profile.}
   \item{ini.val}{the list of initial values for the model parameters.}
   \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
-  \item{par.list}{the option of showing the list of parameters on the screen.}
-  \item{stand.fig}{the option of drawing the observed and predicted profiles of an egg at the standard state 
+  \item{par.list}{an optional argument to show the list of parameters on the screen.}
+  \item{stand.fig}{an optional argument to draw the observed and predicted profiles of an egg at the standard state 
 (i.e., the egg's centre is located at (0, 0), and the mid-line is aligned to the \eqn{x}-axis).}
   \item{angle}{the angle between the mid-line and the \eqn{x}-axis, which can be defined by the user.}
-  \item{fig.opt}{an optional argument of drawing the observed and predicted profiles of an egg 
+  \item{fig.opt}{an optional argument to draw the observed and predicted profiles of an egg 
 at arbitrary angle between the major axis and the \eqn{x}-axis.}
   \item{np}{the number of data points on the predicted explicit Troscianko curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Troscianko curve.}

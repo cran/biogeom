@@ -17,11 +17,11 @@ fitSuper(x, y, ini.val, control = list(), par.list = FALSE,
   \item{y}{the \eqn{y} coordinates of a polygon's boundary.}
   \item{ini.val}{the list of initial values for the model parameters.}
   \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
-  \item{par.list}{the option of showing the list of parameters on the screen.}
+  \item{par.list}{an optional argument to show the list of parameters on the screen.}
   \item{stand.fig}{the option of drawing the observed and predicted polygons at the standard state 
 (i.e., the polar point is located at (0, 0), and the major axis overlaps with the \eqn{x}-axis).}
   \item{angle}{the angle between the major axis and the \eqn{x}-axis, which can be defined by the user.}
-  \item{fig.opt}{an optional argument of drawing the observed and predicted polygons at arbitrary angle 
+  \item{fig.opt}{an optional argument to draw the observed and predicted polygons at arbitrary angle 
 between the major axis and the \eqn{x}-axis.}
   \item{np}{the number of data points on the predicted superellipse curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the superellipse curve.}

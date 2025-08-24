@@ -23,11 +23,11 @@ fitGE(expr, x, y, ini.val, m = 1, simpver = NULL,
   \item{simpver}{an optional argument to use the simplified version of the original (or twin) Gielis equation.}
   \item{nval}{the specified value for \eqn{n_{1}} or \eqn{n_{2}} or \eqn{n_{3}} in the simplified versions.}
   \item{control}{the list of control parameters for using the \code{\link[stats]{optim}} function in package \pkg{stats}.}
-  \item{par.list}{the option of showing the list of parameters on the screen.}
-  \item{stand.fig}{the option of drawing the observed and predicted polygons at the standard state 
+  \item{par.list}{an optional argument to show the list of parameters on the screen.}
+  \item{stand.fig}{an optional argument to draw the observed and predicted polygons at the standard state 
 (i.e., the polar point is located at (0, 0), and the major axis overlaps with the \eqn{x}-axis).}
   \item{angle}{the angle between the major axis and the \eqn{x}-axis, which can be defined by the user.}
-  \item{fig.opt}{an optional argument of drawing the observed and predicted polygons at arbitrary angle 
+  \item{fig.opt}{an optional argument to draw the observed and predicted polygons at arbitrary angle 
 between the major axis and the \eqn{x}-axis.}
   \item{np}{the number of data points on the predicted Gielis curve.}
   \item{xlim}{the range of the \eqn{x}-axis over which to plot the Gielis curve.}

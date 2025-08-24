@@ -1,6 +1,7 @@
 fitLorenz <- function(expr, z, ini.val, simpver = 4, 
-               control = list(), par.list = FALSE, 
-               fig.opt = FALSE, np = 2000, 
+               method = "Nelder-Mead", control = list(),
+               lower = -Inf, upper = Inf, 
+               par.list = FALSE, fig.opt = FALSE, np = 2000, 
                xlab=NULL, ylab=NULL, main = NULL, subdivisions = 100L,
                rel.tol = .Machine$double.eps^0.25, 
                abs.tol = rel.tol, stop.on.error = TRUE, 
@@ -48,7 +49,7 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
             y.theo  <- y1.theo * cos(theta) - x1 * sin(theta)
             x       <- x+sqrt(2)
             y       <- y1 * cos(theta) - x1 * sin(theta)
-            RSS    <- sum((y.theo-y)^2) 
+            RSS     <- sum((y.theo-y)^2) 
           }
           return(RSS) 
         }
@@ -65,7 +66,7 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
               y.theo  <- y1.theo * cos(theta) - x1 * sin(theta)
               x       <- x+sqrt(2)
               y       <- y1 * cos(theta) - x1 * sin(theta) 
-              RSS    <- sum((y.theo-y)^2) 
+              RSS     <- sum((y.theo-y)^2) 
           }
           return(RSS) 
         }
@@ -102,8 +103,14 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
     }
 
     for (i in 1:nrow(ini.val)) {
-        res <- optim(ini.val[i, ], obj.fun, control = control)
-        mat[i, ] <- c(res$par, res$val)
+      if(method=="Nelder-Mead"){
+        res <- optim(ini.val[i, ], obj.fun, method=method, control = control)
+      }
+      if(method=="L-BFGS-B"){
+        res <- optim(ini.val[i, ], obj.fun, method=method, 
+                     lower=lower, upper=upper, control = control)
+      }
+      mat[i, ] <- c(res$par, res$val)
     }
     Names <- rep(NA, len = p)
     for (k in 1:p) {
@@ -276,15 +283,20 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
 
     }
 
+    inde <- which.max(y2)
+    xc   <- x2[inde]
+    yc   <- y2[inde]
+    LAC  <- xc/sqrt(2)
+
     para.tab <- data.frame( Parameter = c(Names, "r.sq", "RSS", 
-                    "sample.size", "GC"), Estimate = c(par, r.sq, RSS, 
-                    length(x), GC) )
+                    "sample.size", "xc", "yc", "LAC", "GC"), 
+                     Estimate = c(par, r.sq, RSS, length(x), xc, yc, LAC, GC) )
     if(par.list == "T" | par.list == "TRUE" | par.list == "True"){
         print(para.tab)
         cat("\n")
     }
-    return(list( x1=x1, y1=y1, x=x, y=y, par=par, r.sq=r.sq, 
-      RSS=RSS, sample.size=length(x), GC=GC) )
+    return(list( x1=x1, y1=y1, x=x, y=y, par=par, r.sq=r.sq, RSS=RSS, 
+      sample.size=length(x), xc=xc, yc=yc, LAC=LAC, GC=GC ) )
 
   }
 
@@ -337,8 +349,14 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
       return(RSS) 
     }
     for (i in 1:nrow(ini.val)) {
-        res <- optim(ini.val[i, ], obj.fun, control = control)
-        mat[i, ] <- c(res$par, res$val)
+      if(method=="Nelder-Mead"){
+        res <- optim(ini.val[i, ], obj.fun, method=method, control = control)
+      }
+      if(method=="L-BFGS-B"){
+        res <- optim(ini.val[i, ], obj.fun, method=method, 
+                     lower=lower, upper=upper, control = control)
+      }
+      mat[i, ] <- c(res$par, res$val)
     }
     Names <- rep(NA, len = p)
     for (k in 1:p) {
@@ -458,15 +476,21 @@ fitLorenz <- function(expr, z, ini.val, simpver = 4,
 
     }
 
+    inde <- which.max(y2)
+    xc   <- x2[inde]
+    yc   <- y2[inde]
+    LAC  <- xc/sqrt(2)
+
     para.tab <- data.frame( Parameter = c(Names, "r.sq", "RSS", 
-                    "sample.size", "GC"), Estimate = c(par, r.sq, RSS, 
-                    length(x), GC) )
+                    "sample.size", "xc", "yc", "LAC", "GC"), 
+                     Estimate = c(par, r.sq, RSS, length(x), xc, yc, LAC, GC) )
+
     if(par.list == "T" | par.list == "TRUE" | par.list == "True"){
         print(para.tab)
         cat("\n")
     }
     return(list( x1=x1, y1=y1, x=x, y=y, par=par, r.sq=r.sq, 
-      RSS=RSS, sample.size=length(x), GC=GC) )
+      RSS=RSS, sample.size=length(x), xc=xc, yc=yc, LAC=LAC, GC=GC) )
 
   }
 }
