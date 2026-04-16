@@ -17,22 +17,23 @@ In the data set, there are three columns of variables: \code{Genus}, \code{x}, a
 \code{x} saves the \eqn{x} coordinates of the six SAMs in the Cartesian coordinate system (unitless); 
 and \code{y} saves the \eqn{y} coordinates of the six SAMs in the Cartesian coordinate system (unitless). 
 In \code{Genus}, there are six genera including \emph{Glycine}, \emph{Coleus}, \emph{Juniperus}, \emph{Pinus}, 
-\emph{Equisetum}, and \emph{Isoetes}, spanning the three lineages: angiosperms, gymnosperms, and pteridophytes.
+\emph{Equisetum}, and \emph{Isoetes}, spanning the three lineages: angiosperms, gymnosperms, and pteridophytes 
+(see Shi et al. [2026] for details).
 }
 \references{
 Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
 Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
 shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
+
+Shi, P., Liu, X., Gielis, J., Beirinckx, B., Niklas, K.J. (2026) 
+Comparison of six nonlinear equations describing the 2-D profiles of apical meristems. 
+\emph{American Journal of Botany} 113, e70177. \doi{10.1002/ajb2.70177}
 }
 \seealso{
 \code{\link{fitAM}}, \code{\link{PlanCoor}}, \code{\link{SurfaceAreaAM}}, \code{\link{VolumeAM}}
 }
 \examples{
-#### See Shi et al. (2025) for details #########################################
-# Shi, P., Liu, X., Gielis, J., Beirinckx, B., Niklas, K.J. (2025) 
-#     Comparison of six non-linear equations in describing the 2-D 
-#     profiles of apical meristems. American Journal of Botany (under review).
-################################################################################
+# See Shi et al. (2026) for details.
 
 data(SAMs)
 

@@ -36,7 +36,8 @@ at arbitrary angle between the rotated \eqn{x}-axis and the actual \eqn{x}-axis.
 }
 \details{
 Here, the rotated \eqn{x}-axis means that for a scanned (photographed) AM the \eqn{x}-axis of the AM's profile  
-curve at the standard state predicted by \code{expr} might deviate from the actual horizontal axis. 
+curve at the standard state predicted by \code{expr} might deviate from the actual horizontal axis 
+(see Shi et al. [2026] for details). 
 The \code{Nelder-Mead} algorithm (Nelder and Mead, 1965) and the optimization method 
 (referred to as \code{L-BFGS-B}) proposed by Byrd et al. (1995) in which each variable can be given 
 a lower and/or upper bound can be selected to carry out the optimization of minimizing 
@@ -85,20 +86,20 @@ Brady K. Quinn \email{Brady.Quinn@dfo-mpo.gc.ca}.
 Byrd, R.H., Lu, P., Nocedal, J., Zhu, C. (1995) A limited memory algorithm for bound constrained 
 optimization. \emph{SIAM Journal on Scientific Computing} 16, 1190\eqn{-}1208. \doi{10.1137/0916069}
 
-Shi, P., Chen, L., Quinn, B.K., Yu, K., Miao, Q., Guo, X., Lian, M., Gielis, J., Niklas, K.J. (2023) 
-A simple way to calculate the volume and surface area of avian eggs. 
-\emph{Annals of the New York Academy of Sciences} 1524, 118\eqn{-}131. \doi{10.1111/nyas.15000}
+Shi, P., Gielis, J., Quinn, B.K., Niklas, K.J., Ratkowsky, D.A., Schrader, J., Ruan, H., 
+Wang, L., Niinemets, Ü. (2022) 'biogeom': An R package for simulating and fitting natural 
+shapes. \emph{Annals of the New York Academy of Sciences} 1516, 123\eqn{-}134. \doi{10.1111/nyas.14862}
+
+Shi, P., Liu, X., Gielis, J., Beirinckx, B., Niklas, K.J. (2026) 
+Comparison of six nonlinear equations describing the 2-D profiles of apical meristems. 
+\emph{American Journal of Botany} 113, e70177. \doi{10.1002/ajb2.70177}
 }
 \seealso{
 \code{\link{PlanCoor}}, \code{\link{SAMs}}, \code{\link{SurfaceAreaAM}}, \code{\link{VolumeAM}}
 }
 \examples{
 
-#### See Shi et al. (2025) for details #########################################
-# Shi, P., Liu, X., Gielis, J., Beirinckx, B., Niklas, K.J. (2025) 
-#     Comparison of six non-linear equations in describing the 2-D 
-#     profiles of apical meristems. American Journal of Botany (under review).
-################################################################################
+# See Shi et al. (2026) for details.
 
 data(SAMs)
 

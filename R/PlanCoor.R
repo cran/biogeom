@@ -39,9 +39,9 @@ PlanCoor <- function( folder.name, lower.val = 0, upper.val = 250, ratio = 1,
 
     temp.w   <- ncol(mat)
     temp.h   <- nrow(mat)
-    temp.res <- attr(mat, "header")$hres/100
-    Width    <- temp.w/temp.res * ratio
-    Height   <- temp.h/temp.res * ratio
+
+    Width    <- temp.w/(attr(mat, "header")$hres/100) * ratio
+    Height   <- temp.h/(attr(mat, "header")$vres/100) * ratio
 
     vim <- im( smat, xrange=c(0, Width), yrange=c(0, Height),
                unitname=unit )

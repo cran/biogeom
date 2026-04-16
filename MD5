@@ -1,4 +1,4 @@
-faabe56cfde6c3e8717f407b8defbd99 *DESCRIPTION
+67a5305f5ccdefa157d94c58d501cd64 *DESCRIPTION
 19bb97b658d73c23112484e589fcb121 *NAMESPACE
 b0036f45a430289d6ada27a60313dd7a *R/DEPE.R
 0d68018d39e3e4f3190ddb9a1dbfa9ec *R/DETE.R
@@ -13,7 +13,7 @@ df6a6730c97de4c4434f168f59886120 *R/MLRFE.R
 02ae08252014a311a687b508575bc20d *R/MbetaE.R
 37b6fcb7d295608323fd125f5c8af3df *R/NRGE.R
 22bc44d900dfbde9ef1683e6905b9afd *R/PE.R
-55a84a7c5fecb7744091366524c3b6f2 *R/PlanCoor.R
+83934ef918bf9b68439117fd660cb5e7 *R/PlanCoor.R
 24241b5990bbe8e2b6edd1d8327f50ae *R/SCSE.R
 e8b276ca11e4e7f4bf7f97dbe7a16f67 *R/SHE.R
 9e423d3b08296ca640dde41ac1b87af0 *R/SarabiaE.R
@@ -53,7 +53,7 @@ af005a0a062ae883973421e9a1d82eff *R/fitsigmoid.R
 0fb9c487c99b9d4c8beb911358570a93 *R/lmPE.R
 d0ac1a9a60f60e7376ac01b42061a1f6 *R/lmTE.R
 944276de37e4a2aa753dbfd8ba27f4d0 *R/sigmoid.R
-f7426ff068328458e8f84c205a935dce *build/partial.rdb
+9c0de16f1c9a4831403b102410ab46df *build/partial.rdb
 560aa4b365ed4e612eea81eeb0ae0ef9 *data/LeafSizeDist.rda
 e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 6c399361a7d5150bfd7edb24e050b3b1 *data/SAMs.rda
@@ -82,12 +82,12 @@ ebd5b49122a0064bca7ce9ff6e5bf34f *man/MbetaE.Rd
 3dbfcf0b0168b7b3eec0cc290891d26d *man/NRGE.Rd
 07d1f67d75c7299bdd50d945eb4925aa *man/Neocinnamomum.Rd
 1175dc0fdf89ab9974b0f67209637a55 *man/PE.Rd
-cb8d482193f49098cf142029d6428c63 *man/PlanCoor.Rd
-ec01c554381ad652a523ae0edd567e0a *man/SAMs.Rd
+e9f3e83ae8bcf7f030eadf8128d46496 *man/PlanCoor.Rd
+ca4fd12c40673e7b3fff0a573fadb144 *man/SAMs.Rd
 88829a362bc9969319bbbebad18e2db0 *man/SCSE.Rd
 61c750e14c1d8968358efe8688924c67 *man/SHE.Rd
 871e34fd82c3bac437f5621ec1b8d21a *man/SarabiaE.Rd
-1a833a5a85ae5febdd361daa12f90e53 *man/SurfaceAreaAM.Rd
+59af6f2472196dc7950c48ce292da2fb *man/SurfaceAreaAM.Rd
 02fc5733fbe27d9f5f6efdf5e72bbb5f *man/SurfaceAreaEPE.Rd
 d93fa42fea094854e552149017d12c5e *man/SurfaceAreaETE.Rd
 e427c5b9d0ec4b2b6f3e965c5a374c3a *man/SurfaceAreaNRGE.Rd
@@ -95,7 +95,7 @@ a399458c868767772bd2f9b41fcad222 *man/SurfaceAreaSGE.Rd
 ed26a1e4871f53c163f45eefb4c2e2c7 *man/TE.Rd
 572b1977463d24a995bcc99ef9a371ab *man/TGE.Rd
 1ab7c896e5d67f71c0ad2df06408727c *man/TSE.Rd
-34b2539669c7caf3bb37a3ca6cf5ef3e *man/VolumeAM.Rd
+f568a1c9ffc237b4fecfdf89c5f990ff *man/VolumeAM.Rd
 174594292490943fe1bf205a1be41d9b *man/VolumeEPE.Rd
 0296f30c719c5bce3c9935c731f39c98 *man/VolumeETE.Rd
 b913cace613aebddc51da8a83e245466 *man/VolumeNRGE.Rd
@@ -112,7 +112,7 @@ fb5115d94d2939fcb41fe093f5ff07de *man/curveEPE.Rd
 d75d801be60fabaa2a674a59821385be *man/curveNRGE.Rd
 79b9400875ba2dd59529ebc4cb7cd091 *man/curveovate.Rd
 ad5fa1b8472b4e2431ddf945a8581b42 *man/eggs.Rd
-16e0f9a02b49f7615af1e409f4dd60ba *man/fitAM.Rd
+a5575cc7721de76ea543f91e0f7cadab *man/fitAM.Rd
 c0fb6459014014e4812068c83f583f53 *man/fitEPE.Rd
 47165e3de00081b717df2b48f216fd74 *man/fitETE.Rd
 7c832f9a2df4c73a00f26361dc48d6b4 *man/fitGE.Rd
