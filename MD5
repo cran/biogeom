@@ -1,4 +1,4 @@
-67a5305f5ccdefa157d94c58d501cd64 *DESCRIPTION
+40b4053b298e2f1a8fdd326270ae2091 *DESCRIPTION
 19bb97b658d73c23112484e589fcb121 *NAMESPACE
 b0036f45a430289d6ada27a60313dd7a *R/DEPE.R
 0d68018d39e3e4f3190ddb9a1dbfa9ec *R/DETE.R
@@ -50,10 +50,10 @@ d7a5d8cd8c70a50e949fa062fa9044cf *R/fitETE.R
 de38f10aa94cf0f8741b7ccf0a662f1b *R/fitovate.R
 af005a0a062ae883973421e9a1d82eff *R/fitsigmoid.R
 236e54a6eedac23c47e92ad9b09517f8 *R/fracdim.R
-0fb9c487c99b9d4c8beb911358570a93 *R/lmPE.R
-d0ac1a9a60f60e7376ac01b42061a1f6 *R/lmTE.R
+94576aa0135a02086f405e25e674c03f *R/lmPE.R
+2a35b6f108b854a0e3367ddbfc8a12e9 *R/lmTE.R
 944276de37e4a2aa753dbfd8ba27f4d0 *R/sigmoid.R
-9c0de16f1c9a4831403b102410ab46df *build/partial.rdb
+5e5f9b31fff828cd0922188a3073042b *build/partial.rdb
 560aa4b365ed4e612eea81eeb0ae0ef9 *data/LeafSizeDist.rda
 e4c7972bed8b3933339a1e2c46ccf922 *data/Neocinnamomum.rda
 6c399361a7d5150bfd7edb24e050b3b1 *data/SAMs.rda

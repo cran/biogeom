@@ -56,6 +56,17 @@ lmPE <- function (x, y, simpver = NULL, dev.angle = NULL,
     y1 <- y[q[1]]
     x2 <- x[q[2]]
     y2 <- y[q[2]]
+    rv1 <- sqrt(x1^2 + y1^2)
+    rv2 <- sqrt(x2^2 + y2^2)
+    if(rv2 > rv1){
+      xt <- x2
+      yt <- y2
+      x2 <- x1
+      y2 <- y1
+      x1 <- xt
+      y1 <- yt
+      rm(xt, yt, rv1, rv2)
+    }   
     xx <- x - x2
     yy <- y - y2
     x1 <- x1 - x2
